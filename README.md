@@ -1,1 +1,1 @@
-# group-project-catalog
+GROUP PROJECT
