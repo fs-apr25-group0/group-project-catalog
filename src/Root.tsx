@@ -6,11 +6,9 @@ import {
 } from 'react-router-dom';
 import { App } from './App';
 import { HomePage } from './Pages/HomePage';
-import { PhonesPage } from './Pages/PhonesPage';
-import { TabletsPage } from './Pages/TabletsPage';
-import { AccessoriesPage } from './Pages/AccessoriesPage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { CartPage } from './Pages/CartPage';
+import { ProductsPage } from './Pages/ProductsPage';
 
 export const Root = () => (
   <Router>
@@ -33,16 +31,8 @@ export const Root = () => (
           }
         />
         <Route
-          path="phones"
-          element={<PhonesPage />}
-        />
-        <Route
-          path="tablets"
-          element={<TabletsPage />}
-        />
-        <Route
-          path="accessories"
-          element={<AccessoriesPage />}
+          path=":category"
+          element={<ProductsPage />}
         />
         <Route
           path="favorites"
