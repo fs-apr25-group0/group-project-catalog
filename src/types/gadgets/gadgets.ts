@@ -1,4 +1,4 @@
-export type GadgetDescription = {
+type GadgetDescription = {
   title: string;
   text: string[];
 };
@@ -19,7 +19,7 @@ export type Gadget = {
   resolution: string;
   processor: string;
   ram: string;
-  camera: string;
-  zoom: string;
   cell: string[];
+  camera?: string;
+  zoom?: string;
 };

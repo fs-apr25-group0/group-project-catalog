@@ -9,6 +9,7 @@ import { HomePage } from './Pages/HomePage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { CartPage } from './Pages/CartPage';
 import { ProductsPage } from './Pages/ProductsPage';
+import { ProductInfoPage } from './Pages/ProductInfoPage/ProductInfoPage';
 
 export const Root = () => (
   <Router>
@@ -33,7 +34,12 @@ export const Root = () => (
         <Route
           path=":category"
           element={<ProductsPage />}
-        />
+        >
+          <Route
+            path=":itemId"
+            element={<ProductInfoPage />}
+          />
+        </Route>
         <Route
           path="favorites"
           element={<FavoritesPage />}
