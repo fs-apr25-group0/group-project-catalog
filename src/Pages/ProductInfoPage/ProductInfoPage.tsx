@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import type { Gadget } from '../../types/gadgets';
 import { Description } from '../../Components/Description';
 import { helperToFindProductsByCategory } from '../../utils/helperToFindProductsByCategory';
-import { TechSpecs } from '../../Components/TechSpecs/TechSpecs';
+// import { TechSpecs } from '../../Components/TechSpecs/TechSpecs';
 
 export const ProductInfoPage = () => {
   const { category, itemId } = useParams();
@@ -45,10 +45,10 @@ export const ProductInfoPage = () => {
           <Description gadget={gadget} />
         </div>
 
-        <div>
+        {/* <div>
           <h2>Tech specs</h2>
           <TechSpecs gadget={gadget} />
-        </div>
+        </div> */}
       </div>
 
       <h2 style={{ color: 'red' }}>
