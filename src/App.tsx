@@ -49,7 +49,7 @@ export const App = () => (
       </nav>
 
       <div>
-        <span>back to top</span>
+        <span className="uppercase">back to top</span>
         <button> scroll to top </button>
       </div>
     </footer>
