@@ -6,10 +6,10 @@ import {
 } from 'react-router-dom';
 import { App } from './App';
 import { HomePage } from './Pages/HomePage';
-import { FavoritesPage } from './Pages/FavoritesPage';
 import { CartPage } from './Pages/CartPage';
 import { ProductsPage } from './Pages/ProductsPage';
-import { ProductInfoPage } from './Pages/ProductInfoPage/ProductInfoPage';
+import { FavoritesPage } from './Pages/FavoritesPage';
+import { ProductInfoPage } from './Pages/ProductInfoPage';
 
 export const Root = () => (
   <Router>
