@@ -4,7 +4,7 @@ import type { Gadget } from '../../types/gadgets';
 import { Description } from '../../Components/Description';
 import { helperToFindProductsByCategory } from '../../utils/helperToFindProductsByCategory';
 // import { TechSpecs } from '../../Components/TechSpecs/TechSpecs';
-
+// **
 export const ProductInfoPage = () => {
   const { category, itemId } = useParams();
   const [loading, setLoading] = useState(true);
