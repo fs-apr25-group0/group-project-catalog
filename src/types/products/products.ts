@@ -1,6 +1,8 @@
+import type { CategoryVariants } from '../categoryVariants';
+
 export type Product = {
   id: number;
-  category: string;
+  category: CategoryVariants;
   itemId: string;
   name: string;
   fullPrice: number;

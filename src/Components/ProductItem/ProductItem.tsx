@@ -1,14 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import type { Product } from '../../types/products';
+import type { CategoryVariants } from '../../types/categoryVariants';
 
 interface ProductItemProps {
   product: Product;
+  category?: CategoryVariants;
 }
 
-export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+export const ProductItem: React.FC<ProductItemProps> = ({
+  product,
+  category,
+}) => {
   return (
     <li>
-      <NavLink to={product.itemId}>
+      <NavLink to={`/${category}/${product.itemId}`}>
         <img
           src={product.image}
           alt="product picture"
