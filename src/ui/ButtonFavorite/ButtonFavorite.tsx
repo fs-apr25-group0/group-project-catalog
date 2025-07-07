@@ -1,5 +1,6 @@
 import React from 'react';
 import './ButtonFavorite.scss';
+import cn from 'classnames';
 
 interface ButtonFavoriteProps {
   isActive?: boolean;
@@ -12,7 +13,7 @@ export const ButtonFavorite: React.FC<ButtonFavoriteProps> = ({
 }) => {
   return (
     <button
-      className={`buttonFavorite${isActive ? ' buttonFavorite--liked' : ''}`}
+      className={cn('buttonFavorite', { 'buttonFavorite--liked': isActive })}
       type="button"
       aria-label={isActive ? 'Remove from favorite' : 'Add to favorite'}
       onClick={onClick}

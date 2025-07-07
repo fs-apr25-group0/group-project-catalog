@@ -1,6 +1,6 @@
 import React from 'react';
 import './ButtonAdd.scss';
-// import cn from 'classnames';
+import cn from 'classnames';
 
 interface ButtonAddProps {
   isActive?: boolean;
@@ -13,7 +13,9 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
 }) => {
   return (
     <button
-      className={`buttonAdd button-text${isActive ? ' buttonAdd--active' : ''}`}
+      className={cn('buttonAdd', 'button-text', {
+        'buttonAdd--active': isActive,
+      })}
       type="button"
       aria-label={isActive ? 'Remove from cart' : 'Add to cart'}
       onClick={onClick}
