@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductCard.scss';
 
 import { ButtonAdd } from '../../ui/ButtonAdd';
@@ -29,10 +29,52 @@ interface PropsProductCart {
   category: string;
 }
 
+function useLocalStorage<T>(key: string, startValue: T): [T, (v: T) => void] {
+  const [value, setValue] = useState(() => {
+    const data = localStorage.getItem(key);
+
+    if (data === null) {
+      return startValue;
+    }
+
+    try {
+      return JSON.parse(data);
+    } catch {
+      localStorage.removeItem(key);
+      return startValue;
+    }
+  });
+
+  const save = (newValue: T) => {
+    localStorage.setItem(key, JSON.stringify(newValue));
+    setValue(newValue);
+  };
+
+  return [value, save];
+}
+
 export const ProductCard: React.FC<PropsProductCart> = ({
   product,
   category,
 }) => {
+  const [productInCart, setProductInCart] = useLocalStorage<Product[]>(
+    'cart',
+    [],
+  );
+
+  const [productInFavorite, setProductInFavorite] = useLocalStorage<Product[]>(
+    'favorite',
+    [],
+  );
+
+  function addProductInCart(value: Product) {
+    setProductInCart([...productInCart, value]);
+  }
+
+  function addProductInFavorite(value: Product) {
+    setProductInFavorite([...productInFavorite, value]);
+  }
+
   return (
     <li className="productCard">
       <article className="productCard__container">
@@ -80,13 +122,13 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
         <div className="productCard__container-buttons">
           <ButtonAdd
-          // isActive={isInCart}
-          // onClick={() => onAddToCart(product.id)}
+            // isActive={isInCart}
+            onClick={() => addProductInCart(product)}
           />
 
           <ButtonFavorite
-          // isActive={isFavorite}
-          // onClick={() => onToggleFavorite(product.id)}
+            // isActive={isFavorite}
+            onClick={() => addProductInFavorite(product)}
           />
         </div>
       </article>
