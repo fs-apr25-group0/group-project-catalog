@@ -1,1 +1,1 @@
-export * from './helperToFindProduct';
+export * from './helperToFindProductsByCategory';
