@@ -92,3 +92,10 @@ export const ProductCard: React.FC = () => {
     </article>
   );
 };
+
+//додавання перевірки на наяність знижки
+// {product.fullPrice > product.price && (
+//   <span className="productCard__price-regular">
+//     ${product.fullPrice}
+//   </span>
+// )}
