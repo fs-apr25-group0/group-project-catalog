@@ -4,6 +4,7 @@ import { getProduct } from '../../api/fetchProducts';
 import type { Product } from '../../types/products';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
+import { UrlWay } from '../../Components/UrlWay';
 
 export const ProductsPage = () => {
   const { category, itemId } = useParams();
@@ -42,14 +43,10 @@ export const ProductsPage = () => {
 
   return (
     <div>
-      <div>
-        <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'.'}>{category}</NavLink>
-        {itemId && <span>{itemId}</span>}
-      </div>
       {itemId ?
         <Outlet />
       : <div>
+          <UrlWay category={category} />
           {category === 'phone' ?
             <h1>Mobile {category}</h1>
           : <h1>{category}</h1>}
