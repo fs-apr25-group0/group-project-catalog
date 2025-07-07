@@ -1,10 +1,10 @@
-@import '../../styles/variables/colors/colors';
+@use '../../styles/variables/colors' as colors;
 
 .button-arrow {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid $color-icons;
+  border: 1px solid colors.$color-icons;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
@@ -58,11 +58,11 @@
   }
 
   &:hover {
-    border-color: $color-primary;
+    border-color: colors.$color-primary;
   }
 
   &.is-disabled {
     cursor: not-allowed;
-    border: 1px solid $color-elements;
+    border: 1px solid colors.$color-elements;
   }
 }

@@ -34,10 +34,10 @@ export const ProductsPage = () => {
   }
 
   return (
-    <div>
+    <main>
       {itemId ?
         <Outlet />
-      : <div>
+      : <section>
           <UrlWay category={category} />
           {category === 'phone' ?
             <h1>Mobile {category}</h1>
@@ -75,8 +75,8 @@ export const ProductsPage = () => {
             currentPage={currentPage}
             onPageChange={setCurrentPage}
           />
-        </div>
+        </section>
       }
-    </div>
+    </main>
   );
 };

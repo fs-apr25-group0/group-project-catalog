@@ -1,29 +1,29 @@
-@import '../../../styles/variables/colors/colors';
-@import '../../../styles/variables/fonts/fonts';
+@use '../../../styles/variables/colors' as colors;
+@use '../../../styles/variables/fonts' as fonts;
 
 .pagination-btn {
   font-family: 'Mont', sans-serif;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid $color-elements;
-  color: $color-primary;
+  border: 1px solid colors.$color-elements;
+  color: colors.$color-primary;
   background-color: transparent;
   transition: all 0.5s ease;
   cursor: pointer;
 
   &:hover {
-    border-color: $color-primary;
-    color: $color-primary;
+    border-color: colors.$color-primary;
+    color: colors.$color-primary;
   }
 
   &--selected {
-    background-color: $color-primary;
-    color: $color-hover-bg;
+    background-color: colors.$color-primary;
+    color: colors.$color-hover-bg;
     border: none;
 
     &:hover {
-      color: $color-hover-bg;
+      color: colors.$color-hover-bg;
     }
   }
 
