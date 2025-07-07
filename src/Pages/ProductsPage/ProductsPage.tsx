@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
 import { useProductForCategories } from '../../hooks/useProductsForCategories';
+import { UrlWay } from '../../Components/UrlWay';
 
 export const ProductsPage = () => {
   const {
@@ -34,14 +35,10 @@ export const ProductsPage = () => {
 
   return (
     <div>
-      <div>
-        <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'.'}>{category}</NavLink>
-        {itemId && <span>{itemId}</span>}
-      </div>
       {itemId ?
         <Outlet />
       : <div>
+          <UrlWay category={category} />
           {category === 'phone' ?
             <h1>Mobile {category}</h1>
           : <h1>{category}</h1>}

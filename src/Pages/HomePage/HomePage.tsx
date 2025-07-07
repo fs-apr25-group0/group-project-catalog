@@ -1,7 +1,7 @@
 import { ProductList } from '../../Components/ProductList';
-import { Link } from 'react-router-dom';
 import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
+import { ShopByCategory } from '../../Components/ShopByCategories';
 
 export const HomePage = () => {
   const {
@@ -49,39 +49,11 @@ export const HomePage = () => {
         <ProductList visibleProducts={visibleNewProducts} />
       </div>
 
-      <div>
-        <h2>Shop by category</h2>
-        <div>
-          <Link to="phones">
-            <img
-              src="*"
-              alt="phones logo"
-            />
-            <p>Mobile phones</p>
-            <span>{amountPhones}</span>
-          </Link>
-        </div>
-        <div>
-          <Link to="tablets">
-            <img
-              src="*"
-              alt="tablets logo"
-            />
-            <p>tablets</p>
-            <span>{amountTablets}</span>
-          </Link>
-        </div>
-        <div>
-          <Link to="accessories">
-            <img
-              src="*"
-              alt="accessories logo"
-            />
-            <p>accessories</p>
-            <span>{amountAccessories}</span>
-          </Link>
-        </div>
-      </div>
+      <ShopByCategory
+        amountPhones={amountPhones}
+        amountTablets={amountTablets}
+        amountAccessories={amountAccessories}
+      />
 
       <div>
         <div>

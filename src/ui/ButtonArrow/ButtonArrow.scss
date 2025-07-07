@@ -1,0 +1,68 @@
+@import '../../styles/variables/colors/colors';
+
+.button-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid $color-icons;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &--left .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+  }
+
+  &--right .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    transform: rotate(180deg);
+  }
+
+  &--up .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    transform: rotate(90deg);
+  }
+
+  &--down .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    transform: rotate(-90deg);
+  }
+
+  &--right:disabled .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_right.svg');
+    transform: rotate(0deg);
+  }
+
+  &--up:disabled .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_up.svg');
+    transform: rotate(0deg);
+  }
+
+  &--down:disabled .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_down.svg');
+    transform: rotate(0deg);
+  }
+
+  &--left:disabled .button-arrow__icon {
+    background-image: url('../../images/icons/chevron_arrow_left.svg');
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    border: 1px solid $color-elements;
+  }
+}
