@@ -1,0 +1,29 @@
+@import '../../styles/variables/colors/colors';
+@import '../../styles/variables/fonts/fonts';
+
+.buttonAdd {
+  flex: 1;
+  width: 176px;
+  height: 40px;
+
+  background-color: $color-accent;
+  color: #fff;
+  border-radius: 48px;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
+  }
+
+  &:active,
+  &--active {
+    background-color: #fff;
+    color: $color-accent;
+    border: 1px solid $color-elements;
+    box-shadow: none;
+  }
+}
