@@ -3,15 +3,16 @@ import { useEffect, useState } from 'react';
 import { getProduct } from '../../api/fetchProducts';
 import type { Product } from '../../types/products';
 import { ProductList } from '../../Components/ProductList';
-import type { RouteParams } from '../../types/routeParams';
 import { Pagination } from '../../Components/Pagination';
 
 export const ProductsPage = () => {
-  const { category, itemId } = useParams<RouteParams>();
+  const { category, itemId } = useParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [perPage, setPerPage] = useState<number>(16);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const categoryVariables = ['phones', 'tablets', 'accessories'];
+  const selectedCategory = category ? category : '';
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
@@ -23,11 +24,9 @@ export const ProductsPage = () => {
   useEffect(() => {
     getProduct()
       .then((products) => {
-        console.log('Fetched products:', products);
         const filtered = products.filter(
           (product) => product.category === category,
         );
-        console.log('Filtered products:', filtered);
         setProducts(filtered);
       })
       .finally(() => setLoading(false));
@@ -35,6 +34,10 @@ export const ProductsPage = () => {
 
   if (loading) {
     return <p>Loading...</p>;
+  }
+
+  if (!categoryVariables.includes(selectedCategory)) {
+    return <NavLink to={'*'}>Not found page</NavLink>;
   }
 
   return (
@@ -52,7 +55,6 @@ export const ProductsPage = () => {
           : <h1>{category}</h1>}
 
           <p>{amountProduct} models</p>
-
           <div>
             <p>Sort by</p>
             <select>
@@ -62,7 +64,6 @@ export const ProductsPage = () => {
               <option value="Expensive">Expensive</option>
             </select>
           </div>
-
           <div>
             <p>Items on page</p>
             <select
@@ -78,9 +79,7 @@ export const ProductsPage = () => {
               <option value="16">16</option>
             </select>
           </div>
-
           <ProductList visibleProducts={visibleProducts} />
-
           <Pagination
             amountProduct={amountProduct}
             perPage={perPage}

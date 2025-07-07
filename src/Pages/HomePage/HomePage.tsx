@@ -4,14 +4,26 @@ import type { Product } from '../../types/products';
 import { helperToFindNewProducts } from '../../utils/helperToFindNewProducts';
 import { ProductList } from '../../Components/ProductList';
 import { helperToFindHotPrice } from '../../utils/helperToFindHotPrice';
+import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
-  const [newProducts, setNewProducts] = useState<Product[]>([]);
-  const [hotPriceProducts, setHotPriceProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const phones = products.filter((product) => product.category === 'phones');
+  const amountPhones = phones.length;
+
+  const tablets = products.filter((product) => product.category === 'tablets');
+  const amountTablets = tablets.length;
+
+  const accessories = products.filter(
+    (product) => product.category === 'accessories',
+  );
+  const amountAccessories = accessories.length;
 
   const startIndexForNew = 0;
   const endIndexForNew = startIndexForNew + 4;
+  const newProducts = helperToFindNewProducts(products);
   const visibleNewProducts = newProducts.slice(
     startIndexForNew,
     endIndexForNew,
@@ -19,6 +31,7 @@ export const HomePage = () => {
 
   const startIndexForHot = 0;
   const endIndexForHot = startIndexForHot + 4;
+  const hotPriceProducts = helperToFindHotPrice(products);
   const visibleHotProducts = hotPriceProducts.slice(
     startIndexForHot,
     endIndexForHot,
@@ -26,10 +39,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     getProduct()
-      .then((products) => {
-        setNewProducts(helperToFindNewProducts(products));
-        setHotPriceProducts(helperToFindHotPrice(products));
-      })
+      .then(setProducts)
       .finally(() => setLoading(false));
   }, []);
 
@@ -59,7 +69,36 @@ export const HomePage = () => {
 
       <div>
         <h2>Shop by category</h2>
-        <p style={{ color: 'red' }}>Here must be blocks with links</p>
+        <div>
+          <Link to="phones">
+            <img
+              src="*"
+              alt="phones logo"
+            />
+            <p>Mobile phones</p>
+            <span>{amountPhones}</span>
+          </Link>
+        </div>
+        <div>
+          <Link to="tablets">
+            <img
+              src="*"
+              alt="tablets logo"
+            />
+            <p>tablets</p>
+            <span>{amountTablets}</span>
+          </Link>
+        </div>
+        <div>
+          <Link to="accessories">
+            <img
+              src="*"
+              alt="accessories logo"
+            />
+            <p>accessories</p>
+            <span>{amountAccessories}</span>
+          </Link>
+        </div>
       </div>
 
       <div>
