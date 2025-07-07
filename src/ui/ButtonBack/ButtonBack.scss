@@ -1,0 +1,20 @@
+@import '../../styles/variables/colors/colors';
+@import '../../styles/variables/fonts/fonts';
+
+.button {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  background-color: #fff;
+
+  &__title {
+    color: $color-secondary;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
