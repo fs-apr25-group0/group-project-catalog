@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 interface UrlWayProps {
-  category: string;
+  category: string | undefined;
   itemId?: string;
 }
 

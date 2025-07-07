@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import type { Product } from '../../types/products';
-import type { CategoryVariants } from '../../types/categoryVariants';
 
 interface ProductItemProps {
   product: Product;
-  category?: CategoryVariants;
+  category?: string;
 }
 
 export const ProductItem: React.FC<ProductItemProps> = ({

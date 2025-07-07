@@ -1,37 +1,29 @@
-import { NavLink, Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getProduct } from '../../api/fetchProducts';
-import type { Product } from '../../types/products';
+import { NavLink, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
+import { useProductForCategories } from '../../hooks/useProductsForCategories';
 import { UrlWay } from '../../Components/UrlWay';
 
 export const ProductsPage = () => {
-  const { category, itemId } = useParams();
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const {
+    itemId,
+    category,
+    products,
+    loading,
+    amountProduct,
+    selectedCategory,
+  } = useProductForCategories();
+
   const [perPage, setPerPage] = useState<number>(16);
   const [currentPage, setCurrentPage] = useState<number>(1);
+
   const categoryVariables = ['phones', 'tablets', 'accessories'];
-  const selectedCategory = category ? category : '';
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
 
   const visibleProducts = products.slice(startIndex, endIndex);
-
-  const amountProduct = products.length;
-
-  useEffect(() => {
-    getProduct()
-      .then((products) => {
-        const filtered = products.filter(
-          (product) => product.category === category,
-        );
-        setProducts(filtered);
-      })
-      .finally(() => setLoading(false));
-  }, [category]);
 
   if (loading) {
     return <p>Loading...</p>;
