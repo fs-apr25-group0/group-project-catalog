@@ -8,6 +8,7 @@ import { ProductList } from '../../Components/ProductList';
 import type { Product } from '../../types/products';
 import { getProduct } from '../../api/fetchProducts';
 import { helperToFindMayLikeProducts } from '../../utils/helperToFindMayLikeProduct';
+import { UrlWay } from '../../Components/UrlWay';
 
 export const ProductInfoPage = () => {
   const { category, itemId } = useParams();
@@ -54,7 +55,11 @@ export const ProductInfoPage = () => {
   }
 
   return (
-    <>
+    <div>
+      <UrlWay
+        category={category}
+        itemId={itemId}
+      />
       <Link to="../">Back</Link>
 
       <h1>{`${gadget?.name}`}</h1>
@@ -77,6 +82,6 @@ export const ProductInfoPage = () => {
       </div>
 
       <ProductList visibleProducts={visibleMayLikeProducts} />
-    </>
+    </div>
   );
 };

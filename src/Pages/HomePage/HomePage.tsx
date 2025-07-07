@@ -4,7 +4,7 @@ import type { Product } from '../../types/products';
 import { helperToFindNewProducts } from '../../utils/helperToFindNewProducts';
 import { ProductList } from '../../Components/ProductList';
 import { helperToFindHotPrice } from '../../utils/helperToFindHotPrice';
-import { Link } from 'react-router-dom';
+import { ShopByCategory } from '../../Components/ShopByCategories';
 
 export const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -67,39 +67,11 @@ export const HomePage = () => {
         <ProductList visibleProducts={visibleNewProducts} />
       </div>
 
-      <div>
-        <h2>Shop by category</h2>
-        <div>
-          <Link to="phones">
-            <img
-              src="*"
-              alt="phones logo"
-            />
-            <p>Mobile phones</p>
-            <span>{amountPhones}</span>
-          </Link>
-        </div>
-        <div>
-          <Link to="tablets">
-            <img
-              src="*"
-              alt="tablets logo"
-            />
-            <p>tablets</p>
-            <span>{amountTablets}</span>
-          </Link>
-        </div>
-        <div>
-          <Link to="accessories">
-            <img
-              src="*"
-              alt="accessories logo"
-            />
-            <p>accessories</p>
-            <span>{amountAccessories}</span>
-          </Link>
-        </div>
-      </div>
+      <ShopByCategory
+        amountPhones={amountPhones}
+        amountTablets={amountTablets}
+        amountAccessories={amountAccessories}
+      />
 
       <div>
         <div>
