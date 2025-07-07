@@ -1,29 +1,20 @@
-import { useEffect, useState } from 'react';
-import { getProduct } from '../../api/fetchProducts';
-import type { Product } from '../../types/products';
-import { helperToFindNewProducts } from '../../utils/helperToFindNewProducts';
 import { ProductList } from '../../Components/ProductList';
-import { helperToFindHotPrice } from '../../utils/helperToFindHotPrice';
 import { Link } from 'react-router-dom';
+import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
+import { MainSlider } from '../../Components/MainSlider';
 
 export const HomePage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const phones = products.filter((product) => product.category === 'phones');
-  const amountPhones = phones.length;
-
-  const tablets = products.filter((product) => product.category === 'tablets');
-  const amountTablets = tablets.length;
-
-  const accessories = products.filter(
-    (product) => product.category === 'accessories',
-  );
-  const amountAccessories = accessories.length;
+  const {
+    loading,
+    amountPhones,
+    amountTablets,
+    amountAccessories,
+    newProducts,
+    hotPriceProducts,
+  } = useProductForHomePage();
 
   const startIndexForNew = 0;
   const endIndexForNew = startIndexForNew + 4;
-  const newProducts = helperToFindNewProducts(products);
   const visibleNewProducts = newProducts.slice(
     startIndexForNew,
     endIndexForNew,
@@ -31,17 +22,10 @@ export const HomePage = () => {
 
   const startIndexForHot = 0;
   const endIndexForHot = startIndexForHot + 4;
-  const hotPriceProducts = helperToFindHotPrice(products);
   const visibleHotProducts = hotPriceProducts.slice(
     startIndexForHot,
     endIndexForHot,
   );
-
-  useEffect(() => {
-    getProduct()
-      .then(setProducts)
-      .finally(() => setLoading(false));
-  }, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -51,9 +35,7 @@ export const HomePage = () => {
     <div>
       <div>
         <h1>Welcome to Nice Gadgets store!</h1>
-        <div>
-          <h2 style={{ color: 'red' }}>Pokachto hz kak tut eto delat`</h2>
-        </div>
+        <MainSlider />
       </div>
 
       <div>
