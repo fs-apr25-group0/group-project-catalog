@@ -6,13 +6,13 @@ interface DescriptionProps {
 
 export const Description: React.FC<DescriptionProps> = ({ gadget }) => {
   return (
-    <div>
+    <section>
       {gadget?.description.map(({ title, text }, index) => (
-        <div key={index}>
+        <article key={index}>
           <h2>{title}</h2>
           <p>{text}</p>
-        </div>
+        </article>
       ))}
-    </div>
+    </section>
   );
 };

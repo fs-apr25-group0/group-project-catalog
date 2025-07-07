@@ -1,9 +1,9 @@
-@import '../../styles/variables/colors/colors';
+@use '../../styles/variables/colors' as colors;
 
 .buttonFavorite {
   width: 40px;
   height: 40px;
-  border: 1px solid $color-icons;
+  border: 1px solid colors.$color-icons;
   border-radius: 50%;
 
   background-color: #fff;
@@ -21,12 +21,12 @@
     background-image 0.3s;
 
   &:hover {
-    border: 1px solid $color-primary;
+    border: 1px solid colors.$color-primary;
   }
 
   &:active,
   &--liked {
-    border: 1px solid $color-elements;
+    border: 1px solid colors.$color-elements;
     background-image: url('../../images/icons/favourites_filled_heart_like.svg');
   }
 }

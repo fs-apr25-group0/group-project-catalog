@@ -32,13 +32,13 @@ export const HomePage = () => {
   }
 
   return (
-    <div>
+    <main>
       <div>
         <h1>Welcome to Nice Gadgets store!</h1>
         <MainSlider />
       </div>
 
-      <div>
+      <section>
         <div>
           <h2>Brand new models</h2>
           <div>
@@ -47,7 +47,7 @@ export const HomePage = () => {
           </div>
         </div>
         <ProductList visibleProducts={visibleNewProducts} />
-      </div>
+      </section>
 
       <ShopByCategory
         amountPhones={amountPhones}
@@ -55,7 +55,7 @@ export const HomePage = () => {
         amountAccessories={amountAccessories}
       />
 
-      <div>
+      <section>
         <div>
           <h2>Hot prices</h2>
           <div>
@@ -64,7 +64,7 @@ export const HomePage = () => {
           </div>
         </div>
         <ProductList visibleProducts={visibleHotProducts} />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };

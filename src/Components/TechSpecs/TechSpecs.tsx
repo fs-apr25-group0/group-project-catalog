@@ -13,13 +13,15 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
   const techSpecs = helperToCreateTechSpecs(gadget);
 
   return (
-    <>
-      {Object.entries(techSpecs).map(([spec, value]) => (
-        <div key={spec}>
-          <span>{spec}</span>
-          <span>{value}</span>
-        </div>
-      ))}
-    </>
+    <section>
+      <dl>
+        {Object.entries(techSpecs).map(([spec, value]) => (
+          <div key={spec}>
+            <dt>{spec}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   );
 };

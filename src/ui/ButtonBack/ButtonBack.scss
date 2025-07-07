@@ -1,5 +1,4 @@
-@import '../../styles/variables/colors/colors';
-@import '../../styles/variables/fonts/fonts';
+@use '../../styles/variables/colors' as colors;
 
 .button {
   display: flex;
@@ -11,10 +10,10 @@
   background-color: #fff;
 
   &__title {
-    color: $color-secondary;
+    color: colors.$color-secondary;
 
     &:hover {
-      color: $color-primary;
+      color: colors.$color-primary;
     }
   }
 }

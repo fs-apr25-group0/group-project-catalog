@@ -1,12 +1,11 @@
-@import '../../styles/variables/colors/colors';
-@import '../../styles/variables/fonts/fonts';
+@use '../../styles/variables/colors' as colors;
 
 .buttonAdd {
   flex: 1;
   width: 176px;
   height: 40px;
 
-  background-color: $color-accent;
+  background-color: colors.$color-accent;
   color: #fff;
   border-radius: 48px;
   cursor: pointer;
@@ -22,8 +21,8 @@
   &:active,
   &--active {
     background-color: #fff;
-    color: $color-accent;
-    border: 1px solid $color-elements;
+    color: colors.$color-accent;
+    border: 1px solid colors.$color-elements;
     box-shadow: none;
   }
 }

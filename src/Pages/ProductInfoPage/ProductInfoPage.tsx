@@ -55,7 +55,7 @@ export const ProductInfoPage = () => {
   }
 
   return (
-    <div>
+    <main>
       <UrlWay
         category={category}
         itemId={itemId}
@@ -68,20 +68,20 @@ export const ProductInfoPage = () => {
         <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2>
       </div>
 
-      <div>
-        <div>
+      <section>
+        <section>
           <h2>About</h2>
 
           <Description gadget={gadget} />
-        </div>
+        </section>
 
-        <div>
+        <section>
           <h2>Tech specs</h2>
           <TechSpecs gadget={gadget} />
-        </div>
-      </div>
+        </section>
+      </section>
 
       <ProductList visibleProducts={visibleMayLikeProducts} />
-    </div>
+    </main>
   );
 };
