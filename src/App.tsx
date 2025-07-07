@@ -12,19 +12,20 @@ export const App = () => (
         </NavLink>
 
         <nav>
-          <NavLink to="/">Home</NavLink>
+          <div>
+            <NavLink to="/">Home</NavLink>
 
-          <NavLink to="/phones">Phones</NavLink>
+            <NavLink to="/phones">Phones</NavLink>
 
-          <NavLink to="/tablets">Tablets</NavLink>
+            <NavLink to="/tablets">Tablets</NavLink>
 
-          <NavLink to="/accessories">Accessories</NavLink>
+            <NavLink to="/accessories">Accessories</NavLink>
+          </div>
+          <div>
+            <NavLink to="/favorites">Favorites</NavLink>
+            <NavLink to="/cart">Card</NavLink>
+          </div>
         </nav>
-
-        <div>
-          <NavLink to="/favorites">Favorites</NavLink>
-          <NavLink to="/cart">Card</NavLink>
-        </div>
       </div>
     </header>
 

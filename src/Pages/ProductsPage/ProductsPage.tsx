@@ -2,11 +2,12 @@ import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getProduct } from '../../api/fetchProducts';
 import type { Product } from '../../types/products';
-import { Pagination } from '../../Components/Pagination/Pagination';
 import { ProductList } from '../../Components/ProductList';
+import type { RouteParams } from '../../types/routeParams';
+import { Pagination } from '../../Components/Pagination';
 
 export const ProductsPage = () => {
-  const { category, itemId } = useParams();
+  const { category, itemId } = useParams<RouteParams>();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [perPage, setPerPage] = useState<number>(16);
@@ -40,25 +41,13 @@ export const ProductsPage = () => {
     <div>
       <div>
         <NavLink to={'/'}>Home</NavLink>
-        <img
-          src="*"
-          alt="space zone"
-        />
-        <NavLink to={'../'}>{category}</NavLink>
-        {itemId && (
-          <>
-            <img
-              src="*"
-              alt="space zone"
-            />
-            <p>Here must be name of product</p>
-          </>
-        )}
+        <NavLink to={'.'}>{category}</NavLink>
+        {itemId && <span>{itemId}</span>}
       </div>
       {itemId ?
         <Outlet />
       : <div>
-          {category === 'phones' ?
+          {category === 'phone' ?
             <h1>Mobile {category}</h1>
           : <h1>{category}</h1>}
 
