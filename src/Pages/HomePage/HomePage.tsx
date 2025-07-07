@@ -1,7 +1,7 @@
-import { ProductList } from '../../Components/ProductList';
 import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
 import { ShopByCategory } from '../../Components/ShopByCategories';
+import { SliderNewProduct } from '../../Components/SliderNewProduct';
 
 export const HomePage = () => {
   const {
@@ -38,16 +38,10 @@ export const HomePage = () => {
         <MainSlider />
       </div>
 
-      <section>
-        <div>
-          <h2>Brand new models</h2>
-          <div>
-            <button>scroll left</button>
-            <button>scroll right</button>
-          </div>
-        </div>
-        <ProductList visibleProducts={visibleNewProducts} />
-      </section>
+      <SliderNewProduct
+        visibleProducts={visibleNewProducts}
+        title={'Brand new models'}
+      />
 
       <ShopByCategory
         amountPhones={amountPhones}
@@ -55,16 +49,10 @@ export const HomePage = () => {
         amountAccessories={amountAccessories}
       />
 
-      <section>
-        <div>
-          <h2>Hot prices</h2>
-          <div>
-            <button>scroll left</button>
-            <button>scroll right</button>
-          </div>
-        </div>
-        <ProductList visibleProducts={visibleHotProducts} />
-      </section>
+      <SliderNewProduct
+        visibleProducts={visibleHotProducts}
+        title={'Hot prices'}
+      />
     </main>
   );
 };
