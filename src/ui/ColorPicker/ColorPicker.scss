@@ -1,0 +1,34 @@
+@import '../../styles/variables/colors/colors';
+
+.color-picker {
+  display: flex;
+  gap: 12px;
+}
+
+.color-picker__item {
+  width: 32px;
+  height: 32px;
+  padding: 1px;
+  border: 1px solid $color-elements;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border: 1px solid $color-icons;
+  }
+
+  &--selected {
+    border-color: $color-primary;
+  }
+}
+
+.color-picker__color {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid $color-hover-bg;
+}
