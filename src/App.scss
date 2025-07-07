@@ -1,5 +1,4 @@
-@import './styles/variables/colors/colors';
-@import './styles/variables/fonts/fonts';
+@use './styles/variables/colors/colors' as color;
 
 html {
   scroll-behavior: smooth;
@@ -10,7 +9,7 @@ html {
   height: 64px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 0 0 $color-elements;
+  box-shadow: 0 1px 0 0 color.$color-elements;
 
   &__container {
     display: flex;
@@ -68,7 +67,7 @@ html {
     position: relative;
     display: inline-block;
     line-height: 64px;
-    color: $color-secondary;
+    color: color.$color-secondary;
     font-family: 'Mont', sans-serif;
     font-weight: 800;
     font-size: 12px;
@@ -77,7 +76,7 @@ html {
     text-decoration: none;
 
     &--active {
-      color: $color-primary;
+      color: color.$color-primary;
 
       &::after {
         content: '';
@@ -86,7 +85,7 @@ html {
         bottom: 0;
         width: 100%;
         height: 3px;
-        background-color: $color-primary;
+        background-color: color.$color-primary;
       }
     }
   }
@@ -106,11 +105,11 @@ html {
     justify-content: center;
 
     &:first-child {
-      box-shadow: -1px 0 0 0 $color-elements;
+      box-shadow: -1px 0 0 0 color.$color-elements;
     }
 
     &:last-child {
-      box-shadow: -1px 0 0 0 $color-elements;
+      box-shadow: -1px 0 0 0 color.$color-elements;
     }
   }
 
@@ -129,7 +128,7 @@ html {
   align-items: center;
   height: 96px;
   padding: 0 152px;
-  box-shadow: 0 -1px 0 0 $color-elements;
+  box-shadow: 0 -1px 0 0 color.$color-elements;
   background-color: transparent;
 
   &__logo {
@@ -160,10 +159,10 @@ html {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    color: $color-secondary;
+    color: color.$color-secondary;
 
     &:hover {
-      color: $color-primary;
+      color: color.$color-primary;
     }
   }
 
@@ -181,7 +180,7 @@ html {
     line-height: 100%;
     letter-spacing: 0;
     text-transform: capitalize;
-    color: $color-secondary;
+    color: color.$color-secondary;
   }
 
   &__button {
@@ -194,11 +193,11 @@ html {
     background: none;
     border: none;
     cursor: pointer;
-    color: $color-secondary;
+    color: color.$color-secondary;
     text-align: right;
 
     &:hover {
-      color: $color-primary;
+      color: color.$color-primary;
       text-decoration: underline;
     }
   }
