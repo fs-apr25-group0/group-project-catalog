@@ -1,3 +1,4 @@
+import './ProductsPage.scss';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { ProductList } from '../../Components/ProductList';
@@ -34,41 +35,55 @@ export const ProductsPage = () => {
   }
 
   return (
-    <main>
+    <main className="products-page">
       {itemId ?
         <Outlet />
-      : <section>
-          <UrlWay category={category} />
-          {category === 'phone' ?
-            <h1>Mobile {category}</h1>
-          : <h1>{category}</h1>}
+      : <section className="products-page__container">
+          <div className="products-page__url-way">
+            <UrlWay category={category} />
+          </div>
 
-          <p>{amountProduct} models</p>
-          <div>
-            <p>Sort by</p>
-            <select>
-              <option value="Newest">Newest</option>
-              <option value="Oldest">Oldest</option>
-              <option value="Chip">Chip</option>
-              <option value="Expensive">Expensive</option>
-            </select>
+          <div className="products-page__header">
+            <h1>{category === 'phone' ? `Mobile ${category}` : category}</h1>
           </div>
-          <div>
-            <p>Items on page</p>
-            <select
-              value={perPage}
-              onChange={(event) => {
-                setPerPage(+event.target.value);
-                setCurrentPage(1);
-              }}
-            >
-              <option value="3">3</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="16">16</option>
-            </select>
+
+          <p className="products-page__count">{amountProduct} models</p>
+
+          <div className="products-page__filter-panel">
+            <div className="products-page__filter-panel__group">
+              <p className="products-page__filter-panel__label">Sort by</p>
+              <select className="products-page__filter-panel__select">
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+                <option value="Chip">Chip</option>
+                <option value="Expensive">Expensive</option>
+              </select>
+            </div>
+
+            <div className="products-page__filter-panel__group">
+              <p className="products-page__filter-panel__label">
+                Items on page
+              </p>
+              <select
+                className="products-page__filter-panel__select"
+                value={perPage}
+                onChange={(event) => {
+                  setPerPage(+event.target.value);
+                  setCurrentPage(1);
+                }}
+              >
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="16">16</option>
+              </select>
+            </div>
           </div>
-          <ProductList visibleProducts={visibleProducts} />
+
+          <div className="products-page__product-list">
+            <ProductList visibleProducts={visibleProducts} />
+          </div>
+
           <Pagination
             amountProduct={amountProduct}
             perPage={perPage}
