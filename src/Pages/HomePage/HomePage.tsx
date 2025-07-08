@@ -41,6 +41,9 @@ export const HomePage = () => {
       <SliderForProduct
         visibleProducts={visibleNewProducts}
         title={'Brand new models'}
+        productType="phones"
+        sortBy="newest"
+        itemsToShow={4}
       />
 
       <ShopByCategory
@@ -52,6 +55,9 @@ export const HomePage = () => {
       <SliderForProduct
         visibleProducts={visibleHotProducts}
         title={'Hot prices'}
+        productType="phones"
+        sortBy="hotPrices"
+        itemsToShow={4}
       />
     </main>
   );
