@@ -1,3 +1,5 @@
+import './FavoritesPage.scss';
+
 import { useContext } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { ProductList } from '../../Components/ProductList';
