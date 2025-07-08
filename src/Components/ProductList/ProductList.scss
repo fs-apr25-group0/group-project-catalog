@@ -1,13 +1,15 @@
 .product-list {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 16px;
+  gap: 40px 16px;
+  justify-content: center;
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(auto-fill, 272px);
 
   @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
+    max-width: calc(272px * 4 + 16px * 3);
+    margin: 0 auto;
   }
+
+  list-style: none;
+  padding: 0;
 }
