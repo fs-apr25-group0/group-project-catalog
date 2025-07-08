@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-refresh/only-export-components */
 import React, { useMemo } from 'react';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import type { Product } from '../../types/products';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import type { Product } from '../types/products';
 
 interface FavoriteContextType {
   productInFavorite: Product[];
