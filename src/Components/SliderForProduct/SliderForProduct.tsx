@@ -1,6 +1,6 @@
 import type React from 'react';
 import { ProductList } from '../ProductList';
-import './SliderNewProduct.scss';
+import './SliderForProduct.scss';
 import type { Product } from '../../types/products';
 
 interface PropsSliderNewProduct {
@@ -8,7 +8,7 @@ interface PropsSliderNewProduct {
   title: string;
 }
 
-export const SliderNewProduct: React.FC<PropsSliderNewProduct> = ({
+export const SliderForProduct: React.FC<PropsSliderNewProduct> = ({
   visibleProducts,
   title,
 }) => {

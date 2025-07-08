@@ -1,7 +1,7 @@
 import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
 import { ShopByCategory } from '../../Components/ShopByCategories';
-import { SliderNewProduct } from '../../Components/SliderNewProduct';
+import { SliderForProduct } from '../../Components/SliderForProduct';
 
 export const HomePage = () => {
   const {
@@ -38,7 +38,7 @@ export const HomePage = () => {
         <MainSlider />
       </div>
 
-      <SliderNewProduct
+      <SliderForProduct
         visibleProducts={visibleNewProducts}
         title={'Brand new models'}
       />
@@ -49,7 +49,7 @@ export const HomePage = () => {
         amountAccessories={amountAccessories}
       />
 
-      <SliderNewProduct
+      <SliderForProduct
         visibleProducts={visibleHotProducts}
         title={'Hot prices'}
       />
