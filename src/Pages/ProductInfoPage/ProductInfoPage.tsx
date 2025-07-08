@@ -4,11 +4,12 @@ import type { Gadget } from '../../types/gadgets';
 import { Description } from '../../Components/Description';
 import { helperToFindProductsByCategory } from '../../utils/helperToFindProductsByCategory';
 import { TechSpecs } from '../../Components/TechSpecs';
-import { ProductList } from '../../Components/ProductList';
 import type { Product } from '../../types/products';
 import { getProduct } from '../../api/fetchProducts';
 import { helperToFindMayLikeProducts } from '../../utils/helperToFindMayLikeProduct';
 import { UrlWay } from '../../Components/UrlWay';
+import './ProductInfoPage.scss';
+import { SliderForProduct } from '../../Components/SliderForProduct';
 
 export const ProductInfoPage = () => {
   const { category, itemId } = useParams();
@@ -60,7 +61,15 @@ export const ProductInfoPage = () => {
         category={category}
         itemId={itemId}
       />
-      <Link to="../">Back</Link>
+      <div className="url-back">
+        <div className="url-back__icon-arrow"></div>
+        <Link
+          to="../"
+          className="small-text title-grey"
+        >
+          Back
+        </Link>
+      </div>
 
       <h1>{`${gadget?.name}`}</h1>
 
@@ -81,7 +90,10 @@ export const ProductInfoPage = () => {
         </section>
       </section>
 
-      <ProductList visibleProducts={visibleMayLikeProducts} />
+      <SliderForProduct
+        visibleProducts={visibleMayLikeProducts}
+        title={'You may also like'}
+      />
     </main>
   );
 };
