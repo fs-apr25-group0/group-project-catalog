@@ -1,10 +1,11 @@
 import './ProductsPage.scss';
-import { NavLink, Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
 import { useProductForCategories } from '../../hooks/useProductsForCategories';
 import { UrlWay } from '../../Components/UrlWay';
+import type { SortType } from '../../types/sortType';
+import { sortVariants } from '../../constans/sortVariants';
 
 export const ProductsPage = () => {
   const {
@@ -16,15 +17,50 @@ export const ProductsPage = () => {
     selectedCategory,
   } = useProductForCategories();
 
-  const [perPage, setPerPage] = useState<number>(16);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const perPage = Number(searchParams.get('perPage')) || 16;
+  const currentPage = Number(searchParams.get('page')) || 1;
+  const sortBy = (searchParams.get('sort') as SortType) || sortVariants.Newest;
 
   const categoryVariables = ['phones', 'tablets', 'accessories'];
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
 
-  const visibleProducts = products.slice(startIndex, endIndex);
+  const sortedProducts = [...products].sort((a, b) => {
+    switch (sortBy) {
+      case sortVariants.Newest:
+        return b.year - a.year;
+      case sortVariants.Oldest:
+        return a.year - b.year;
+      case sortVariants.Cheap:
+        return a.price - b.price;
+      case sortVariants.Expensive:
+        return b.price - a.price;
+      default:
+        return 0;
+    }
+  });
+  const visibleProducts = sortedProducts.slice(startIndex, endIndex);
+
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newSort = event.target.value as SortType;
+    searchParams.set('sort', newSort);
+    setSearchParams(searchParams);
+  };
+
+  const handlePageChange = (page: number) => {
+    searchParams.set('page', page.toString());
+    setSearchParams(searchParams);
+  };
+
+  const handlePerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newPerPage = +event.target.value;
+    searchParams.set('perPage', newPerPage.toString());
+    searchParams.set('page', '1');
+    setSearchParams(searchParams);
+  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -52,11 +88,19 @@ export const ProductsPage = () => {
           <div className="products-page__filter-panel">
             <div className="products-page__filter-panel__group">
               <p className="products-page__filter-panel__label">Sort by</p>
-              <select className="products-page__filter-panel__select">
-                <option value="Newest">Newest</option>
-                <option value="Oldest">Oldest</option>
-                <option value="Chip">Chip</option>
-                <option value="Expensive">Expensive</option>
+              <select
+                className="products-page__filter-panel__select"
+                value={sortBy}
+                onChange={handleSortChange}
+              >
+                {Object.values(sortVariants).map((variant) => (
+                  <option
+                    key={variant}
+                    value={variant}
+                  >
+                    {variant}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -67,10 +111,7 @@ export const ProductsPage = () => {
               <select
                 className="products-page__filter-panel__select"
                 value={perPage}
-                onChange={(event) => {
-                  setPerPage(+event.target.value);
-                  setCurrentPage(1);
-                }}
+                onChange={handlePerPageChange}
               >
                 <option value="3">3</option>
                 <option value="5">5</option>
@@ -88,7 +129,7 @@ export const ProductsPage = () => {
             amountProduct={amountProduct}
             perPage={perPage}
             currentPage={currentPage}
-            onPageChange={setCurrentPage}
+            onPageChange={handlePageChange}
           />
         </section>
       }

@@ -1,14 +1,13 @@
 import './Pagination.scss';
 import cn from 'classnames';
 import { getNumbers } from '../../utils/paginationHelper';
-import type { Dispatch, SetStateAction } from 'react';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 
 interface PaginationProps {
   amountProduct: number;
   perPage: number;
   currentPage: number;
-  onPageChange: Dispatch<SetStateAction<number>>;
+  onPageChange: (page: number) => void;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
