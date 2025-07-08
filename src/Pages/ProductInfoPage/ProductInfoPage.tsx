@@ -26,6 +26,11 @@ export const ProductInfoPage = () => {
 
     helperToFindProductsByCategory(category)
       .then((gadgets) => {
+        const descriptions = gadgets
+          .flatMap((gadget) => gadget.description.map((des) => des.title))
+          .flat(Infinity);
+        const uniqueDescriptions = [...new Set(descriptions)];
+        console.log(uniqueDescriptions);
         const foundGadget = gadgets.find((gadget) => gadget.id === itemId);
         setGadget(foundGadget ?? null);
         const filteredByMayLike = gadgets.filter(
