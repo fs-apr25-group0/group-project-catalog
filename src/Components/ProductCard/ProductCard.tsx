@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
 import './ProductCard.scss';
 
 import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
 import type { Product } from '../../types/products';
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { FavoriteContext } from '../../ui/context/FavoriteContext';
+import { CartContext } from '../../ui/context/CartContext';
 
 // type ProductCardProps = {
 //   product: Product;
@@ -29,51 +31,33 @@ interface PropsProductCart {
   category: string;
 }
 
-function useLocalStorage<T>(key: string, startValue: T): [T, (v: T) => void] {
-  const [value, setValue] = useState(() => {
-    const data = localStorage.getItem(key);
-
-    if (data === null) {
-      return startValue;
-    }
-
-    try {
-      return JSON.parse(data);
-    } catch {
-      localStorage.removeItem(key);
-      return startValue;
-    }
-  });
-
-  const save = (newValue: T) => {
-    localStorage.setItem(key, JSON.stringify(newValue));
-    setValue(newValue);
-  };
-
-  return [value, save];
-}
-
 export const ProductCard: React.FC<PropsProductCart> = ({
   product,
   category,
 }) => {
-  const [productInCart, setProductInCart] = useLocalStorage<Product[]>(
-    'cart',
-    [],
-  );
+  //це щоб повністю очистити localStorage
+  // localStorage.removeItem('cart');
+  // localStorage.removeItem('favorite');
+  // window.location.reload();
 
-  const [productInFavorite, setProductInFavorite] = useLocalStorage<Product[]>(
-    'favorite',
-    [],
-  );
+  const { productInCart, setProductInCart } = useContext(CartContext);
+  const { productInFavorite, setProductInFavorite } =
+    useContext(FavoriteContext);
 
   function addProductInCart(value: Product) {
-    setProductInCart([...productInCart, value]);
+    setProductInCart(value);
   }
 
   function addProductInFavorite(value: Product) {
-    setProductInFavorite([...productInFavorite, value]);
+    setProductInFavorite(value);
   }
+
+  const isProductInCart: boolean = productInCart.some(
+    (pr) => product.id === pr.id,
+  );
+  const isProductInFavorite: boolean = productInFavorite.some(
+    (pr) => product.id === pr.id,
+  );
 
   return (
     <li className="productCard">
@@ -122,12 +106,12 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
         <div className="productCard__container-buttons">
           <ButtonAdd
-            // isActive={isInCart}
+            isActive={isProductInCart}
             onClick={() => addProductInCart(product)}
           />
 
           <ButtonFavorite
-            // isActive={isFavorite}
+            isActive={isProductInFavorite}
             onClick={() => addProductInFavorite(product)}
           />
         </div>
