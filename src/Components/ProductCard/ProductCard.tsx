@@ -4,7 +4,9 @@ import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
 import type { Product } from '../../types/products';
 import { NavLink } from 'react-router-dom';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useContext } from 'react';
+import { FavoriteContext } from '../../ui/context/FavoriteContext';
+import { CartContext } from '../../ui/context/CartContext';
 
 // type ProductCardProps = {
 //   product: Product;
@@ -38,15 +40,9 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   // localStorage.removeItem('favorite');
   // window.location.reload();
 
-  const [productInCart, setProductInCart] = useLocalStorage<Product>(
-    'cart',
-    [],
-  );
-
-  const [productInFavorite, setProductInFavorite] = useLocalStorage<Product>(
-    'favorite',
-    [],
-  );
+  const { productInCart, setProductInCart } = useContext(CartContext);
+  const { productInFavorite, setProductInFavorite } =
+    useContext(FavoriteContext);
 
   function addProductInCart(value: Product) {
     setProductInCart(value);
