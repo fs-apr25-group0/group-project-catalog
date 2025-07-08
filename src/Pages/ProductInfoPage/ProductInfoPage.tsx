@@ -42,7 +42,7 @@ export const ProductInfoPage = () => {
 
       <div>
         {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
-        <ProductImageSlider images={gadget?.images} />
+        <ProductImageSlider images={gadget?.images || []} />
       </div>
 
       <section>
