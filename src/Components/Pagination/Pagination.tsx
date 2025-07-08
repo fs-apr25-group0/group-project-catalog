@@ -1,6 +1,8 @@
+import './Pagination.scss';
 import cn from 'classnames';
 import { getNumbers } from '../../utils/paginationHelper';
 import type { Dispatch, SetStateAction } from 'react';
+import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 
 interface PaginationProps {
   amountProduct: number;
@@ -38,32 +40,36 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <ul className="pagination">
-      <li className={cn('page-item', { disabled: currentPage === 1 })}>
-        <a
-          href="#"
-          aria-disabled={currentPage === 1}
+      <li className="pagination__item">
+        <ButtonArrow
+          direction="left"
           onClick={handlePageBefore}
-        >
-          «
-        </a>
+          disabled={currentPage === 1}
+        />
       </li>
+
       {getNumbers(1, pageAmount).map((pageLink) => (
-        <li key={pageLink}>
-          <a
-            href="#"
+        <li
+          key={pageLink}
+          className="pagination__item"
+        >
+          <button
+            className={cn('button-arrow pagination__number', {
+              'pagination__number--active': currentPage === pageLink,
+            })}
             onClick={handlePageClick(pageLink)}
           >
             {pageLink}
-          </a>
+          </button>
         </li>
       ))}
-      <li>
-        <a
-          href="#"
+
+      <li className="pagination__item">
+        <ButtonArrow
+          direction="right"
           onClick={handlePageNext}
-        >
-          »
-        </a>
+          disabled={currentPage === pageAmount}
+        />
       </li>
     </ul>
   );

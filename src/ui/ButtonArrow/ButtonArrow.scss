@@ -20,21 +20,21 @@
   }
 
   &--left .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    background-image: url('../../images/icons/chevron_arrow_left.svg');
   }
 
   &--right .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    background-image: url('../../images/icons/chevron_arrow_left.svg');
     transform: rotate(180deg);
   }
 
   &--up .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    background-image: url('../../images/icons/chevron_arrow_left.svg');
     transform: rotate(90deg);
   }
 
   &--down .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+    background-image: url('../../images/icons/chevron_arrow_left.svg');
     transform: rotate(-90deg);
   }
 

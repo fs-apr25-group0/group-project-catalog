@@ -3,6 +3,7 @@ import logo from './images/logo.svg';
 import FavoritesLogo from './images/icons/favourites_heart_like.svg';
 import BagLogo from './images/icons/shopping_bag_cart.svg';
 import { NavLink, Outlet } from 'react-router-dom';
+import { ButtonArrow } from './ui/ButtonArrow/ButtonArrow';
 
 export const App = () => (
   <div className="App">
@@ -131,7 +132,7 @@ export const App = () => (
           href="#"
           className="footer__button"
         >
-          top
+          <ButtonArrow direction="up" />
         </a>
       </div>
     </footer>
