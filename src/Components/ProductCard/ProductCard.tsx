@@ -5,8 +5,8 @@ import { ButtonFavorite } from '../../ui/ButtonFavorite';
 import type { Product } from '../../types/products';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import { FavoriteContext } from '../../ui/context/FavoriteContext';
-import { CartContext } from '../../ui/context/CartContext';
+import { FavoriteContext } from '../../context/FavoriteContext';
+import { CartContext } from '../../context/CartContext';
 
 // type ProductCardProps = {
 //   product: Product;
