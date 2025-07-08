@@ -6,6 +6,8 @@ import './ProductInfoPage.scss';
 import { SliderForProduct } from '../../Components/SliderForProduct';
 import { useGadget } from '../../hooks/useGadget';
 
+import { ProductImageSlider } from '../../Components/ProductImageSlider';
+
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike } = useGadget();
 
@@ -39,7 +41,8 @@ export const ProductInfoPage = () => {
       <h1>{`${gadget?.name}`}</h1>
 
       <div>
-        <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2>
+        {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
+        <ProductImageSlider images={gadget?.images || []} />
       </div>
 
       <section>
