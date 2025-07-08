@@ -1,48 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import type { Gadget } from '../../types/gadgets';
+import { Link } from 'react-router-dom';
 import { Description } from '../../Components/Description';
-import { helperToFindProductsByCategory } from '../../utils/helperToFindProductsByCategory';
 import { TechSpecs } from '../../Components/TechSpecs';
-import type { Product } from '../../types/products';
-import { getProduct } from '../../api/fetchProducts';
-import { helperToFindMayLikeProducts } from '../../utils/helperToFindMayLikeProduct';
 import { UrlWay } from '../../Components/UrlWay';
 import './ProductInfoPage.scss';
 import { SliderForProduct } from '../../Components/SliderForProduct';
+import { useGadget } from '../../hooks/useGadget';
 
 export const ProductInfoPage = () => {
-  const { category, itemId } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [gadget, setGadget] = useState<Gadget | null>(null);
-  const [gadgets, setGadgets] = useState<Gadget[]>([]);
-  const [productsMayLike, setProductsMayLike] = useState<Product[]>([]);
-
-  useEffect(() => {
-    if (!category || !itemId) {
-      setLoading(false);
-      return;
-    }
-
-    helperToFindProductsByCategory(category)
-      .then((gadgets) => {
-        const foundGadget = gadgets.find((gadget) => gadget.id === itemId);
-        setGadget(foundGadget ?? null);
-        const filteredByMayLike = gadgets.filter(
-          (item) => item.namespaceId === gadget?.namespaceId,
-        );
-        setGadgets(filteredByMayLike);
-      })
-      .finally(() => setLoading(false));
-  }, [category, gadget?.namespaceId, itemId]);
-
-  useEffect(() => {
-    getProduct()
-      .then((products) => {
-        setProductsMayLike(helperToFindMayLikeProducts(products, gadgets));
-      })
-      .finally(() => setLoading(false));
-  }, [gadgets]);
+  const { category, itemId, loading, gadget, productsMayLike } = useGadget();
 
   const startIndexByMayLike = 0;
   const endIndexByMayLike = startIndexByMayLike + 4;
