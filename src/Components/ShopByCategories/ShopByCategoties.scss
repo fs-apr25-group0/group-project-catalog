@@ -73,6 +73,16 @@ $bg-color-accessories: #973d5f;
     transition: transform 0.3s ease;
   }
 
+  &__title-link {
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover .category__title {
+      text-decoration: underline;
+      color: darken(color.$color-primary, 10%);
+    }
+  }
+
   &__title {
     font-weight: 700;
     font-size: 20px;

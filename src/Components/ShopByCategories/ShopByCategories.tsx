@@ -22,7 +22,12 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="phones"
             className="category__block category__block--phones"
           />
-          <p className="category__title">Mobile phones</p>
+          <Link
+            to="phones"
+            className="category__title-link"
+          >
+            <p className="category__title">Mobile phones</p>
+          </Link>
           <span className="category__count">{amountPhones} models</span>
         </div>
 
@@ -31,7 +36,12 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="tablets"
             className="category__block category__block--tablets"
           />
-          <p className="category__title">Tablets</p>
+          <Link
+            to="tablets"
+            className="category__title-link"
+          >
+            <p className="category__title">Tablets</p>
+          </Link>
           <span className="category__count">{amountTablets} models</span>
         </div>
 
@@ -40,7 +50,12 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="accessories"
             className="category__block category__block--accessories"
           />
-          <p className="category__title">Accessories</p>
+          <Link
+            to="accessories"
+            className="category__title-link"
+          >
+            <p className="category__title">Accessories</p>
+          </Link>
           <span className="category__count">{amountAccessories} models</span>
         </div>
       </div>
