@@ -63,6 +63,8 @@ $bg-color-accessories: #973d5f;
   &__block {
     width: 100%;
     aspect-ratio: 1 / 1;
+    // max-width: 368px;
+    // max-height: 368px;
     margin-bottom: 24px;
     border-radius: 8px;
     overflow: hidden;
