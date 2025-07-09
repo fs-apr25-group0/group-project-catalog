@@ -5,9 +5,11 @@ import { LinkBack } from '../../Components/LinkBack';
 console.log('SCSS importing...');
 import './CartPage.scss';
 import type { Product } from '../../types/products';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export const CartPage = () => {
   const { productInCart, setProductInCart, setCount } = useContext(CartContext);
+  const { translate } = useTranslation();
 
   function deleteProductFromCart(product: Product) {
     setProductInCart(product);
@@ -40,7 +42,7 @@ export const CartPage = () => {
       <div className="cart__up-part">
         <LinkBack />
 
-        <h1>Cart</h1>
+        <h1>{translate('common', 'Cart')}</h1>
       </div>
 
       <div className="cart__down-part">
@@ -62,11 +64,14 @@ export const CartPage = () => {
               <div className="cart__checkout-content-text">
                 <h2 className="cart__total-price">${totalPrice}</h2>
                 <div className="cart__total-number body-text">
-                  Total for {productInCartLength} {stringItem}
+                  {translate('common', 'Total for')}
+                  {productInCartLength} {stringItem}
                 </div>
               </div>
               <div className="cart__line"></div>
-              <button className="cart__check-button body-text">Checkout</button>
+              <button className="cart__check-button body-text">
+                {translate('common', 'Checkout')}
+              </button>
             </div>
           </div>
         )}
