@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
 import { Description } from '../../Components/Description';
 import { TechSpecs } from '../../Components/TechSpecs';
 import { UrlWay } from '../../Components/UrlWay';
 import './ProductInfoPage.scss';
 import { SliderForProduct } from '../../Components/SliderForProduct';
 import { useGadget } from '../../hooks/useGadget';
+import { LinkBack } from '../../Components/LinkBack';
 
 import { ProductImageSlider } from '../../Components/ProductImageSlider';
 
@@ -28,15 +28,8 @@ export const ProductInfoPage = () => {
         category={category}
         itemId={itemId}
       />
-      <div className="url-back">
-        <div className="url-back__icon-arrow"></div>
-        <Link
-          to="../"
-          className="small-text title-grey"
-        >
-          Back
-        </Link>
-      </div>
+
+      <LinkBack />
 
       <h1>{`${gadget?.name}`}</h1>
 
