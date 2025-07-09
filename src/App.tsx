@@ -7,7 +7,7 @@ import { ButtonArrow } from './ui/ButtonArrow/ButtonArrow';
 import { useTranslation } from './hooks/useTranslation';
 
 export const App = () => {
-  const { language, setLanguage } = useTranslation();
+  const { language, setLanguage, translate } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value as 'en' | 'ua');
@@ -39,7 +39,7 @@ export const App = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  Home
+                  {translate('common', 'Home')}
                 </NavLink>
               </li>
               <li className="nav__item">
@@ -49,7 +49,7 @@ export const App = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  Phones
+                  {translate('common', 'Phones')}
                 </NavLink>
               </li>
               <li className="nav__item">
@@ -59,7 +59,7 @@ export const App = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  Tablets
+                  {translate('common', 'Tablets')}
                 </NavLink>
               </li>
               <li className="nav__item">
@@ -69,7 +69,7 @@ export const App = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  Accessories
+                  {translate('common', 'Accessories')}
                 </NavLink>
               </li>
             </ul>
@@ -127,24 +127,26 @@ export const App = () => {
             href="https://github.com/"
             className="footer__link"
           >
-            GITHUB
+            {translate('common', 'GITHUB')}
           </a>
           <NavLink
             to="/tablets"
             className="footer__link"
           >
-            CONTACTS
+            {translate('common', 'CONTACTS')}
           </NavLink>
           <NavLink
             to="/accessories"
             className="footer__link"
           >
-            RIGHTS
+            {translate('common', 'RIGHTS')}
           </NavLink>
         </nav>
 
         <div className="footer__to-top">
-          <span className="footer__text uppercase">Back to top</span>
+          <span className="footer__text uppercase">
+            {translate('common', 'Back to top')}
+          </span>
           <button
             className="footer__button"
             onClick={() => {

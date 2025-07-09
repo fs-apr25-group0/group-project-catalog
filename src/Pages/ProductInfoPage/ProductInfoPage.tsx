@@ -7,6 +7,7 @@ import { useGadget } from '../../hooks/useGadget';
 import { LinkBack } from '../../Components/LinkBack';
 
 import { ProductImageSlider } from '../../Components/ProductImageSlider';
+
 import { useContext } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { CartContext } from '../../context/CartContext';
@@ -22,6 +23,7 @@ import { useTranslation } from '../../hooks/useTranslation';
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike, gadgets } =
     useGadget();
+
   const { translate } = useTranslation();
 
   const startIndexByMayLike = 0;
@@ -171,6 +173,7 @@ export const ProductInfoPage = () => {
             </div>
           </div>
         </div>
+     
       </div>
 
       <section>
