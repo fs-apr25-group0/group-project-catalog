@@ -8,6 +8,7 @@
   flex-direction: row;
   padding: 0px 24px;
   height: 128px;
+  width: fit-content;
   background-color: white;
   border: 1px solid colors.$color-elements;
   border-radius: 16px;
@@ -26,7 +27,6 @@
   }
 
   &__image {
-    background-image: url(../../../public/img/phones/apple-iphone-11-pro-max/silver/00.webp);
     height: 66px;
     width: 66px;
     background-size: contain;
