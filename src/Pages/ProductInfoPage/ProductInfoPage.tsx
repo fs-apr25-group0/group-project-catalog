@@ -6,6 +6,8 @@ import { SliderForProduct } from '../../Components/SliderForProduct';
 import { useGadget } from '../../hooks/useGadget';
 import { LinkBack } from '../../Components/LinkBack';
 
+import { ProductImageSlider } from '../../Components/ProductImageSlider';
+
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike } = useGadget();
 
@@ -32,7 +34,8 @@ export const ProductInfoPage = () => {
       <h1>{`${gadget?.name}`}</h1>
 
       <div>
-        <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2>
+        {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
+        <ProductImageSlider images={gadget?.images || []} />
       </div>
 
       <section>
@@ -51,6 +54,8 @@ export const ProductInfoPage = () => {
       <SliderForProduct
         visibleProducts={visibleMayLikeProducts}
         title={'You may also like'}
+        productType={'phones'}
+        sortBy={'newest'}
       />
     </main>
   );
