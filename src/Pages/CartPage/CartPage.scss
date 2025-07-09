@@ -1,3 +1,5 @@
+@use '../../styles/variables/colors/colors' as colors;
+
 .cart {
   display: flex;
   flex-direction: column;
@@ -41,8 +43,66 @@
   }
 
   &__checkout {
-    height: 190px;
+    height: fit-content;
     width: 288px;
-    background-color: red;
+    border: 1px solid colors.$color-elements;
+    border-radius: 16px;
+
+    @media (min-width: 640px) {
+      width: 592px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 368px;
+    }
+  }
+
+  &__checkout-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    margin: 24px;
+  }
+
+  &__checkout-content-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__line {
+    background-color: colors.$color-elements;
+    width: 240px;
+    height: 1px;
+
+    @media (min-width: 640px) {
+      width: 544px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 321px;
+    }
+  }
+
+  &__total-number {
+    color: colors.$color-secondary;
+  }
+
+  &__check-button {
+    width: 240px;
+    height: 48px;
+    background-color: colors.$color-accent;
+    color: white;
+    border: none;
+    border-radius: 48px;
+
+    @media (min-width: 640px) {
+      width: 544px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 320px;
+    }
   }
 }

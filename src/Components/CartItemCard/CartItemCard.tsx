@@ -25,24 +25,25 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({ product }) => {
         </NavLink>
       </div>
 
-      <div className="cart-item-card__count">
-        <button
-          className="cart-item-card__button-subtract"
-          disabled
-        >
-          {/* прибарай subtract-disabled якщо кнопка активна */}
-          <div className="subtract subtract-disabled"></div>
-        </button>
-        <div className="cart-item-card__number body-text">1</div>
-        <button
-          className="cart-item-card__button-add"
-          disabled
-        >
-          <div className="add"></div>
-        </button>
+      <div className="cart-item-card__second-part">
+        <div className="cart-item-card__count">
+          <button
+            className="cart-item-card__button-subtract"
+            disabled
+          >
+            {/* прибарай subtract-disabled якщо кнопка активна */}
+            <div className="subtract subtract-disabled"></div>
+          </button>
+          <div className="cart-item-card__number body-text">1</div>
+          <button
+            className="cart-item-card__button-add"
+            disabled
+          >
+            <div className="add"></div>
+          </button>
+        </div>
+        <h3 className="cart-item-card__price">${product.price}</h3>
       </div>
-
-      <h3 className="cart-item-card__price">${product.price}</h3>
     </article>
   );
 };

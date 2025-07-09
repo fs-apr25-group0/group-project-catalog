@@ -8,11 +8,13 @@ import './CartPage.scss';
 export const CartPage = () => {
   const { productInCart } = useContext(CartContext);
 
-  // const totalPrice = productInCart.reduce(
-  //   (prev, product) => prev + product.price,
-  //   0,
-  // );
-  // const productInCartLength = productInCart.length;
+  const totalPrice = productInCart.reduce(
+    (prev, product) => prev + product.price,
+    0,
+  );
+  const productInCartLength = productInCart.length;
+
+  const stringItem = productInCartLength > 1 ? `items` : `item`;
 
   return (
     <div className="cart">
@@ -32,7 +34,18 @@ export const CartPage = () => {
           ))}
         </div>
 
-        <div className="cart__checkout"></div>
+        <div className="cart__checkout">
+          <div className="cart__checkout-content">
+            <div className="cart__checkout-content-text">
+              <h2 className="cart__total-price">${totalPrice}</h2>
+              <div className="cart__total-number body-text">
+                Total for {productInCartLength} {stringItem}
+              </div>
+            </div>
+            <div className="cart__line"></div>
+            <button className="cart__check-button body-text">Checkout</button>
+          </div>
+        </div>
       </div>
     </div>
   );
