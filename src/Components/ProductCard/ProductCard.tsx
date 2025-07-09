@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { CartContext } from '../../context/CartContext';
+import { useTranslation } from '../../hooks/useTranslation';
 
 // type ProductCardProps = {
 //   product: Product;
@@ -39,6 +40,8 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   // localStorage.removeItem('cart');
   // localStorage.removeItem('favorite');
   // window.location.reload();
+
+  const { translate } = useTranslation();
 
   const { productInCart, setProductInCart } = useContext(CartContext);
   const { productInFavorite, setProductInFavorite } =
@@ -87,19 +90,25 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
           <div className="productCard__container-specifications">
             <div className="productCard__block">
-              <span className="productCard__info small-text">Screen</span>
+              <span className="productCard__info small-text">
+                {translate('common', 'Screen')}
+              </span>
               <span className="productCard__value uppercase">
                 {product.screen}
               </span>
             </div>
             <div className="productCard__block">
-              <span className="productCard__info small-text">Capacity</span>
+              <span className="productCard__info small-text">
+                {translate('common', 'Capacity')}
+              </span>
               <span className="productCard__value uppercase">
                 {product.capacity}
               </span>
             </div>
             <div className="productCard__block">
-              <span className="productCard__info small-text">RAM</span>
+              <span className="productCard__info small-text">
+                {translate('common', 'RAM')}
+              </span>
               <span className="productCard__value uppercase">
                 {product.ram}
               </span>
