@@ -7,17 +7,31 @@ import './CartPage.scss';
 import type { Product } from '../../types/products';
 
 export const CartPage = () => {
-  const { productInCart, setProductInCart } = useContext(CartContext);
+  const { productInCart, setProductInCart, setCount } = useContext(CartContext);
 
   function deleteProductFromCart(product: Product) {
     setProductInCart(product);
   }
 
+  function addCount(product: Product) {
+    setCount(product, 'add');
+  }
+
+  function subCount(product: Product) {
+    setCount(product, 'sub');
+  }
+
   const totalPrice = productInCart.reduce(
-    (prev, product) => prev + product.price,
+    (prev, product) => prev + product.price * product.quantity,
     0,
   );
-  const productInCartLength = productInCart.length;
+
+  const productInCartLength = productInCart.reduce(
+    (prev, product) => prev + product.quantity,
+    0,
+  );
+
+  const isVisibleCheckout = productInCart.length > 0;
 
   const stringItem = productInCartLength > 1 ? `items` : `item`;
 
@@ -36,22 +50,26 @@ export const CartPage = () => {
               key={product.id}
               product={product}
               onDelete={() => deleteProductFromCart(product)}
+              addCount={() => addCount(product)}
+              subCount={() => subCount(product)}
             />
           ))}
         </div>
 
-        <div className="cart__checkout">
-          <div className="cart__checkout-content">
-            <div className="cart__checkout-content-text">
-              <h2 className="cart__total-price">${totalPrice}</h2>
-              <div className="cart__total-number body-text">
-                Total for {productInCartLength} {stringItem}
+        {isVisibleCheckout && (
+          <div className="cart__checkout">
+            <div className="cart__checkout-content">
+              <div className="cart__checkout-content-text">
+                <h2 className="cart__total-price">${totalPrice}</h2>
+                <div className="cart__total-number body-text">
+                  Total for {productInCartLength} {stringItem}
+                </div>
               </div>
+              <div className="cart__line"></div>
+              <button className="cart__check-button body-text">Checkout</button>
             </div>
-            <div className="cart__line"></div>
-            <button className="cart__check-button body-text">Checkout</button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

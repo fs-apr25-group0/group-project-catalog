@@ -1,17 +1,24 @@
 import type React from 'react';
-import type { Product } from '../../types/products';
 import './CartItemCard.scss';
 import { NavLink } from 'react-router-dom';
+import type { localProduct } from '../../hooks/useLocalStorage';
+import classNames from 'classnames';
 
 interface CartItemCardProps {
-  product: Product;
+  product: localProduct;
   onDelete: () => void;
+  addCount: () => void;
+  subCount: () => void;
 }
 
 export const CartItemCard: React.FC<CartItemCardProps> = ({
   product,
   onDelete,
+  addCount,
+  subCount,
 }) => {
+  const isDisabled = product.quantity === 1;
+
   return (
     <article className="cart-item-card">
       <div className="cart-item-card__content">
@@ -35,16 +42,22 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
       <div className="cart-item-card__second-part">
         <div className="cart-item-card__count">
           <button
-            className="cart-item-card__button-subtract"
-            disabled
+            className="cart-item-card__button cart-item-card__button--subtract"
+            disabled={isDisabled}
+            onClick={subCount}
           >
-            {/* прибарай subtract-disabled якщо кнопка активна */}
-            <div className="subtract subtract-disabled"></div>
+            <div
+              className={classNames('subtract', {
+                'subtract-disabled': isDisabled,
+              })}
+            ></div>
           </button>
-          <div className="cart-item-card__number body-text">1</div>
+          <div className="cart-item-card__number body-text">
+            {product.quantity}
+          </div>
           <button
-            className="cart-item-card__button-add"
-            disabled
+            className="cart-item-card__button cart-item-card__button--add"
+            onClick={addCount}
           >
             <div className="add"></div>
           </button>

@@ -93,10 +93,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 13px;
+    // gap: 13px;
   }
 
-  &__button-subtract {
+  &__number {
+    width: 32px;
+    text-align: center;
+  }
+
+  &__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,24 +109,18 @@
     width: 32px;
     border: 1px solid colors.$color-icons;
     border-radius: 50%;
-  }
 
-  &__button-subtract:disabled {
-    border: 1px solid colors.$color-elements;
-  }
+    &:hover {
+      border-color: colors.$color-primary;
+      color: colors.$color-primary;
+    }
 
-  &__button-add {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 32px;
-    width: 32px;
-    border: 1px solid colors.$color-icons;
-    border-radius: 50%;
+    &:disabled {
+      border: 1px solid colors.$color-elements;
+    }
   }
 
   &__price {
-    // width: 80px;
     text-align: right;
 
     @media (min-width: 640px) {
