@@ -3,12 +3,16 @@ import type { Product } from '../../types/products';
 
 interface ProductItemProps {
   product: Product;
+  category?: string;
 }
 
-export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+export const ProductItem: React.FC<ProductItemProps> = ({
+  product,
+  category,
+}) => {
   return (
     <li>
-      <NavLink to={product.itemId}>
+      <NavLink to={`/${category}/${product.itemId}`}>
         <img
           src={product.image}
           alt="product picture"

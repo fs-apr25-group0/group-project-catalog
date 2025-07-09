@@ -1,3 +1,4 @@
+import { useTranslation } from '../../hooks/useTranslation';
 import type { Gadget } from '../../types/gadgets';
 
 interface DescriptionProps {
@@ -5,14 +6,19 @@ interface DescriptionProps {
 }
 
 export const Description: React.FC<DescriptionProps> = ({ gadget }) => {
+  const { translate } = useTranslation();
+
   return (
-    <div>
+    <section>
       {gadget?.description.map(({ title, text }, index) => (
-        <div key={index}>
-          <h2>{title}</h2>
-          <p>{text}</p>
-        </div>
+        <article key={index}>
+          <h2>{translate('titleSection', title)}</h2>
+
+          {text.map((paragraph, i) => (
+            <p key={i}>{translate('titleText', paragraph)}</p>
+          ))}
+        </article>
       ))}
-    </div>
+    </section>
   );
 };

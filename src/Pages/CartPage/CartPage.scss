@@ -1,0 +1,108 @@
+@use '../../styles/variables/colors/colors' as colors;
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  margin: 24px 16px 56px;
+
+  @media (min-width: 640px) {
+    margin: 40px 24px 64px;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 40px 152px 80px;
+  }
+
+  &__up-part {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 640px) {
+      gap: 16px;
+    }
+  }
+
+  &__down-part {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (min-width: 641px) {
+      flex-direction: row;
+      gap: 16px;
+    }
+  }
+
+  &__product {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__checkout {
+    height: fit-content;
+    width: 288px;
+    border: 1px solid colors.$color-elements;
+    border-radius: 16px;
+
+    @media (min-width: 640px) {
+      width: 592px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 368px;
+    }
+  }
+
+  &__checkout-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    margin: 24px;
+  }
+
+  &__checkout-content-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__line {
+    background-color: colors.$color-elements;
+    width: 240px;
+    height: 1px;
+
+    @media (min-width: 640px) {
+      width: 544px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 321px;
+    }
+  }
+
+  &__total-number {
+    color: colors.$color-secondary;
+  }
+
+  &__check-button {
+    width: 240px;
+    height: 48px;
+    background-color: colors.$color-accent;
+    color: white;
+    border: none;
+    border-radius: 48px;
+
+    @media (min-width: 640px) {
+      width: 544px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 320px;
+    }
+  }
+}

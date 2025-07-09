@@ -1,14 +1,27 @@
-// import type { Gadget } from '../../types/gadgets';
+import type { Gadget } from '../../types/gadgets';
+import { helperToCreateTechSpecs } from '../../utils/helperToCreateTechSpecs';
 
-// interface TechSpecsProps {
-//   gadget: Gadget | null;
-// }
+interface TechSpecsProps {
+  gadget: Gadget | null;
+}
 
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
-//   return (
-//     <div>
-//       <p style={{ color: 'red' }}>Here must me specs</p>
-//     </div>
-//   );
-// };
+export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
+  if (!gadget) {
+    return null;
+  }
+
+  const techSpecs = helperToCreateTechSpecs(gadget);
+
+  return (
+    <section>
+      <dl>
+        {Object.entries(techSpecs).map(([spec, value]) => (
+          <div key={spec}>
+            <dt>{spec}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+};

@@ -1,5 +1,6 @@
 import type { Product } from '../../types/products';
-import { ProductItem } from '../ProductItem/ProductItems';
+import { ProductCard } from '../ProductCard';
+import './ProductList.scss';
 
 type Props = {
   visibleProducts: Product[];
@@ -7,11 +8,12 @@ type Props = {
 
 export const ProductList: React.FC<Props> = ({ visibleProducts }) => {
   return (
-    <ul>
+    <ul className="product-list">
       {visibleProducts.map((product) => (
-        <ProductItem
-          product={product}
+        <ProductCard
           key={product.id}
+          category={product.category}
+          product={product}
         />
       ))}
     </ul>

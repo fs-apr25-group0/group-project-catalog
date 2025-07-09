@@ -1,59 +1,60 @@
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import type { Gadget } from '../../types/gadgets';
 import { Description } from '../../Components/Description';
-import { helperToFindProductsByCategory } from '../../utils/helperToFindProductsByCategory';
-// import { TechSpecs } from '../../Components/TechSpecs/TechSpecs';
+import { TechSpecs } from '../../Components/TechSpecs';
+import { UrlWay } from '../../Components/UrlWay';
+import './ProductInfoPage.scss';
+import { SliderForProduct } from '../../Components/SliderForProduct';
+import { useGadget } from '../../hooks/useGadget';
+import { LinkBack } from '../../Components/LinkBack';
+
+import { ProductImageSlider } from '../../Components/ProductImageSlider';
 
 export const ProductInfoPage = () => {
-  const { category, itemId } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [gadget, setGadget] = useState<Gadget | null>(null);
+  const { category, itemId, loading, gadget, productsMayLike } = useGadget();
 
-  useEffect(() => {
-    if (!category || !itemId) {
-      setLoading(false);
-      return;
-    }
-
-    helperToFindProductsByCategory(category)
-      .then((gadgets) => {
-        const foundGadget = gadgets.find((gadget) => gadget.id === itemId);
-        setGadget(foundGadget ?? null);
-      })
-      .finally(() => setLoading(false));
-  }, [category, itemId]);
+  const startIndexByMayLike = 0;
+  const endIndexByMayLike = startIndexByMayLike + 4;
+  const visibleMayLikeProducts = productsMayLike.slice(
+    startIndexByMayLike,
+    endIndexByMayLike,
+  );
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
   return (
-    <>
-      <Link to="../">Back</Link>
+    <main>
+      <UrlWay
+        category={category}
+        itemId={itemId}
+      />
+
+      <LinkBack />
 
       <h1>{`${gadget?.name}`}</h1>
 
       <div>
-        <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2>
+        {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
+        <ProductImageSlider images={gadget?.images || []} />
       </div>
 
-      <div>
-        <div>
+      <section>
+        <section>
           <h2>About</h2>
 
           <Description gadget={gadget} />
-        </div>
+        </section>
 
-        {/* <div>
+        <section>
           <h2>Tech specs</h2>
           <TechSpecs gadget={gadget} />
-        </div> */}
-      </div>
+        </section>
+      </section>
 
-      <h2 style={{ color: 'red' }}>
-        Here must be list with (You may also like)
-      </h2>
-    </>
+      <SliderForProduct
+        visibleProducts={visibleMayLikeProducts}
+        title={'You may also like'}
+      />
+    </main>
   );
 };

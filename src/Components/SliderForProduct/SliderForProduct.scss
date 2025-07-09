@@ -1,0 +1,29 @@
+.slider-for-product {
+  padding: 40px 0;
+
+  .slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .my-swiper {
+    overflow: hidden;
+
+    .swiper-wrapper {
+      display: flex;
+    }
+
+    .swiper-slide {
+      flex-shrink: 0;
+      width: auto !important;
+      max-width: 272px;
+    }
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}

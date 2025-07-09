@@ -1,0 +1,100 @@
+@use '../../styles/variables/colors/colors' as color;
+
+.products-page {
+  padding: 24px 0 0 0;
+
+  &__container {
+    padding: 0 16px;
+
+    @media (min-width: 640px) {
+      padding: 0 24px;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 0 32px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__url-way {
+    margin-bottom: 40px;
+  }
+
+  &__header {
+    margin-bottom: 8px;
+
+    h1 {
+      font-family: 'Mont';
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.01em;
+      color: #313237;
+    }
+  }
+
+  &__count {
+    font-family: 'Mont';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: color.$color-secondary;
+    margin-bottom: 40px;
+  }
+
+  &__filter-panel {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    &__label {
+      font-family: 'Mont';
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 100%;
+      color: color.$color-secondary;
+    }
+
+    &__select {
+      position: relative;
+      appearance: none;
+      padding: 10px 40px 10px 12px;
+      border: 1px solid color.$color-icons;
+      border-radius: 8px;
+      font-family: 'Mont';
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: color.$color-primary;
+      background-color: white;
+      background-image: url('../../images/icons/chevron_arrow_down.svg');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 24px;
+
+      &:focus {
+        outline: none;
+        border-color: color.$color-primary;
+      }
+    }
+  }
+
+  &__product-list {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @media (min-width: 640px) {
+      margin-bottom: 40px;
+    }
+  }
+}
