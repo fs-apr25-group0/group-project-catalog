@@ -5,8 +5,9 @@ import { Pagination } from '../../Components/Pagination';
 import { useProductForCategories } from '../../hooks/useProductsForCategories';
 import { UrlWay } from '../../Components/UrlWay';
 import type { SortType } from '../../types/sortType';
-import { sortVariants } from '../../constans/sortVariants';
+import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
+import { Dropdown } from '../../ui/Dropdown';
 
 export const ProductsPage = () => {
   const {
@@ -32,8 +33,10 @@ export const ProductsPage = () => {
   const sortedProducts = helperToSortProducts(products, sortBy);
   const visibleProducts = sortedProducts.slice(startIndex, endIndex);
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSort = event.target.value as SortType;
+  const paginationVariantsValues = [3, 5, 10, 16];
+
+  const handleSortChange = (value: string) => {
+    const newSort = value as SortType;
     searchParams.set('sort', newSort);
     setSearchParams(searchParams);
   };
@@ -43,8 +46,8 @@ export const ProductsPage = () => {
     setSearchParams(searchParams);
   };
 
-  const handlePerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newPerPage = +event.target.value;
+  const handlePerPageChange = (value: string) => {
+    const newPerPage = +value;
     searchParams.set('perPage', newPerPage.toString());
     searchParams.set('page', '1');
     setSearchParams(searchParams);
@@ -74,39 +77,21 @@ export const ProductsPage = () => {
           <p className="products-page__count">{amountProduct} models</p>
 
           <div className="products-page__filter-panel">
-            <div className="products-page__filter-panel__group">
-              <p className="products-page__filter-panel__label">Sort by</p>
-              <select
-                className="products-page__filter-panel__select"
-                value={sortBy}
-                onChange={handleSortChange}
-              >
-                {Object.values(sortVariants).map((variant) => (
-                  <option
-                    key={variant}
-                    value={variant}
-                  >
-                    {variant}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <Dropdown
+              title="Sort by"
+              value={sortBy}
+              onChange={handleSortChange}
+              variants={sortVariantsValues}
+              cl="sort"
+            />
 
-            <div className="products-page__filter-panel__group">
-              <p className="products-page__filter-panel__label">
-                Items on page
-              </p>
-              <select
-                className="products-page__filter-panel__select"
-                value={perPage}
-                onChange={handlePerPageChange}
-              >
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="16">16</option>
-              </select>
-            </div>
+            <Dropdown
+              title="Items on page"
+              value={perPage}
+              onChange={handlePerPageChange}
+              variants={paginationVariantsValues}
+              cl="pagination"
+            />
           </div>
 
           <div className="products-page__product-list">
