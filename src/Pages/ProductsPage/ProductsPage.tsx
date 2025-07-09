@@ -7,7 +7,6 @@ import { UrlWay } from '../../Components/UrlWay';
 import type { SortType } from '../../types/sortType';
 import { sortVariants } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
-import { useTranslation } from '../../hooks/useTranslation';
 
 export const ProductsPage = () => {
   const {
@@ -18,7 +17,6 @@ export const ProductsPage = () => {
     amountProduct,
     selectedCategory,
   } = useProductForCategories();
-  const { translate } = useTranslation();
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -73,15 +71,11 @@ export const ProductsPage = () => {
             <h1>{category === 'phone' ? `Mobile ${category}` : category}</h1>
           </div>
 
-          <p className="products-page__count">
-            {amountProduct} {translate('common', 'models')}
-          </p>
+          <p className="products-page__count">{amountProduct} models</p>
 
           <div className="products-page__filter-panel">
             <div className="products-page__filter-panel__group">
-              <p className="products-page__filter-panel__label">
-                {translate('common', 'Sort by')}
-              </p>
+              <p className="products-page__filter-panel__label">Sort by</p>
               <select
                 className="products-page__filter-panel__select"
                 value={sortBy}
@@ -92,7 +86,7 @@ export const ProductsPage = () => {
                     key={variant}
                     value={variant}
                   >
-                    {translate('common', variant)}
+                    {variant}
                   </option>
                 ))}
               </select>
@@ -100,7 +94,7 @@ export const ProductsPage = () => {
 
             <div className="products-page__filter-panel__group">
               <p className="products-page__filter-panel__label">
-                {translate('common', 'Items on page')}
+                Items on page
               </p>
               <select
                 className="products-page__filter-panel__select"
