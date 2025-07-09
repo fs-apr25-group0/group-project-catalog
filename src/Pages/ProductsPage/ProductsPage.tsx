@@ -35,8 +35,8 @@ export const ProductsPage = () => {
 
   const paginationVariantsValues = [3, 5, 10, 16];
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSort = event.target.value as SortType;
+  const handleSortChange = (value: string) => {
+    const newSort = value as SortType;
     searchParams.set('sort', newSort);
     setSearchParams(searchParams);
   };
@@ -46,8 +46,8 @@ export const ProductsPage = () => {
     setSearchParams(searchParams);
   };
 
-  const handlePerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newPerPage = +event.target.value;
+  const handlePerPageChange = (value: string) => {
+    const newPerPage = +value;
     searchParams.set('perPage', newPerPage.toString());
     searchParams.set('page', '1');
     setSearchParams(searchParams);
