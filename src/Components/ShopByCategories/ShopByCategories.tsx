@@ -1,3 +1,4 @@
+import { useTranslation } from '../../hooks/useTranslation';
 import './ShopByCategoties.scss';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +13,8 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
   amountTablets,
   amountAccessories,
 }) => {
+  const { translate } = useTranslation();
+
   return (
     <section className="categories">
       <h2 className="categories__title">Shop by category</h2>
@@ -26,9 +29,13 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="phones"
             className="category__title-link"
           >
-            <p className="category__title">Mobile phones</p>
+            <p className="category__title">
+              {translate('common', 'Mobile phones')}
+            </p>
           </Link>
-          <span className="category__count">{amountPhones} models</span>
+          <span className="category__count">
+            {amountPhones} {translate('common', 'models')}
+          </span>
         </div>
 
         <div className="category category--tablets">
@@ -40,9 +47,11 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="tablets"
             className="category__title-link"
           >
-            <p className="category__title">Tablets</p>
+            <p className="category__title">{translate('common', 'Tablets')}</p>
           </Link>
-          <span className="category__count">{amountTablets} models</span>
+          <span className="category__count">
+            {amountTablets} {translate('common', 'models')}
+          </span>
         </div>
 
         <div className="category category--accessories">
@@ -54,9 +63,13 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="accessories"
             className="category__title-link"
           >
-            <p className="category__title">Accessories</p>
+            <p className="category__title">
+              {translate('common', 'Accessories')}
+            </p>
           </Link>
-          <span className="category__count">{amountAccessories} models</span>
+          <span className="category__count">
+            {amountAccessories} {translate('common', 'models')}
+          </span>
         </div>
       </div>
     </section>

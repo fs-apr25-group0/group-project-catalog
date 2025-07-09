@@ -2,6 +2,7 @@ import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
 import { ShopByCategory } from '../../Components/ShopByCategories';
 import { SliderForProduct } from '../../Components/SliderForProduct';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export const HomePage = () => {
   const {
@@ -13,19 +14,7 @@ export const HomePage = () => {
     hotPriceProducts,
   } = useProductForHomePage();
 
-  const startIndexForNew = 0;
-  const endIndexForNew = startIndexForNew + 4;
-  const visibleNewProducts = newProducts.slice(
-    startIndexForNew,
-    endIndexForNew,
-  );
-
-  const startIndexForHot = 0;
-  const endIndexForHot = startIndexForHot + 4;
-  const visibleHotProducts = hotPriceProducts.slice(
-    startIndexForHot,
-    endIndexForHot,
-  );
+  const { translate } = useTranslation();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -34,12 +23,12 @@ export const HomePage = () => {
   return (
     <main>
       <div>
-        <h1>Welcome to Nice Gadgets store!</h1>
+        <h1>{translate('common', 'Welcome to Nice Gadgets store!')}</h1>
         <MainSlider />
       </div>
 
       <SliderForProduct
-        visibleProducts={visibleNewProducts}
+        visibleProducts={newProducts}
         title={'Brand new models'}
       />
 
@@ -50,7 +39,7 @@ export const HomePage = () => {
       />
 
       <SliderForProduct
-        visibleProducts={visibleHotProducts}
+        visibleProducts={hotPriceProducts}
         title={'Hot prices'}
       />
     </main>

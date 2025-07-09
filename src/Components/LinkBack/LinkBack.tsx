@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import './LinkBack.scss';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export const LinkBack = () => {
+  const { translate } = useTranslation();
+
   return (
     <div className="url-back">
       <div className="url-back__icon-arrow"></div>
@@ -9,7 +12,7 @@ export const LinkBack = () => {
         to="../"
         className="small-text title-grey"
       >
-        Back
+        {translate('common', 'Back')}
       </Link>
     </div>
   );

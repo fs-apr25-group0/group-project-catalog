@@ -2,37 +2,47 @@ import * as React from 'react';
 import { Select } from 'radix-ui';
 import classnames from 'classnames';
 import './Dropdown.scss';
+import { useTranslation } from '../../hooks/useTranslation';
 
-export const Dropdown = () => (
-  <Select.Root>
-    <Select.Trigger
-      className="SelectTrigger Sort button-text"
-      aria-label="Sort"
-    >
-      <Select.Value placeholder="Newest" />
+export const Dropdown = () => {
+  const { translate } = useTranslation();
 
-      <div className="icon-chewron-down"></div>
-    </Select.Trigger>
-
-    <Select.Portal>
-      <Select.Content
-        className="SelectContent"
-        position="popper"
-        side="bottom"
-        collisionPadding={-10}
+  return (
+    <Select.Root>
+      <Select.Trigger
+        className="SelectTrigger Sort button-text"
+        aria-label="Sort"
       >
-        <Select.Viewport className="SelectViewport">
-          <Select.Group>
-            <SelectItem value="newest">Newest</SelectItem>
-            <SelectItem value="alphabetically">Alphabetically</SelectItem>
-            <SelectItem value="cheapest ">Cheapest</SelectItem>
-          </Select.Group>
-        </Select.Viewport>
-      </Select.Content>
-    </Select.Portal>
-  </Select.Root>
-);
+        <Select.Value placeholder="Newest" />
 
+        <div className="icon-chewron-down"></div>
+      </Select.Trigger>
+
+      <Select.Portal>
+        <Select.Content
+          className="SelectContent"
+          position="popper"
+          side="bottom"
+          collisionPadding={-10}
+        >
+          <Select.Viewport className="SelectViewport">
+            <Select.Group>
+              <SelectItem value="newest">
+                {translate('common', 'Newest')}
+              </SelectItem>
+              <SelectItem value="alphabetically">
+                {translate('common', 'Alphabetically')}
+              </SelectItem>
+              <SelectItem value="cheapest ">
+                {translate('common', 'Cheapest')}
+              </SelectItem>
+            </Select.Group>
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
+  );
+};
 type SelectItemProps = React.ComponentProps<typeof Select.Item> & {
   children: React.ReactNode;
   className?: string;

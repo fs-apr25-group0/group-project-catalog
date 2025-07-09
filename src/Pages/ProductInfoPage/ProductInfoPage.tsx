@@ -7,9 +7,11 @@ import { useGadget } from '../../hooks/useGadget';
 import { LinkBack } from '../../Components/LinkBack';
 
 import { ProductImageSlider } from '../../Components/ProductImageSlider';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike } = useGadget();
+  const { translate } = useTranslation();
 
   const startIndexByMayLike = 0;
   const endIndexByMayLike = startIndexByMayLike + 4;
@@ -34,19 +36,18 @@ export const ProductInfoPage = () => {
       <h1>{`${gadget?.name}`}</h1>
 
       <div>
-        {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
         <ProductImageSlider images={gadget?.images || []} />
       </div>
 
       <section>
         <section>
-          <h2>About</h2>
+          <h2>{translate('common', 'About')}</h2>
 
           <Description gadget={gadget} />
         </section>
 
         <section>
-          <h2>Tech specs</h2>
+          <h2>{translate('common', 'Tech specs')}</h2>
           <TechSpecs gadget={gadget} />
         </section>
       </section>
