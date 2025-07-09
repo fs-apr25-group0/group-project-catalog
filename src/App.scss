@@ -2,6 +2,27 @@
 
 $icon-size: 16px;
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.App {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section {
+  flex-grow: 1;
+}
+
 .header {
   height: 64px;
   box-shadow: 0 1px 0 0 color.$color-elements;
@@ -19,9 +40,9 @@ $icon-size: 16px;
 
   &__logo {
     padding: 18px 24px;
-    height: 100%;
     display: flex;
     align-items: center;
+    height: 100%;
 
     img {
       width: 80px;
@@ -63,6 +84,8 @@ $icon-size: 16px;
     letter-spacing: 0.04em;
     color: color.$color-secondary;
     text-decoration: none;
+    box-sizing: border-box;
+    background-color: transparent;
 
     &--active {
       color: color.$color-primary;
@@ -86,6 +109,7 @@ $icon-size: 16px;
     height: 100%;
 
     .nav__action-link {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -94,11 +118,20 @@ $icon-size: 16px;
       width: 64px;
       box-sizing: border-box;
       box-shadow: -1px 0 0 0 color.$color-elements;
-    }
+      cursor: pointer;
+      background-color: transparent;
 
-    .nav__action-icon {
-      width: $icon-size;
-      height: $icon-size;
+      &.active {
+        border-bottom: 3px solid color.$color-primary;
+        background-color: transparent;
+        box-shadow: -1px 0 0 0 color.$color-elements;
+      }
+
+      img {
+        width: $icon-size;
+        height: $icon-size;
+        pointer-events: none;
+      }
     }
 
     select {
@@ -128,7 +161,6 @@ $icon-size: 16px;
   border: none;
   cursor: pointer;
   box-sizing: border-box;
-
   box-shadow: -1px 0 0 0 color.$color-elements;
 
   img {
@@ -200,6 +232,9 @@ $icon-size: 16px;
       color: color.$color-secondary;
       text-decoration: none;
       position: relative;
+      padding: 0 8px;
+      line-height: 48px;
+      background-color: transparent;
 
       &.nav__link--active {
         color: color.$color-primary;
@@ -207,7 +242,7 @@ $icon-size: 16px;
         &::after {
           content: '';
           position: absolute;
-          bottom: -4px;
+          bottom: 8px;
           left: 0;
           width: 100%;
           height: 2px;
@@ -218,31 +253,57 @@ $icon-size: 16px;
   }
 
   &__actions {
-    margin-top: auto;
+    position: relative;
     display: flex;
-    flex-direction: column;
     width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    height: 64px;
+    background-color: #fff;
+    margin-top: auto;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: color.$color-elements;
+    }
 
     .mobile-menu__icon {
-      width: 180px;
-      height: 64px;
+      flex: 1 1 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      cursor: pointer;
+      background-color: transparent;
+
+      &.active {
+        border-bottom: 2px solid color.$color-primary;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 1px;
+        background-color: color.$color-elements;
+        display: none;
+      }
+
+      &:not(:first-child)::before {
+        display: block;
+      }
 
       img {
         width: $icon-size;
         height: $icon-size;
-      }
-
-      &.nav__link--active::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #313237;
+        pointer-events: none;
       }
     }
   }
@@ -306,6 +367,66 @@ $icon-size: 16px;
         width: 64px;
         height: 22px;
       }
+    }
+  }
+}
+
+// --- Футер ---
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 152px;
+  height: 96px;
+
+  border-top: 1px solid color.$color-elements;
+
+  &__logo {
+    img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 32px;
+
+    .footer__link {
+      font-family: 'Mont', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: #666666;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        color: #313237;
+      }
+    }
+  }
+
+  &__to-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .footer__text {
+      font-family: 'Mont', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #666666;
+    }
+
+    .footer__button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
     }
   }
 }

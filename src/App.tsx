@@ -4,7 +4,7 @@ import FavoritesLogo from './images/icons/favourites_heart_like.svg';
 import BagLogo from './images/icons/shopping_bag_cart.svg';
 import BurgerIcon from './images/icons/menu.svg';
 import CloseIcon from './images/icons/close.svg';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { ButtonArrow } from './ui/ButtonArrow/ButtonArrow';
 import { useTranslation } from './hooks/useTranslation';
 import { useEffect, useState } from 'react';
@@ -29,6 +29,16 @@ export const App = () => {
   const isMobile = useMobile();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  const location = useLocation();
+
+  // Определяем, активна ли сейчас иконка "favorites" или "cart"
+  const isFavoritesActive = location.pathname === '/favorites';
+  const isCartActive = location.pathname === '/cart';
+
+  // Класс, чтобы скрыть underline у меню, если активна иконка
+  const iconActiveClass =
+    isFavoritesActive || isCartActive ? 'icon-active' : '';
+
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value as 'en' | 'ua');
   };
@@ -42,7 +52,7 @@ export const App = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className="App">
+    <div className={`App ${iconActiveClass}`}>
       <header
         className="header"
         id="header"
@@ -138,8 +148,9 @@ export const App = () => {
                   <div className="mobile-menu__actions">
                     <NavLink
                       to="/favorites"
-                      className="mobile-menu__icon"
+                      className={`mobile-menu__icon ${isFavoritesActive ? 'active' : ''}`}
                       onClick={() => setMenuOpen(false)}
+                      aria-label="Favorites"
                     >
                       <img
                         src={FavoritesLogo}
@@ -148,8 +159,9 @@ export const App = () => {
                     </NavLink>
                     <NavLink
                       to="/cart"
-                      className="mobile-menu__icon"
+                      className={`mobile-menu__icon ${isCartActive ? 'active' : ''}`}
                       onClick={() => setMenuOpen(false)}
+                      aria-label="Cart"
                     >
                       <img
                         src={BagLogo}
@@ -216,7 +228,7 @@ export const App = () => {
 
                 <NavLink
                   to="/favorites"
-                  className="nav__action-link"
+                  className={`nav__action-link ${isFavoritesActive ? 'active' : ''}`}
                   aria-label="Favorites"
                 >
                   <img
@@ -227,7 +239,7 @@ export const App = () => {
                 </NavLink>
                 <NavLink
                   to="/cart"
-                  className="nav__action-link"
+                  className={`nav__action-link ${isCartActive ? 'active' : ''}`}
                   aria-label="Cart"
                 >
                   <img
@@ -282,18 +294,16 @@ export const App = () => {
 
         <div className="footer__to-top">
           <span className="footer__text uppercase">Back to top</span>
-          <button
-            className="footer__button"
+          <ButtonArrow
+            direction="up"
             onClick={() => {
               const header = document.getElementById('header');
               if (header) {
                 header.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            aria-label="Back to top"
-          >
-            <ButtonArrow direction="up" />
-          </button>
+            className="footer__button"
+          />
         </div>
       </footer>
     </div>
