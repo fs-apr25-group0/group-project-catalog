@@ -1,0 +1,30 @@
+@use '../../styles/variables/colors/colors' as colors;
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__name {
+    color: colors.$color-secondary;
+  }
+
+  &__select {
+    all: unset;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid colors.$color-icons;
+    // font-weight: normal;
+  }
+
+  &__item {
+    color: colors.$color-secondary;
+
+    &:hover {
+      color: colors.$color-primary !important;
+      background-color: beige !important;
+    }
+  }
+}

@@ -19,6 +19,8 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
 }) => {
   const isDisabled = product.quantity === 1;
 
+  const totalPriceForOneProduct = product.price * product.quantity;
+
   return (
     <article className="cart-item-card">
       <div className="cart-item-card__content">
@@ -62,7 +64,7 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
             <div className="add"></div>
           </button>
         </div>
-        <h3 className="cart-item-card__price">${product.price}</h3>
+        <h3 className="cart-item-card__price">${totalPriceForOneProduct}</h3>
       </div>
     </article>
   );

@@ -5,8 +5,9 @@ import { Pagination } from '../../Components/Pagination';
 import { useProductForCategories } from '../../hooks/useProductsForCategories';
 import { UrlWay } from '../../Components/UrlWay';
 import type { SortType } from '../../types/sortType';
-import { sortVariants } from '../../constans/sortVariants';
+import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
+import { Dropdown } from '../../ui/Dropdown';
 
 export const ProductsPage = () => {
   const {
@@ -31,6 +32,8 @@ export const ProductsPage = () => {
 
   const sortedProducts = helperToSortProducts(products, sortBy);
   const visibleProducts = sortedProducts.slice(startIndex, endIndex);
+
+  const paginationVariantsValues = [3, 5, 10, 16];
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newSort = event.target.value as SortType;
@@ -74,39 +77,19 @@ export const ProductsPage = () => {
           <p className="products-page__count">{amountProduct} models</p>
 
           <div className="products-page__filter-panel">
-            <div className="products-page__filter-panel__group">
-              <p className="products-page__filter-panel__label">Sort by</p>
-              <select
-                className="products-page__filter-panel__select"
-                value={sortBy}
-                onChange={handleSortChange}
-              >
-                {Object.values(sortVariants).map((variant) => (
-                  <option
-                    key={variant}
-                    value={variant}
-                  >
-                    {variant}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <Dropdown
+              title="Sort by"
+              value={sortBy}
+              onChange={handleSortChange}
+              variants={sortVariantsValues}
+            />
 
-            <div className="products-page__filter-panel__group">
-              <p className="products-page__filter-panel__label">
-                Items on page
-              </p>
-              <select
-                className="products-page__filter-panel__select"
-                value={perPage}
-                onChange={handlePerPageChange}
-              >
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="16">16</option>
-              </select>
-            </div>
+            <Dropdown
+              title="Items on page"
+              value={perPage}
+              onChange={handlePerPageChange}
+              variants={paginationVariantsValues}
+            />
           </div>
 
           <div className="products-page__product-list">
