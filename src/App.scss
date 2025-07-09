@@ -4,6 +4,12 @@ html {
   scroll-behavior: smooth;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 // HEADER
 .header {
   height: 64px;
@@ -121,8 +127,14 @@ html {
   }
 }
 
+// MAIN CONTENT
+.section {
+  flex: 1 0 auto;
+}
+
 // FOOTER
 .footer {
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
