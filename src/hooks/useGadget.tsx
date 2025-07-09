@@ -45,5 +45,6 @@ export const useGadget = () => {
     loading,
     gadget,
     productsMayLike,
+    gadgets,
   };
 };

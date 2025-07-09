@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ColorPicker.scss';
 
-const colors = ['#FF0000', '#00FF00', '#0000FF', '#FFA500'];
+type ColorPickerProps = {
+  colors: string[];
+  selectedColor: string;
+  onSelect: (color: string) => void;
+};
 
-export const ColorPicker: React.FC = () => {
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
-
+export const ColorPicker: React.FC<ColorPickerProps> = ({
+  colors,
+  selectedColor,
+  onSelect,
+}) => {
   return (
     <div className="color-picker">
       {colors.map((color) => (
@@ -14,7 +20,7 @@ export const ColorPicker: React.FC = () => {
           className={`color-picker__item ${
             selectedColor === color ? 'color-picker__item--selected' : ''
           }`}
-          onClick={() => setSelectedColor(color)}
+          onClick={() => onSelect(color)}
           aria-label={`Pick ${color}`}
         >
           <span
