@@ -7,9 +7,14 @@ import type { SwiperRef } from 'swiper/react';
 
 import { NavLink } from 'react-router-dom';
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-expect-error
 import 'swiper/css';
+// @ts-expect-error
 import 'swiper/css/pagination';
+// @ts-expect-error
 import 'swiper/css/navigation';
+/* eslint-enable @typescript-eslint/ban-ts-comment */
 
 const slides = [
   {
