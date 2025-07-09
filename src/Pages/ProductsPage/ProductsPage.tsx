@@ -6,6 +6,7 @@ import { useProductForCategories } from '../../hooks/useProductsForCategories';
 import { UrlWay } from '../../Components/UrlWay';
 import type { SortType } from '../../types/sortType';
 import { sortVariants } from '../../constans/sortVariants';
+import { helperToSortProducts } from '../../utils/helperToSortProducts';
 
 export const ProductsPage = () => {
   const {
@@ -28,20 +29,7 @@ export const ProductsPage = () => {
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
 
-  const sortedProducts = [...products].sort((a, b) => {
-    switch (sortBy) {
-      case sortVariants.Newest:
-        return b.year - a.year;
-      case sortVariants.Oldest:
-        return a.year - b.year;
-      case sortVariants.Cheap:
-        return a.price - b.price;
-      case sortVariants.Expensive:
-        return b.price - a.price;
-      default:
-        return 0;
-    }
-  });
+  const sortedProducts = helperToSortProducts(products, sortBy);
   const visibleProducts = sortedProducts.slice(startIndex, endIndex);
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
