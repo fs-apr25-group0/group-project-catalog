@@ -10,6 +10,7 @@ import { CartPage } from './Pages/CartPage';
 import { ProductsPage } from './Pages/ProductsPage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { ProductInfoPage } from './Pages/ProductInfoPage';
+import { RussiaTrash } from './Pages/RussiaTrash';
 
 export const Root = () => (
   <Router>
@@ -47,6 +48,11 @@ export const Root = () => (
         <Route
           path="cart"
           element={<CartPage />}
+        />
+
+        <Route
+          path="russians-are-not-people"
+          element={<RussiaTrash />}
         />
 
         <Route
