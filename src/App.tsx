@@ -5,12 +5,20 @@ import BagLogo from './images/icons/shopping_bag_cart.svg';
 import { NavLink, Outlet } from 'react-router-dom';
 import { ButtonArrow } from './ui/ButtonArrow/ButtonArrow';
 import { useTranslation } from './hooks/useTranslation';
+import { useNavigate } from 'react-router-dom';
 
 export const App = () => {
   const { language, setLanguage, translate } = useTranslation();
+  const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value as 'en' | 'ua');
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLang = event.target.value;
+
+    if (selectedLang === 'ru') {
+      navigate('/russians-are-not-people');
+      return;
+    }
+    setLanguage(event.target.value as 'en' | 'ua');
   };
   return (
     <div className="App">
@@ -102,6 +110,7 @@ export const App = () => {
             >
               <option value="ua">UA</option>
               <option value="en">EN</option>
+              <option value="ru">RU</option>
             </select>
           </nav>
         </div>
