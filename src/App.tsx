@@ -14,7 +14,10 @@ export const App = () => {
   };
   return (
     <div className="App">
-      <header className="header">
+      <header
+        className="header"
+        id="header"
+      >
         <div className="header__container">
           <NavLink
             to="/"
@@ -142,12 +145,17 @@ export const App = () => {
 
         <div className="footer__to-top">
           <span className="footer__text uppercase">Back to top</span>
-          <a
-            href="#"
+          <button
             className="footer__button"
+            onClick={() => {
+              const header = document.getElementById('header');
+              if (header) {
+                header.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             <ButtonArrow direction="up" />
-          </a>
+          </button>
         </div>
       </footer>
     </div>
