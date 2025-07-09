@@ -54,8 +54,6 @@ export const ProductInfoPage = () => {
       <SliderForProduct
         visibleProducts={visibleMayLikeProducts}
         title={'You may also like'}
-        productType={'phones'}
-        sortBy={'newest'}
       />
     </main>
   );
