@@ -82,6 +82,7 @@ export const ProductsPage = () => {
               value={sortBy}
               onChange={handleSortChange}
               variants={sortVariantsValues}
+              cl="sort"
             />
 
             <Dropdown
@@ -89,6 +90,7 @@ export const ProductsPage = () => {
               value={perPage}
               onChange={handlePerPageChange}
               variants={paginationVariantsValues}
+              cl="pagination"
             />
           </div>
 

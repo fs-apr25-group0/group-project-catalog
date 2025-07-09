@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Select } from 'radix-ui';
 import './Dropdown.scss';
 import { useTranslation } from '../../hooks/useTranslation';
+import classNames from 'classnames';
 
 interface DropdownProps {
   title: string;
   value: string | number;
   onChange: (v: string) => void;
   variants: (string | number)[];
+  cl: string;
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -15,32 +17,38 @@ export const Dropdown: React.FC<DropdownProps> = ({
   value,
   onChange,
   variants,
+  cl,
 }) => {
   const { translate } = useTranslation();
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <div className="dropdown">
-      <label
-        className="dropdown__name small-text"
-        htmlFor="selectId"
-      >
-        {title}
-      </label>
+      <label className="dropdown__name small-text">{title}</label>
       <Select.Root
         value={value.toString()}
         onValueChange={onChange}
+        onOpenChange={setIsOpen}
       >
         <Select.Trigger
-          className="SelectTrigger Sort button-text"
-          aria-label="Sort"
+          className={classNames(
+            'SelectTrigger',
+            cl,
+            'btn-reset',
+            'button-text',
+          )}
+          aria-label="dropdown"
         >
-          <Select.Value placeholder="Newest" />
+          <Select.Value />
 
-          <div className="icon-chewron-down"></div>
+          {isOpen ?
+            <div className="icon-chewron-up"></div>
+          : <div className="icon-chewron-down"></div>}
         </Select.Trigger>
 
         <Select.Portal>
           <Select.Content
-            className="SelectContent"
+            className={classNames('SelectContent', cl)}
             position="popper"
             side="bottom"
             collisionPadding={-10}
