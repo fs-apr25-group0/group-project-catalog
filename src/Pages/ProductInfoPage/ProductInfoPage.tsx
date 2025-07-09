@@ -173,7 +173,6 @@ export const ProductInfoPage = () => {
             </div>
           </div>
         </div>
-     
       </div>
 
       <section>

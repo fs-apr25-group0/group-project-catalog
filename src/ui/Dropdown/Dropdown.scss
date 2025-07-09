@@ -10,11 +10,23 @@
 }
 
 .sort {
-  width: 176px;
+  width: 136px;
+
+  @media (min-width: 640px) {
+    width: 187px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 176px;
+  }
 }
 
 .pagination {
-  width: 128px;
+  width: 136px;
+
+  @media (min-width: 1200px) {
+    width: 128px;
+  }
 }
 
 .dropdown__name {
