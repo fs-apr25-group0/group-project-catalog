@@ -4,9 +4,14 @@ import { CartItemCard } from '../../Components/CartItemCard';
 import { LinkBack } from '../../Components/LinkBack';
 console.log('SCSS importing...');
 import './CartPage.scss';
+import type { Product } from '../../types/products';
 
 export const CartPage = () => {
-  const { productInCart } = useContext(CartContext);
+  const { productInCart, setProductInCart } = useContext(CartContext);
+
+  function deleteProductFromCart(product: Product) {
+    setProductInCart(product);
+  }
 
   const totalPrice = productInCart.reduce(
     (prev, product) => prev + product.price,
@@ -30,6 +35,7 @@ export const CartPage = () => {
             <CartItemCard
               key={product.id}
               product={product}
+              onDelete={() => deleteProductFromCart(product)}
             />
           ))}
         </div>

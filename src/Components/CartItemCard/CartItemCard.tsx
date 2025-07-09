@@ -5,13 +5,20 @@ import { NavLink } from 'react-router-dom';
 
 interface CartItemCardProps {
   product: Product;
+  onDelete: () => void;
 }
 
-export const CartItemCard: React.FC<CartItemCardProps> = ({ product }) => {
+export const CartItemCard: React.FC<CartItemCardProps> = ({
+  product,
+  onDelete,
+}) => {
   return (
     <article className="cart-item-card">
       <div className="cart-item-card__content">
-        <div className="cart-item-card__icon-delete"></div>
+        <div
+          className="cart-item-card__icon-delete"
+          onClick={onDelete}
+        ></div>
         <NavLink to={`/${product.category}/${product.itemId}`}>
           <img
             src={product.image}
