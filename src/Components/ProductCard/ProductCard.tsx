@@ -62,7 +62,10 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   return (
     <li className="productCard">
       <article className="productCard__container">
-        <NavLink to={`/${category}/${product.itemId}`}>
+        <NavLink
+          to={`/${category}/${product.itemId}`}
+          className="productCard__link-zone"
+        >
           <div className="productCard__container-photo">
             <img
               src={product.image}

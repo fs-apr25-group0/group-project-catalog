@@ -28,13 +28,15 @@
     }
 
     &-title {
-      padding-top: 16px;
+      height: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     &-price {
       display: flex;
       gap: 8px;
-      margin: 0, 8px;
     }
 
     &-specifications {
@@ -47,8 +49,13 @@
     &-buttons {
       display: flex;
       gap: 8px;
-      margin-bottom: 32px;
     }
+  }
+
+  &__link-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__photo {
