@@ -6,15 +6,13 @@ import { helperToFindHotPrice } from '../utils/helperToFindHotPrice';
 
 export const useProductForHomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
     getProduct()
-      .then((products) => setProducts(products))
+      .then(setProducts)
       .finally(() => setLoading(false));
-  }, [products]);
+  }, []);
 
   const phones = products.filter((product) => product.category === 'phones');
   const amountPhones = phones.length;
