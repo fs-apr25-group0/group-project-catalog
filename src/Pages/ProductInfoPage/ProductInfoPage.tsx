@@ -94,7 +94,7 @@ export const ProductInfoPage = () => {
   const oldPrice = gadget?.priceDiscount ? gadget.priceRegular : null;
 
   return (
-    <main>
+    <main className="product-info-page">
       <UrlWay
         category={category}
         itemId={itemId}
@@ -116,9 +116,9 @@ export const ProductInfoPage = () => {
             <span className="product-info-block__label small-text">
               Available colors
             </span>
-            <span className="product-info-block__id small-text">
+            {/* <span className="product-info-block__id small-text">
               ID: {gadget?.id}
-            </span>
+            </span> */}
           </div>
 
           <ColorPicker
@@ -195,7 +195,7 @@ export const ProductInfoPage = () => {
               <span className="product-info-block__spec-label small-text">
                 RAM
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <span className="product-info-block__spec-value uppercase">
                 {gadget?.ram}
               </span>
             </div>
@@ -204,7 +204,7 @@ export const ProductInfoPage = () => {
       </div>
 
       <div className="product-info-block__details">
-        <section>
+        <section className="techspecs__about">
           <h3 className="product-info-block__details__about">
             {translate('common', 'About')}
           </h3>
@@ -217,8 +217,8 @@ export const ProductInfoPage = () => {
               {translate('common', 'Tech specs')}
             </h3>
             <div className="techspecs__divider"></div>
+            <TechSpecs gadget={gadget} />
           </section>
-          <TechSpecs gadget={gadget} />
         </section>
       </div>
 

@@ -2,16 +2,16 @@
 
 .description-block {
   width: 560px;
-  margin-left: 32px;
 
   &__title {
     color: colors.$color-primary;
-    margin-bottom: 16px;
+    padding-bottom: 16px;
+    padding-top: 25px;
   }
 
   &__text {
     color: colors.$color-secondary;
-    margin-bottom: 16px;
+    padding-bottom: 16px;
   }
 }
 
