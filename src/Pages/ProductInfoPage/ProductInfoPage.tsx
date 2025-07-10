@@ -27,13 +27,6 @@ export const ProductInfoPage = () => {
 
   const { translate } = useTranslation();
 
-  const startIndexByMayLike = 0;
-  const endIndexByMayLike = startIndexByMayLike + 4;
-  const visibleMayLikeProducts = productsMayLike.slice(
-    startIndexByMayLike,
-    endIndexByMayLike,
-  );
-
   const { productInCart, setProductInCart } = useContext(CartContext);
   const { productInFavorite, setProductInFavorite } =
     useContext(FavoriteContext);
@@ -223,7 +216,7 @@ export const ProductInfoPage = () => {
       </div>
 
       <SliderForProduct
-        visibleProducts={visibleMayLikeProducts}
+        visibleProducts={productsMayLike}
         title={'You may also like'}
       />
     </main>
