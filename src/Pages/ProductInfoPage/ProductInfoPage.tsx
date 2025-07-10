@@ -7,7 +7,7 @@ import { useGadget } from '../../hooks/useGadget';
 import { LinkBack } from '../../Components/LinkBack';
 
 import { ProductImageSlider } from '../../Components/ProductImageSlider';
-
+/**/
 import { useContext } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { CartContext } from '../../context/CartContext';
