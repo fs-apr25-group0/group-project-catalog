@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './UrlWay.scss';
 import cn from 'classnames';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface UrlWayProps {
   category: string | undefined;
@@ -8,11 +9,13 @@ interface UrlWayProps {
 }
 
 export const UrlWay: React.FC<UrlWayProps> = ({ category, itemId }) => {
+  const { theme } = useThemeState();
   return (
     <div className="url-way">
-      <Link to={'/'}>
-        <div className="url-way__icon-home"></div>
-      </Link>
+      <Link
+        to={'/'}
+        className={`url-way__icon-home url-way__icon-home--${theme}`}
+      ></Link>
       <div className="url-way__icon-arrow"></div>
       {itemId ?
         <Link
