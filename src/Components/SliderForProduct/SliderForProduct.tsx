@@ -57,6 +57,7 @@ export const SliderForProduct = ({
             onClick={handlePrev}
             disabled={isBeginning}
           />
+
           <ButtonArrow
             direction="right"
             onClick={handleNext}
