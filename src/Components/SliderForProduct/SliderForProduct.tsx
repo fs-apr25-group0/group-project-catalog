@@ -49,27 +49,28 @@ export const SliderForProduct = ({
 
   return (
     <section className="slider-for-product">
-      <div className="slider-header">
-        <h2>{title}</h2>
-        <div className="slider-navigation-buttons">
-          <ButtonArrow
-            direction="left"
-            onClick={handlePrev}
-            disabled={isBeginning}
-          />
-
-          <ButtonArrow
-            direction="right"
-            onClick={handleNext}
-            disabled={isEnd}
-          />
+      <div className="slider-content-wrapper">
+        <div className="slider-header">
+          <h2 className="slider-title">{title}</h2>
+          <div className="slider-navigation-buttons">
+            <ButtonArrow
+              direction="left"
+              onClick={handlePrev}
+              disabled={isBeginning}
+            />
+            <ButtonArrow
+              direction="right"
+              onClick={handleNext}
+              disabled={isEnd}
+            />
+          </div>
         </div>
-      </div>
 
-      <SwiperComponent
-        products={visibleProducts}
-        onSwiperInit={onSwiperInit}
-      />
+        <SwiperComponent
+          products={visibleProducts}
+          onSwiperInit={onSwiperInit}
+        />
+      </div>
     </section>
   );
 };
