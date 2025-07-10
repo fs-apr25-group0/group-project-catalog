@@ -1,0 +1,16 @@
+@use '../../styles/variables/colors/colors' as colors;
+
+.description-block {
+  width: 560px;
+  margin-left: 32px;
+
+  &__title {
+    color: colors.$color-primary;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    color: colors.$color-secondary;
+    margin-bottom: 16px;
+  }
+}

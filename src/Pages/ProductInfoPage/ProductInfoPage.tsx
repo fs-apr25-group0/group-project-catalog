@@ -19,6 +19,7 @@ import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
 
 import { useTranslation } from '../../hooks/useTranslation';
+import { appleColors } from '../../constans/appleColors';
 
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike, gadgets } =
@@ -99,9 +100,11 @@ export const ProductInfoPage = () => {
         itemId={itemId}
       />
 
-      <LinkBack />
+      <div className="product-info-back">
+        <LinkBack />
+      </div>
 
-      <h1>{`${gadget?.name}`}</h1>
+      <h2 className="product-info-title">{`${gadget?.name}`}</h2>
 
       <div className="product-info-block">
         {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
@@ -110,8 +113,12 @@ export const ProductInfoPage = () => {
         </div>
         <div className="product-info-block-right">
           <div className="product-info-block__top-row">
-            <span className="product-info-block__label">Available colors</span>
-            {/* <span className="product-info-block__id">ID: {gadget?.id}</span> */}
+            <span className="product-info-block__label small-text">
+              Available colors
+            </span>
+            <span className="product-info-block__id small-text">
+              ID: {gadget?.id}
+            </span>
           </div>
 
           <ColorPicker
@@ -120,9 +127,13 @@ export const ProductInfoPage = () => {
             onSelect={(color) => {
               hadleChangeVariant(color, selectedCapacity);
             }}
+            colorMap={appleColors}
           />
+          <div className="product-info-block__divider" />
 
-          <span className="product-info-block__label">Select Capacity</span>
+          <span className="product-info-block__label small-text">
+            Select Capacity
+          </span>
           <div className="product-info-block__capacities">
             {capacities.map((capacity) => (
               <button
@@ -138,8 +149,9 @@ export const ProductInfoPage = () => {
               </button>
             ))}
           </div>
+          <div className="product-info-block__divider" />
           <div className="product-info-block__price-row">
-            <span className="product-info-block__price">${price}</span>
+            <h2 className="product-info-block__price">${price}</h2>
             {oldPrice && (
               <span className="product-info-block__old-price">${oldPrice}</span>
             )}
@@ -155,38 +167,60 @@ export const ProductInfoPage = () => {
             />
           </div>
           <div className="product-info-block__short-specs">
-            <div>
-              <span className="product-info-block__spec-label">Screen</span>{' '}
-              {gadget?.screen}
+            <div className="product-info-block__spec-row">
+              <span className="product-info-block__spec-label small-text">
+                Screen
+              </span>{' '}
+              <span className="product-info-block__spec-value small-text">
+                {gadget?.screen}
+              </span>
             </div>
-            <div>
-              <span className="product-info-block__spec-label">Resolution</span>{' '}
-              {gadget?.resolution}
+            <div className="product-info-block__spec-row">
+              <span className="product-info-block__spec-label small-text">
+                Resolution
+              </span>{' '}
+              <span className="product-info-block__spec-value small-text">
+                {gadget?.resolution}
+              </span>
             </div>
-            <div>
-              <span className="product-info-block__spec-label">Processor</span>{' '}
-              {gadget?.processor}
+            <div className="product-info-block__spec-row">
+              <span className="product-info-block__spec-label small-text">
+                Processor
+              </span>{' '}
+              <span className="product-info-block__spec-value small-text">
+                {gadget?.processor}
+              </span>
             </div>
-            <div>
-              <span className="product-info-block__spec-label">RAM</span>{' '}
-              {gadget?.ram}
+            <div className="product-info-block__spec-row">
+              <span className="product-info-block__spec-label small-text">
+                RAM
+              </span>{' '}
+              <span className="product-info-block__spec-value small-text">
+                {gadget?.ram}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      <section>
+      <div className="product-info-block__details">
         <section>
-          <h2>{translate('common', 'About')}</h2>
-
+          <h3 className="product-info-block__details__about">
+            {translate('common', 'About')}
+          </h3>
+          <div className="product-info-block__about-divider"></div>
           <Description gadget={gadget} />
         </section>
-
         <section>
-          <h2>{translate('common', 'Tech specs')}</h2>
+          <section className="techspecs__header">
+            <h3 className="product-info-block__details__techspecs">
+              {translate('common', 'Tech specs')}
+            </h3>
+            <div className="techspecs__divider"></div>
+          </section>
           <TechSpecs gadget={gadget} />
         </section>
-      </section>
+      </div>
 
       <SliderForProduct
         visibleProducts={visibleMayLikeProducts}

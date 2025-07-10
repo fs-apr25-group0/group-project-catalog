@@ -1,0 +1,47 @@
+@use '../../styles/variables/colors/colors' as colors;
+
+.techspecs {
+  max-width: 512px;
+  margin-top: 20px;
+
+  &__header {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: colors.$color-primary;
+  }
+
+  &__divider {
+    width: 512px;
+    height: 1px;
+    background: colors.$color-elements;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  &__name {
+    color: colors.$color-secondary;
+    text-align: left;
+  }
+
+  &__value {
+    color: colors.$color-primary;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
