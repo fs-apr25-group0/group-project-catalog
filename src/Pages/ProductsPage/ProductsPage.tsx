@@ -72,7 +72,7 @@ export const ProductsPage = () => {
   return (
     <>
       {isPageVisible && (
-        <main className="products-page">
+        <section className="products-page">
           {itemId ?
             <Outlet />
           : <section className="products-page__container">
@@ -120,7 +120,7 @@ export const ProductsPage = () => {
               </div>
             </section>
           }
-        </main>
+        </section>
       )}
     </>
   );
