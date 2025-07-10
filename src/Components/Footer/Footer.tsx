@@ -2,10 +2,13 @@ import './Footer.scss';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
-import logo from '../../images/logo.svg';
+import { useThemeState } from '../../stateManagers/themeState';
+import logoLight from '../../images/logo.svg';
+import logoDark from '../../images/Logo-dark.svg';
 
 export const Footer = () => {
   const { translate } = useTranslation();
+  const { theme } = useThemeState();
 
   return (
     <footer className="footer">
@@ -14,7 +17,7 @@ export const Footer = () => {
         className="footer__logo"
       >
         <img
-          src={logo}
+          src={theme === 'light' ? logoLight : logoDark}
           alt="Shop logo"
         />
       </NavLink>

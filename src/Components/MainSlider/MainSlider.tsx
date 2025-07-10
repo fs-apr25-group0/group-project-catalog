@@ -14,7 +14,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 // @ts-expect-error
 import 'swiper/css/navigation';
-import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 /* eslint-enable @typescript-eslint/ban-ts-comment */
 
 const slides = [
@@ -38,20 +37,19 @@ const slides = [
 export const MainSlider: React.FC = () => {
   const swiperRef = useRef<SwiperRef | null>(null);
 
-  const handlePrev = () => {
-    swiperRef.current?.slidePrev();
-  };
-
-  const handleNext = () => {
-    swiperRef.current?.slideNext();
-  };
-
   return (
     <div className="main-slider">
-      <ButtonArrow
-        direction={'left'}
-        onClick={handlePrev}
-      />
+      <button
+        className="main-slider__arrow main-slider__arrow--left"
+        type="button"
+        onClick={() => swiperRef.current?.swiper.slidePrev()}
+        aria-label="Previous slide"
+      >
+        <img
+          src="/src/images/icons/chevron_arrow_left.svg"
+          alt="prev"
+        />
+      </button>
 
       <Swiper
         modules={[Pagination, Navigation, Autoplay]}
@@ -81,10 +79,17 @@ export const MainSlider: React.FC = () => {
         ))}
       </Swiper>
 
-      <ButtonArrow
-        direction={'right'}
-        onClick={handleNext}
-      />
+      <button
+        className="main-slider__arrow main-slider__arrow--right"
+        type="button"
+        onClick={() => swiperRef.current?.swiper.slideNext()}
+        aria-label="Next slide"
+      >
+        <img
+          src="/src/images/icons/chevron_arrow_right.svg"
+          alt="next"
+        />
+      </button>
     </div>
   );
 };
