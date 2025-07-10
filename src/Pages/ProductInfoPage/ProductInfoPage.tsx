@@ -27,13 +27,6 @@ export const ProductInfoPage = () => {
 
   const { translate } = useTranslation();
 
-  const startIndexByMayLike = 0;
-  const endIndexByMayLike = startIndexByMayLike + 4;
-  const visibleMayLikeProducts = productsMayLike.slice(
-    startIndexByMayLike,
-    endIndexByMayLike,
-  );
-
   const { productInCart, setProductInCart } = useContext(CartContext);
   const { productInFavorite, setProductInFavorite } =
     useContext(FavoriteContext);
@@ -94,7 +87,7 @@ export const ProductInfoPage = () => {
   const oldPrice = gadget?.priceDiscount ? gadget.priceRegular : null;
 
   return (
-    <main className="product-info-page">
+    <div className="product-info-page">
       <UrlWay
         category={category}
         itemId={itemId}
@@ -223,9 +216,9 @@ export const ProductInfoPage = () => {
       </div>
 
       <SliderForProduct
-        visibleProducts={visibleMayLikeProducts}
+        visibleProducts={productsMayLike}
         title={'You may also like'}
       />
-    </main>
+    </div>
   );
 };
