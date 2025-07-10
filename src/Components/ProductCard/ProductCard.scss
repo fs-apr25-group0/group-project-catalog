@@ -12,10 +12,16 @@
     flex-direction: column;
     gap: 8px;
     padding: 32px;
-
-    border: 1px solid colors.$color-elements;
-    border-radius: 5px;
     text-decoration: none;
+
+    &--light {
+      border: 1px solid colors.$color-elements;
+      border-radius: 5px;
+    }
+
+    &--dark {
+      background-color: colors.$color-bg-card-dark-mode;
+    }
 
     &:hover {
       border-color: colors.$color-elements;
@@ -72,13 +78,7 @@
     color: colors.$color-primary;
   }
 
-  &__price-discount {
-    color: colors.$color-primary;
-  }
-
   &__price-regular {
-    color: colors.$color-secondary;
-
     text-decoration: line-through;
     font-weight: 500;
     font-size: 22px;
@@ -94,14 +94,6 @@
     display: flex;
     justify-content: space-between;
     font-weight: 500;
-  }
-
-  &__info {
-    color: colors.$color-secondary;
-  }
-
-  &__value {
-    color: colors.$color-primary;
   }
 
   &:hover &__container-photo {

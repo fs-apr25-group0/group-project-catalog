@@ -6,12 +6,12 @@
   justify-content: center;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 40px auto;
 
   position: relative;
   border-radius: 24px;
-  background: #fff;
-  padding: 0 32px;
+  padding: 0 24px;
+  // padding-bottom: 32px;
 
   &__arrow {
     width: 32px;
@@ -106,6 +106,7 @@
     &__swiper,
     &__image {
       height: 189px;
+
       max-height: 189px;
     }
   }
