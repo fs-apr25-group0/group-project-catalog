@@ -8,7 +8,7 @@ import type { SortType } from '../../types/sortType';
 import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
 import { Dropdown } from '../../ui/Dropdown';
-import type { Category } from '../../types/category/Category';
+import type { Category } from '../../types/category/category';
 
 export const ProductsPage = () => {
   const {
