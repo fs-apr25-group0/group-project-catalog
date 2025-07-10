@@ -5,8 +5,6 @@
   width: 176px;
   height: 40px;
 
-  background-color: colors.$color-accent;
-  color: #fff;
   border-radius: 48px;
   cursor: pointer;
   border: none;
@@ -26,5 +24,15 @@
     color: colors.$color-accent;
     border: 1px solid colors.$color-elements;
     box-shadow: none;
+  }
+
+  &__light {
+    background-color: colors.$color-accent;
+    color: colors.$color-bg-app-light-mode;
+  }
+
+  &__dark {
+    background-color: colors.$color-accent-dark-mode;
+    color: colors.$color-text-button-dark-mode;
   }
 }

@@ -13,7 +13,6 @@ html,
 body {
   height: 100%;
   font-family: 'Mont', sans-serif;
-  background-color: colors.$color-hover-bg;
   color: colors.$color-primary;
 }
 
@@ -26,4 +25,8 @@ li,
 ul,
 ol {
   list-style: none;
+}
+
+span {
+  color: colors.$color-secondary;
 }

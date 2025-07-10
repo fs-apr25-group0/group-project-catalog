@@ -1,6 +1,7 @@
 import React from 'react';
 import './ButtonAdd.scss';
 import cn from 'classnames';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface ButtonAddProps {
   isActive?: boolean;
@@ -11,9 +12,10 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
   isActive = false,
   onClick,
 }) => {
+  const { theme } = useThemeState();
   return (
     <button
-      className={cn('buttonAdd', 'button-text', {
+      className={cn('buttonAdd', 'button-text', `buttonAdd__${theme}`, {
         'buttonAdd--active': isActive,
       })}
       type="button"

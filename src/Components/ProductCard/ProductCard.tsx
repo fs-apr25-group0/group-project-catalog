@@ -78,11 +78,11 @@ export const ProductCard: React.FC<PropsProductCart> = ({
           </div>
 
           <div className="productCard__container-title">
-            <span className="productCard__title body-text">{product.name}</span>
+            <p className="body-text">{product.name}</p>
           </div>
 
           <div className="productCard__container-price">
-            <h3 className="productCard__price-discount">{`$${product.price}`}</h3>
+            <h3>{`$${product.price}`}</h3>
             <span className="productCard__price-regular">{`$${product.fullPrice}`}</span>
           </div>
 

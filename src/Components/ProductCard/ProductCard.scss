@@ -68,13 +68,7 @@
     color: colors.$color-primary;
   }
 
-  &__price-discount {
-    color: colors.$color-primary;
-  }
-
   &__price-regular {
-    color: colors.$color-secondary;
-
     text-decoration: line-through;
     font-weight: 500;
     font-size: 22px;
