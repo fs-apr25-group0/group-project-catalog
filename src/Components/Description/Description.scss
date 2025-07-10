@@ -14,3 +14,19 @@
     margin-bottom: 16px;
   }
 }
+
+@media (min-width: 650px) and (max-width: 1199px) {
+  .description-block {
+    margin-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  .description-block {
+    width: 100%;
+    padding: 0 16px;
+    margin-left: 0;
+  }
+}

@@ -66,3 +66,34 @@
     padding: 40px;
   }
 }
+
+@media (max-width: 639px) {
+  .product-image-slider {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    &__main {
+      order: 1;
+    }
+    &__small {
+      flex-direction: row;
+      gap: 8px;
+      margin-top: 16px;
+      margin-bottom: 40px;
+      order: 2;
+    }
+
+    &__smaller {
+      width: 60px;
+      height: 60px;
+
+      img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+    }
+  }
+}
