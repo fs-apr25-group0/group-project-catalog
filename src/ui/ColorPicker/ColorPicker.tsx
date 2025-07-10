@@ -5,12 +5,14 @@ type ColorPickerProps = {
   colors: string[];
   selectedColor: string;
   onSelect: (color: string) => void;
+  colorMap?: Record<string, string>;
 };
 
 export const ColorPicker: React.FC<ColorPickerProps> = ({
   colors,
   selectedColor,
   onSelect,
+  colorMap,
 }) => {
   return (
     <div className="color-picker">
@@ -25,7 +27,10 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
         >
           <span
             className="color-picker__color"
-            style={{ backgroundColor: color }}
+            style={{
+              backgroundColor:
+                colorMap?.[color.toLowerCase()] || color || '#ccc',
+            }}
           />
         </button>
       ))}
