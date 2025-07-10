@@ -3,6 +3,15 @@ import '../SliderForProduct/SliderForProduct.scss';
 import { ProductCard } from '../ProductCard';
 import type { Product } from '../../types/products';
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-expect-error
+import 'swiper/css';
+// @ts-expect-error
+import 'swiper/css/pagination';
+// @ts-expect-error
+import 'swiper/css/navigation';
+/* eslint-enable @typescript-eslint/ban-ts-comment */
+
 type Props = {
   products: Product[];
   onSwiperInit?: (swiper: SwiperClass) => void;
