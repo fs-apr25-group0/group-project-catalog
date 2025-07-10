@@ -1,17 +1,22 @@
 @use '../../styles/variables/colors/colors' as colors;
 
 .favorites {
+  max-width: 1200px;
+  width: 100%;
   display: grid;
   gap: 32px;
-  margin: 24px 16px 56px;
+  margin: 0 auto;
+  padding: 24px 16px 56px;
 
   @media (min-width: 640px) {
-    margin: 24px 24px 64px;
+    margin: 0 auto;
+    padding: 24px 24px 64px;
     gap: 40px;
   }
 
   @media (min-width: 1200px) {
-    margin: 24px 152px 80px;
+    margin: 0 auto;
+    padding: 24px 32px 80px;
   }
 }
 

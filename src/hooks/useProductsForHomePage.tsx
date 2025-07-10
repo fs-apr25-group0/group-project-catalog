@@ -9,8 +9,6 @@ export const useProductForHomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
-
     getProduct()
       .then(setProducts)
       .finally(() => setLoading(false));
