@@ -14,10 +14,6 @@
 
   transition: box-shadow 0.3s;
 
-  &:hover {
-    box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
-  }
-
   &:active,
   &--active {
     background-color: #fff;
@@ -29,10 +25,32 @@
   &__light {
     background-color: colors.$color-accent;
     color: colors.$color-bg-app-light-mode;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
+    }
+
+    &--active {
+      background-color: colors.$color-bg-app-light-mode;
+      color: colors.$color-accent;
+      border: 1px solid colors.$color-elements;
+      box-shadow: none;
+    }
   }
 
   &__dark {
     background-color: colors.$color-accent-dark-mode;
     color: colors.$color-text-button-dark-mode;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
+      background-color: colors.$color-button-hover-dark-mode;
+    }
+
+    &--active {
+      background-color: colors.$color-added-button-dark-mode;
+      color: colors.$color-primary-dark-mode;
+      box-shadow: none;
+    }
   }
 }

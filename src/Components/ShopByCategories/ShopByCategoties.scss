@@ -22,7 +22,6 @@ $bg-color-accessories: #973d5f;
     font-weight: 800;
     margin-top: 56px;
     margin-bottom: 24px;
-    color: color.$color-primary;
 
     @media (min-width: 640px) {
       margin-top: 64px;
@@ -87,7 +86,6 @@ $bg-color-accessories: #973d5f;
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 4px;
-    color: color.$color-primary;
   }
 
   &__count {
@@ -104,17 +102,17 @@ $bg-color-accessories: #973d5f;
   }
 
   &__block--phones {
-    background-color: $bg-color-phones;
+    background-color: color.$bg-color-phones;
     background-image: url('../../../public/img/category-phones.png');
   }
 
   &__block--tablets {
-    background-color: $bg-color-tablets;
+    background-color: color.$bg-color-tablets;
     background-image: url('../../../public/img/category-tablets.png');
   }
 
   &__block--accessories {
-    background-color: $bg-color-accessories;
+    background-color: color.$bg-color-accessories;
     background-image: url('../../../public/img/category-accessories.png');
   }
 }

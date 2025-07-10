@@ -16,7 +16,7 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
   return (
     <button
       className={cn('buttonAdd', 'button-text', `buttonAdd__${theme}`, {
-        'buttonAdd--active': isActive,
+        [`buttonAdd__${theme}--active`]: isActive,
       })}
       type="button"
       aria-label={isActive ? 'Remove from cart' : 'Add to cart'}

@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { CartContext } from '../../context/CartContext';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useThemeState } from '../../stateManagers/themeState';
 
 // type ProductCardProps = {
 //   product: Product;
@@ -42,6 +43,7 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   // window.location.reload();
 
   const { translate } = useTranslation();
+  const { theme } = useThemeState();
 
   const { productInCart, setProductInCart } = useContext(CartContext);
   const { productInFavorite, setProductInFavorite } =
@@ -64,7 +66,9 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
   return (
     <li className="productCard">
-      <article className="productCard__container">
+      <article
+        className={`productCard__container productCard__container--${theme}`}
+      >
         <NavLink
           to={`/${category}/${product.itemId}`}
           className="productCard__link-zone"
@@ -90,28 +94,22 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
           <div className="productCard__container-specifications">
             <div className="productCard__block">
-              <span className="productCard__info small-text">
+              <span className="small-text">
                 {translate('common', 'Screen')}
               </span>
-              <span className="productCard__value uppercase">
-                {product.screen}
-              </span>
+              <p className="uppercase">{product.screen}</p>
             </div>
             <div className="productCard__block">
               <span className="productCard__info small-text">
                 {translate('common', 'Capacity')}
               </span>
-              <span className="productCard__value uppercase">
-                {product.capacity}
-              </span>
+              <p className="uppercase">{product.capacity}</p>
             </div>
             <div className="productCard__block">
               <span className="productCard__info small-text">
                 {translate('common', 'RAM')}
               </span>
-              <span className="productCard__value uppercase">
-                {product.ram}
-              </span>
+              <p className="uppercase">{product.ram}</p>
             </div>
           </div>
         </NavLink>
