@@ -13,9 +13,9 @@ export const helperToSortProducts = (
       case sortVariants.Oldest:
         return product1.year - product2.year;
       case sortVariants.Cheap:
-        return product2.year - product1.year;
-      case sortVariants.Expensive:
         return product1.price - product2.price;
+      case sortVariants.Expensive:
+        return product2.price - product1.price;
       default:
         return 0;
     }
