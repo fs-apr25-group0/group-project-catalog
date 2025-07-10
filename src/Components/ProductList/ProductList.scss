@@ -3,9 +3,11 @@
   gap: 40px 16px;
   justify-content: center;
 
-  grid-template-columns: repeat(auto-fill, 272px);
+  grid-template-columns: repeat(auto-fill, 287px);
 
   @media (min-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, 272px);
+
     max-width: calc(272px * 4 + 16px * 3);
     margin: 0 auto;
   }

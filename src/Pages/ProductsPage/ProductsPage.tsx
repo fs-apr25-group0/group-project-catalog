@@ -8,6 +8,7 @@ import type { SortType } from '../../types/sortType';
 import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
 import { Dropdown } from '../../ui/Dropdown';
+import type { Category } from '../../types/category/сategory';
 
 export const ProductsPage = () => {
   const {
@@ -26,6 +27,11 @@ export const ProductsPage = () => {
   const sortBy = (searchParams.get('sort') as SortType) || sortVariants.Newest;
 
   const categoryVariables = ['phones', 'tablets', 'accessories'];
+  const titleVariables: Record<Category, string> = {
+    phones: 'Mobile phones',
+    tablets: 'Tablets',
+    accessories: 'Accessories',
+  };
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
@@ -53,6 +59,8 @@ export const ProductsPage = () => {
     setSearchParams(searchParams);
   };
 
+  const isPageVisible = products.length > 0;
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -62,50 +70,58 @@ export const ProductsPage = () => {
   }
 
   return (
-    <main className="products-page">
-      {itemId ?
-        <Outlet />
-      : <section className="products-page__container">
-          <div className="products-page__url-way">
-            <UrlWay category={category} />
-          </div>
+    <>
+      {isPageVisible && (
+        <section className="products-page">
+          {itemId ?
+            <Outlet />
+          : <section className="products-page__container">
+              <div className="products-page__url-way">
+                <UrlWay category={category} />
+              </div>
 
-          <div className="products-page__header">
-            <h1>{category === 'phone' ? `Mobile ${category}` : category}</h1>
-          </div>
+              <div className="products-page__header">
+                {category && <h1>{titleVariables[category as Category]}</h1>}
+              </div>
 
-          <p className="products-page__count">{amountProduct} models</p>
+              <p className="products-page__count body-text">
+                {amountProduct} models
+              </p>
 
-          <div className="products-page__filter-panel">
-            <Dropdown
-              title="Sort by"
-              value={sortBy}
-              onChange={handleSortChange}
-              variants={sortVariantsValues}
-              cl="sort"
-            />
+              <div className="products-page__filter-panel">
+                <Dropdown
+                  title="Sort by"
+                  value={sortBy}
+                  onChange={handleSortChange}
+                  variants={sortVariantsValues}
+                  cl="sort"
+                />
 
-            <Dropdown
-              title="Items on page"
-              value={perPage}
-              onChange={handlePerPageChange}
-              variants={paginationVariantsValues}
-              cl="pagination"
-            />
-          </div>
+                <Dropdown
+                  title="Items on page"
+                  value={perPage}
+                  onChange={handlePerPageChange}
+                  variants={paginationVariantsValues}
+                  cl="pagination"
+                />
+              </div>
 
-          <div className="products-page__product-list">
-            <ProductList visibleProducts={visibleProducts} />
-          </div>
+              <div className="products-page__product-list">
+                <ProductList visibleProducts={visibleProducts} />
+              </div>
 
-          <Pagination
-            amountProduct={amountProduct}
-            perPage={perPage}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
+              <div className="products-page__pagination-wrapper">
+                <Pagination
+                  amountProduct={amountProduct}
+                  perPage={perPage}
+                  currentPage={currentPage}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </section>
+          }
         </section>
-      }
-    </main>
+      )}
+    </>
   );
 };

@@ -6,9 +6,12 @@ import { getProduct } from '../api/fetchProducts';
 export const useProductForCategories = () => {
   const { category, itemId } = useParams();
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setProducts([]);
+    setLoading(true);
+
     getProduct()
       .then((products) => {
         const filtered = products.filter(

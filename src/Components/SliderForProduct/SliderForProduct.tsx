@@ -5,6 +5,15 @@ import { SwiperComponent } from '../SwiperComponent';
 import { useRef, useState } from 'react';
 import type { SwiperClass } from 'swiper/react';
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-expect-error
+import 'swiper/css';
+// @ts-expect-error
+import 'swiper/css/pagination';
+// @ts-expect-error
+import 'swiper/css/navigation';
+/* eslint-enable @typescript-eslint/ban-ts-comment */
+
 interface PropsSliderNewProduct {
   visibleProducts: Product[];
   title: string;
@@ -48,6 +57,7 @@ export const SliderForProduct = ({
             onClick={handlePrev}
             disabled={isBeginning}
           />
+
           <ButtonArrow
             direction="right"
             onClick={handleNext}
