@@ -8,6 +8,7 @@ import type { SortType } from '../../types/sortType';
 import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
 import { Dropdown } from '../../ui/Dropdown';
+import type { Category } from '../../types/category/category';
 
 export const ProductsPage = () => {
   const {
@@ -26,6 +27,11 @@ export const ProductsPage = () => {
   const sortBy = (searchParams.get('sort') as SortType) || sortVariants.Newest;
 
   const categoryVariables = ['phones', 'tablets', 'accessories'];
+  const titleVariables: Record<Category, string> = {
+    phones: 'Mobile phones',
+    tablets: 'Tablets',
+    accessories: 'Accessories',
+  };
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
@@ -71,10 +77,12 @@ export const ProductsPage = () => {
           </div>
 
           <div className="products-page__header">
-            <h1>{category === 'phone' ? `Mobile ${category}` : category}</h1>
+            {category && <h1>{titleVariables[category as Category]}</h1>}
           </div>
 
-          <p className="products-page__count">{amountProduct} models</p>
+          <p className="products-page__count body-text">
+            {amountProduct} models
+          </p>
 
           <div className="products-page__filter-panel">
             <Dropdown
@@ -98,12 +106,14 @@ export const ProductsPage = () => {
             <ProductList visibleProducts={visibleProducts} />
           </div>
 
-          <Pagination
-            amountProduct={amountProduct}
-            perPage={perPage}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-          />
+          <div className="products-page__pagination-wrapper">
+            <Pagination
+              amountProduct={amountProduct}
+              perPage={perPage}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
+          </div>
         </section>
       }
     </main>
