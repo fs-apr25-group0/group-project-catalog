@@ -21,12 +21,17 @@
   }
 }
 
-.pagination {
+.paginator {
   width: 136px;
 
   @media (min-width: 1200px) {
     width: 128px;
   }
+}
+
+.language {
+  width: 65px;
+  font-size: 14px;
 }
 
 .dropdown__name {
