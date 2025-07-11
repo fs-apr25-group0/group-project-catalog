@@ -1,9 +1,5 @@
 @use '../../styles/variables/colors/colors' as colors;
 
-.title-grey {
-  color: colors.$color-secondary;
-}
-
 .product-info-title {
   margin: 16px 32px 40px;
 }
@@ -107,7 +103,6 @@
     line-height: 100%;
     letter-spacing: 0%;
     text-decoration: line-through;
-    color: colors.$color-secondary;
   }
 
   &__actions {

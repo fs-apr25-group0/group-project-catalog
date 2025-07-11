@@ -59,7 +59,7 @@ export const ProductInfoPage = () => {
   const selectedColor = gadget?.color;
   const selectedCapacity = gadget?.capacity;
 
-  const hadleChangeVariant = (
+  const handleChangeVariant = (
     color: string | undefined,
     capacity: string | undefined,
   ) => {
@@ -117,7 +117,7 @@ export const ProductInfoPage = () => {
             colors={colors}
             selectedColor={selectedColor || ''}
             onSelect={(color) => {
-              hadleChangeVariant(color, selectedCapacity);
+              handleChangeVariant(color, selectedCapacity);
             }}
             colorMap={appleColors}
           />
@@ -134,7 +134,7 @@ export const ProductInfoPage = () => {
                   selected: selectedCapacity == capacity,
                 })}
                 onClick={() => {
-                  hadleChangeVariant(selectedColor, capacity);
+                  handleChangeVariant(selectedColor, capacity);
                 }}
               >
                 {capacity}
@@ -163,39 +163,39 @@ export const ProductInfoPage = () => {
               <span className="product-info-block__spec-label small-text">
                 Screen
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.screen}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
                 Resolution
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.resolution}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
                 Processor
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.processor}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
                 RAM
               </span>{' '}
-              <span className="product-info-block__spec-value uppercase">
+              <p className="product-info-block__spec-value uppercase">
                 {gadget?.ram}
-              </span>
+              </p>
             </div>
           </div>
         </div>
-        <div className="product-info-block__id product-info-block__id--desktop small-text">
+        <span className="product-info-block__id product-info-block__id--desktop small-text">
           ID: {gadget?.namespaceId}
-        </div>
+        </span>
       </div>
 
       <div className="product-info-block__details">

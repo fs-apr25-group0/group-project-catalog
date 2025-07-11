@@ -12,6 +12,7 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
   }
 
   const techSpecs = helperToCreateTechSpecs(gadget);
+  console.log(techSpecs);
 
   return (
     <section className="techspecs">

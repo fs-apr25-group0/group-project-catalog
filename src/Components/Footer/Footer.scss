@@ -40,8 +40,14 @@
     text-decoration: none;
     color: color.$color-secondary;
 
-    &:hover {
-      color: color.$color-primary;
+    &--light {
+      &:hover {
+        color: color.$color-primary;
+      }
+    }
+
+    &--dark {
+      color: #f1f2f9;
     }
   }
 

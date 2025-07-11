@@ -5,7 +5,6 @@
   width: 100%;
   margin: 0 auto;
   padding: 24px 16px 56px;
-
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -97,30 +96,37 @@
   }
 
   &__check-button {
-    width: 240px;
+    width: 100%;
     height: 48px;
-    background-color: colors.$color-accent;
     color: white;
     border: none;
     border-radius: 48px;
+    justify-content: center;
+    text-align: center;
 
-    @media (min-width: 640px) {
-      width: 544px;
+    &--light {
+      background-color: colors.$color-accent;
+      &:active {
+        background-color: #fff;
+        color: colors.$color-accent;
+        border: 1px solid colors.$color-elements;
+        box-shadow: none;
+      }
+      &:hover {
+        box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
+      }
     }
 
-    @media (min-width: 1200px) {
-      width: 320px;
-    }
-
-    &:hover {
-      box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
-    }
-
-    &:active {
-      background-color: #fff;
-      color: colors.$color-accent;
-      border: 1px solid colors.$color-elements;
-      box-shadow: none;
+    &--dark {
+      background-color: #905bff;
+      &:active {
+        background-color: #323542;
+        border: 1px solid colors.$color-elements;
+        box-shadow: none;
+      }
+      &:hover {
+        background-color: #a378ff;
+      }
     }
   }
 }
