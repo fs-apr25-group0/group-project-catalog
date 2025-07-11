@@ -2,16 +2,13 @@
 
 .techspecs {
   max-width: 512px;
-  // margin-top: 20px;
   padding-top: 25px;
 
   &__header {
     width: 100%;
-    // margin-bottom: 16px;
   }
 
   &__title {
-    // margin-bottom: 8px;
     color: colors.$color-primary;
   }
 
@@ -48,7 +45,6 @@
 @media (max-width: 639px) {
   .techspecs {
     max-width: 100%;
-    padding: 0 16px;
   }
   .techspecs__divider {
     width: 100%;

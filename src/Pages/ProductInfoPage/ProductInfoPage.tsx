@@ -103,14 +103,14 @@ export const ProductInfoPage = () => {
         <div className="product-info-block__left">
           <ProductImageSlider images={images} />
         </div>
-        <div className="product-info-block-right">
+        <div className="product-info-block__right">
           <div className="product-info-block__top-row">
             <span className="product-info-block__label small-text">
               Available colors
             </span>
-            {/* <span className="product-info-block__id small-text">
-              ID: {gadget?.id}
-            </span> */}
+            <span className="product-info-block__id product-info-block__id--mobile small-text">
+              ID: {gadget?.namespaceId}
+            </span>
           </div>
 
           <ColorPicker
@@ -193,10 +193,13 @@ export const ProductInfoPage = () => {
             </div>
           </div>
         </div>
+        <div className="product-info-block__id product-info-block__id--desktop small-text">
+          ID: {gadget?.namespaceId}
+        </div>
       </div>
 
       <div className="product-info-block__details">
-        <section className="techspecs__about">
+        <section>
           <h3 className="product-info-block__details__about">
             {translate('common', 'About')}
           </h3>
@@ -204,11 +207,11 @@ export const ProductInfoPage = () => {
           <Description gadget={gadget} />
         </section>
         <section>
-          <section className="techspecs__header">
+          <section>
             <h3 className="product-info-block__details__techspecs">
               {translate('common', 'Tech specs')}
             </h3>
-            <div className="techspecs__divider"></div>
+            <div className="product-info-block__techspecs-divider"></div>
             <TechSpecs gadget={gadget} />
           </section>
         </section>
