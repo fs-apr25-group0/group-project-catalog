@@ -107,7 +107,7 @@ export const ProductInfoPage = () => {
         <div className="product-info-block-right">
           <div className="product-info-block__top-row">
             <span className="product-info-block__label small-text">
-              Available colors
+              {translate('common', 'Available colors')}
             </span>
             {/* <span className="product-info-block__id small-text">
               ID: {gadget?.id}
@@ -125,7 +125,7 @@ export const ProductInfoPage = () => {
           <div className="product-info-block__divider" />
 
           <span className="product-info-block__label small-text">
-            Select Capacity
+            {translate('common', 'Select Capacity')}
           </span>
           <div className="product-info-block__capacities">
             {capacities.map((capacity) => (
@@ -162,7 +162,7 @@ export const ProductInfoPage = () => {
           <div className="product-info-block__short-specs">
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                Screen
+                {translate('common', 'screen')}
               </span>{' '}
               <span className="product-info-block__spec-value small-text">
                 {gadget?.screen}
@@ -170,7 +170,7 @@ export const ProductInfoPage = () => {
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                Resolution
+                {translate('common', 'resolution')}
               </span>{' '}
               <span className="product-info-block__spec-value small-text">
                 {gadget?.resolution}
@@ -178,7 +178,7 @@ export const ProductInfoPage = () => {
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                Processor
+                {translate('common', 'processor')}
               </span>{' '}
               <span className="product-info-block__spec-value small-text">
                 {gadget?.processor}
@@ -186,7 +186,7 @@ export const ProductInfoPage = () => {
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                RAM
+                {translate('common', 'ram')}
               </span>{' '}
               <span className="product-info-block__spec-value uppercase">
                 {gadget?.ram}
@@ -217,7 +217,7 @@ export const ProductInfoPage = () => {
 
       <SliderForProduct
         visibleProducts={productsMayLike}
-        title={'You may also like'}
+        title={translate('common', 'You may also like')}
       />
     </div>
   );

@@ -17,7 +17,9 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
 
   return (
     <section className="categories">
-      <h2 className="categories__title">Shop by category</h2>
+      <h2 className="categories__title">
+        {translate('common', 'Shop by category')}
+      </h2>
 
       <div className="categories__list">
         <div className="category category--phones">
@@ -47,7 +49,7 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="tablets"
             className="category__title-link"
           >
-            <p className="category__title">{translate('common', 'Tablets')}</p>
+            <p className="category__title">{translate('common', 'tablets')}</p>
           </Link>
           <span className="category__count">
             {amountTablets} {translate('common', 'models')}
@@ -64,7 +66,7 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             className="category__title-link"
           >
             <p className="category__title">
-              {translate('common', 'Accessories')}
+              {translate('common', 'accessories')}
             </p>
           </Link>
           <span className="category__count">

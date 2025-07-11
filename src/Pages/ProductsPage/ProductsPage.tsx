@@ -9,6 +9,7 @@ import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
 import { Dropdown } from '../../ui/Dropdown';
 import type { Category } from '../../types/category/сategory';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export const ProductsPage = () => {
   const {
@@ -22,6 +23,8 @@ export const ProductsPage = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const { translate } = useTranslation();
+
   const perPage = Number(searchParams.get('perPage')) || 16;
   const currentPage = Number(searchParams.get('page')) || 1;
   const sortBy = (searchParams.get('sort') as SortType) || sortVariants.Newest;
@@ -29,8 +32,8 @@ export const ProductsPage = () => {
   const categoryVariables = ['phones', 'tablets', 'accessories'];
   const titleVariables: Record<Category, string> = {
     phones: 'Mobile phones',
-    tablets: 'Tablets',
-    accessories: 'Accessories',
+    tablets: 'tablets',
+    accessories: 'accessories',
   };
 
   const startIndex = (currentPage - 1) * perPage;
@@ -77,20 +80,27 @@ export const ProductsPage = () => {
             <Outlet />
           : <section className="products-page__container">
               <div className="products-page__url-way">
-                <UrlWay category={category} />
+                <UrlWay category={translate('common', `${category}`)} />
               </div>
 
               <div className="products-page__header">
-                {category && <h1>{titleVariables[category as Category]}</h1>}
+                {category && (
+                  <h1>
+                    {translate(
+                      'common',
+                      `${titleVariables[category as Category]}`,
+                    )}
+                  </h1>
+                )}
               </div>
 
               <p className="products-page__count body-text">
-                {amountProduct} models
+                {amountProduct} {translate('common', 'models')}
               </p>
 
               <div className="products-page__filter-panel">
                 <Dropdown
-                  title="Sort by"
+                  title={translate('common', 'Sort by')}
                   value={sortBy}
                   onChange={handleSortChange}
                   variants={sortVariantsValues}
@@ -98,7 +108,7 @@ export const ProductsPage = () => {
                 />
 
                 <Dropdown
-                  title="Items on page"
+                  title={translate('common', 'Items on page')}
                   value={perPage}
                   onChange={handlePerPageChange}
                   variants={paginationVariantsValues}

@@ -65,7 +65,7 @@ export const CartPage = () => {
                 <h2 className="cart__total-price">${totalPrice}</h2>
                 <div className="cart__total-number body-text">
                   {translate('common', 'Total for')} {productInCartLength}{' '}
-                  {stringItem}
+                  {translate('common', `${stringItem}`)}
                 </div>
               </div>
               <div className="cart__line"></div>
