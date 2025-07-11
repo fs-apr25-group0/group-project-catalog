@@ -11,10 +11,10 @@
   }
 
   &__number {
+    font-family: inherit;
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid #b4bdc3;
     background-color: transparent;
     cursor: pointer;
     padding: 0;
@@ -23,17 +23,28 @@
     align-items: center;
     justify-content: center;
 
-    font-family: 'Mont', sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0;
     text-align: center;
-    color: #0f0f11;
 
-    &--active {
+    &--light {
+      border: 1px solid #b4bdc3;
+      color: #0f0f11;
+    }
+
+    &--dark {
+      color: inherit;
+    }
+
+    &--active--light {
       background-color: #0f0f11;
       color: #ffffff;
+    }
+
+    &--active--dark {
+      background-color: #905bff;
     }
   }
 }

@@ -1,3 +1,4 @@
+import { useThemeState } from '../../stateManagers/themeState';
 import './ButtonArrow.scss';
 import cn from 'classnames';
 
@@ -14,9 +15,11 @@ export const ButtonArrow: React.FC<ButtonArrowProps> = ({
   className,
   ...props
 }) => {
+  const { theme } = useThemeState();
   const btnClass = cn(
     'button-arrow',
     `button-arrow--${direction}`,
+    `button-arrow--${theme}`,
     { 'is-disabled': disabled },
     className,
   );

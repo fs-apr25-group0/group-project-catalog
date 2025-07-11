@@ -10,7 +10,6 @@
 
   position: relative;
   border-radius: 24px;
-  background: #fff;
   padding: 0 24px;
   // padding-bottom: 32px;
 
@@ -107,6 +106,7 @@
     &__swiper,
     &__image {
       height: 189px;
+
       max-height: 189px;
     }
   }

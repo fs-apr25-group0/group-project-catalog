@@ -1,3 +1,4 @@
+import './HomePage.scss';
 import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
 import { ShopByCategory } from '../../Components/ShopByCategories';
@@ -23,7 +24,9 @@ export const HomePage = () => {
   return (
     <main>
       <div>
-        <h1>{translate('common', 'Welcome to Nice Gadgets store!')}</h1>
+        <div className="page-title">
+          <h1>{translate('common', 'Welcome to Nice Gadgets store!')}</h1>
+        </div>
         <MainSlider />
       </div>
 

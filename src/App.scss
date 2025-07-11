@@ -1,4 +1,4 @@
-@use './styles/variables/colors/colors' as color;
+@use './styles/variables/colors/colors' as colors;
 
 html {
   scroll-behavior: smooth;
@@ -8,6 +8,18 @@ html {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: 100%;
+  font-family: 'Mont', sans-serif;
+
+  &--light {
+    background-color: colors.$color-bg-app-light-mode;
+    color: colors.$color-primary;
+  }
+
+  &--dark {
+    background-color: colors.$color-bg-app-dark-mode;
+    color: colors.$color-primary-dark-mode;
+  }
 }
 
 .section {

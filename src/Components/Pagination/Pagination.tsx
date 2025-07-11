@@ -2,6 +2,7 @@ import './Pagination.scss';
 import cn from 'classnames';
 import { getNumbers } from '../../utils/paginationHelper';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface PaginationProps {
   amountProduct: number;
@@ -16,6 +17,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   onPageChange,
 }) => {
+  const { theme } = useThemeState();
   const pageAmount = Math.ceil(amountProduct / perPage);
 
   const handlePageClick = (page: number) => (event: React.MouseEvent) => {
@@ -53,9 +55,14 @@ export const Pagination: React.FC<PaginationProps> = ({
           className="pagination__item"
         >
           <button
-            className={cn('button-arrow pagination__number', {
-              'pagination__number--active': currentPage === pageLink,
-            })}
+            className={cn(
+              'pagination__number',
+              `pagination__number--${theme}`,
+              {
+                [`pagination__number--active--${theme}`]:
+                  currentPage === pageLink,
+              },
+            )}
             onClick={handlePageClick(pageLink)}
           >
             {pageLink}
