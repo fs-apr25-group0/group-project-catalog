@@ -201,7 +201,7 @@ export const Header = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  {translate('common', 'Phones')}
+                  {translate('common', 'phones')}
                 </NavLink>
               </li>
               <li className="nav__item">
@@ -211,7 +211,7 @@ export const Header = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  {translate('common', 'Tablets')}
+                  {translate('common', 'tablets')}
                 </NavLink>
               </li>
               <li className="nav__item">
@@ -221,7 +221,7 @@ export const Header = () => {
                     isActive ? 'nav__link nav__link--active' : 'nav__link'
                   }
                 >
-                  {translate('common', 'Accessories')}
+                  {translate('common', 'accessories')}
                 </NavLink>
               </li>
             </ul>
