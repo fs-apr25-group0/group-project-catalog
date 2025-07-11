@@ -1,13 +1,12 @@
 import './Header.scss';
 import { useTranslation } from '../../hooks/useTranslation';
+import FavoritesLogo from '../../images/icons/favourites_heart_like.svg';
+import BagLogo from '../../images/icons/shopping_bag_cart.svg';
 import logo from '../../images/logo.svg';
+import BurgerIcon from '../../images/icons/menu.svg';
+import CloseIcon from '../../images/icons/close.svg';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
-import { BurgerIcon } from '../Icon/BurgerButton';
-import { CloseIcon } from '../Icon/CloseButton';
-import { FavoritesIcon } from '../Icon/FavoritesIcon';
-import { BagIcon } from '../Icon/BagIcon';
 
 const useMobile = (breakpoint = 640) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < breakpoint);
@@ -72,8 +71,20 @@ export const Header = () => {
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
-              <BurgerIcon />
+              <img
+                src={BurgerIcon}
+                alt="Menu"
+              />
             </button>
+            <select
+              className="language-select"
+              value={language}
+              onChange={handleChange}
+            >
+              <option value="ua">UA</option>
+              <option value="en">EN</option>
+              <option value="ru">RU</option>
+            </select>
 
             {isMenuOpen && (
               <div
@@ -99,8 +110,21 @@ export const Header = () => {
                       onClick={() => setMenuOpen(false)}
                       aria-label="Close menu"
                     >
-                      <CloseIcon />
+                      <img
+                        src={CloseIcon}
+                        alt="Close menu"
+                      />
                     </button>
+
+                    <select
+                      className="language-select"
+                      value={language}
+                      onChange={handleChange}
+                    >
+                      <option value="ua">UA</option>
+                      <option value="en">EN</option>
+                      <option value="ru">RU</option>
+                    </select>
                   </div>
                 </div>
 
@@ -134,32 +158,25 @@ export const Header = () => {
                 <div className="mobile-menu__actions">
                   <NavLink
                     to="/favorites"
-                    className={`mobile-menu__icon ${
-                      isFavoritesActive ? 'active' : ''
-                    }`}
+                    className={`mobile-menu__icon ${isFavoritesActive ? 'active' : ''}`}
                     onClick={() => setMenuOpen(false)}
                     aria-label="Favorites"
                   >
-                    <FavoritesIcon />
+                    <img
+                      src={FavoritesLogo}
+                      alt="Favorites"
+                    />
                   </NavLink>
                   <NavLink
                     to="/cart"
-                    className={`mobile-menu__icon ${
-                      isCartActive ? 'active' : ''
-                    }`}
+                    className={`mobile-menu__icon ${isCartActive ? 'active' : ''}`}
                     onClick={() => setMenuOpen(false)}
                     aria-label="Cart"
                   >
-                    <BagIcon />
-                    <select
-                      className="language-select"
-                      value={language}
-                      onChange={handleChange}
-                    >
-                      <option value="ua">UA</option>
-                      <option value="en">EN</option>
-                      <option value="ru">RU</option>
-                    </select>
+                    <img
+                      src={BagLogo}
+                      alt="Cart"
+                    />
                   </NavLink>
                 </div>
               </div>
@@ -212,20 +229,35 @@ export const Header = () => {
             <div className="nav__actions">
               <NavLink
                 to="/favorites"
-                className={`nav__action-link ${
-                  isFavoritesActive ? 'active' : ''
-                }`}
+                className={`nav__action-link ${isFavoritesActive ? 'active' : ''}`}
                 aria-label="Favorites"
               >
-                <FavoritesIcon />
+                <img
+                  src={FavoritesLogo}
+                  alt="Favorites"
+                  className="nav__action-icon"
+                />
               </NavLink>
               <NavLink
                 to="/cart"
                 className={`nav__action-link ${isCartActive ? 'active' : ''}`}
                 aria-label="Cart"
               >
-                <BagIcon />
+                <img
+                  src={BagLogo}
+                  alt="Cart"
+                  className="nav__action-icon"
+                />
               </NavLink>
+              <select
+                value={language}
+                onChange={handleChange}
+                className="nav__select"
+              >
+                <option value="ua">UA</option>
+                <option value="en">EN</option>
+                <option value="ru">RU</option>
+              </select>
             </div>
           </nav>
         }

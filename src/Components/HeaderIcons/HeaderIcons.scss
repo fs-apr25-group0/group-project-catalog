@@ -1,0 +1,44 @@
+@use '../../styles/variables/colors/colors' as colors;
+
+.icon-container {
+  position: relative;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+
+  background-image: url('../../images/icons/shopping_bag_cart.svg');
+
+  &__counter-header {
+    position: absolute;
+    background-color: colors.$color-accent;
+    height: 14px;
+    width: 14px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 9px;
+    text-align: center;
+    bottom: 50%;
+    left: 50%;
+  }
+}
+
+.icon__favorites {
+  background-image: url('../../images/icons/favourites_heart_like.svg');
+}
+
+.icon__card {
+  background-image: url('../../images/icons/shopping_bag_cart.svg');
+}
+
+.icon__menu {
+  background-image: url('../../images/icons/menu.svg');
+}
+
+.icon__close {
+  background-image: url('../../images/icons/close.svg');
+}
