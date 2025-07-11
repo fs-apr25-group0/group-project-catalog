@@ -5,7 +5,6 @@ import { useThemeState } from '../../stateManagers/themeState';
 
 interface ButtonAddProps {
   isActive: boolean;
-  isCart: boolean;
   onClick?: () => void;
 }
 

@@ -14,8 +14,9 @@ html {
   &--light {
     h1,
     h2,
-    h3 {
-      color: colors.$color-primary;
+    h3,
+    h4 {
+      color: colors.$color-primary-dark-mode;
     }
 
     p {
@@ -31,7 +32,8 @@ html {
   &--dark {
     h1,
     h2,
-    h3 {
+    h3,
+    h4 {
       color: colors.$color-primary-dark-mode;
     }
 
