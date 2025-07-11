@@ -12,13 +12,37 @@ html {
   font-family: 'Mont', sans-serif;
 
   &--light {
+    h1,
+    h2,
+    h3 {
+      color: colors.$color-primary;
+    }
+
+    p {
+      color: colors.$color-primary;
+    }
+
+    span {
+      color: colors.$color-secondary;
+    }
     background-color: colors.$color-bg-app-light-mode;
-    color: colors.$color-primary;
   }
 
   &--dark {
+    h1,
+    h2,
+    h3 {
+      color: colors.$color-primary-dark-mode;
+    }
+
+    p {
+      color: colors.$color-primary-dark-mode;
+    }
+
+    span {
+      color: colors.$color-secondary-dark-mode;
+    }
     background-color: colors.$color-bg-app-dark-mode;
-    color: colors.$color-primary-dark-mode;
   }
 }
 

@@ -59,7 +59,7 @@ export const ProductInfoPage = () => {
   const selectedColor = gadget?.color;
   const selectedCapacity = gadget?.capacity;
 
-  const hadleChangeVariant = (
+  const handleChangeVariant = (
     color: string | undefined,
     capacity: string | undefined,
   ) => {
@@ -100,7 +100,6 @@ export const ProductInfoPage = () => {
       <h2 className="product-info-title">{`${gadget?.name}`}</h2>
 
       <div className="product-info-block">
-        {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
         <div className="product-info-block__left">
           <ProductImageSlider images={images} />
         </div>
@@ -118,7 +117,7 @@ export const ProductInfoPage = () => {
             colors={colors}
             selectedColor={selectedColor || ''}
             onSelect={(color) => {
-              hadleChangeVariant(color, selectedCapacity);
+              handleChangeVariant(color, selectedCapacity);
             }}
             colorMap={appleColors}
           />
@@ -135,7 +134,7 @@ export const ProductInfoPage = () => {
                   selected: selectedCapacity == capacity,
                 })}
                 onClick={() => {
-                  hadleChangeVariant(selectedColor, capacity);
+                  handleChangeVariant(selectedColor, capacity);
                 }}
               >
                 {capacity}

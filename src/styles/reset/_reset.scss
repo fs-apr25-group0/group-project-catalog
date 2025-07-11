@@ -13,7 +13,6 @@ html,
 body {
   height: 100%;
   font-family: 'Mont', sans-serif;
-  color: colors.$color-primary;
 }
 
 a {
@@ -27,6 +26,7 @@ ol {
   list-style: none;
 }
 
-span {
-  color: colors.$color-secondary;
+button {
+  all: unset;
+  cursor: pointer;
 }

@@ -4,7 +4,8 @@ import cn from 'classnames';
 import { useThemeState } from '../../stateManagers/themeState';
 
 interface ButtonAddProps {
-  isActive?: boolean;
+  isActive: boolean;
+  isCart: boolean;
   onClick?: () => void;
 }
 
