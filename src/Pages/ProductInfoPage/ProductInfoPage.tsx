@@ -59,7 +59,7 @@ export const ProductInfoPage = () => {
   const selectedColor = gadget?.color;
   const selectedCapacity = gadget?.capacity;
 
-  const hadleChangeVariant = (
+  const handleChangeVariant = (
     color: string | undefined,
     capacity: string | undefined,
   ) => {
@@ -106,7 +106,7 @@ export const ProductInfoPage = () => {
         <div className="product-info-block__right">
           <div className="product-info-block__top-row">
             <span className="product-info-block__label small-text">
-              Available colors
+              {translate('common', 'Available colors')}
             </span>
             <span className="product-info-block__id product-info-block__id--mobile small-text">
               ID: {gadget?.namespaceId}
@@ -117,14 +117,14 @@ export const ProductInfoPage = () => {
             colors={colors}
             selectedColor={selectedColor || ''}
             onSelect={(color) => {
-              hadleChangeVariant(color, selectedCapacity);
+              handleChangeVariant(color, selectedCapacity);
             }}
             colorMap={appleColors}
           />
           <div className="product-info-block__divider" />
 
           <span className="product-info-block__label small-text">
-            Select Capacity
+            {translate('common', 'Select Capacity')}
           </span>
           <div className="product-info-block__capacities">
             {capacities.map((capacity) => (
@@ -134,7 +134,7 @@ export const ProductInfoPage = () => {
                   selected: selectedCapacity == capacity,
                 })}
                 onClick={() => {
-                  hadleChangeVariant(selectedColor, capacity);
+                  handleChangeVariant(selectedColor, capacity);
                 }}
               >
                 {capacity}
@@ -161,41 +161,41 @@ export const ProductInfoPage = () => {
           <div className="product-info-block__short-specs">
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                Screen
+                {translate('common', 'screen')}
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.screen}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                Resolution
+                {translate('common', 'resolution')}
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.resolution}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                Processor
+                {translate('common', 'processor')}
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.processor}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                RAM
+                {translate('common', 'ram')}
               </span>{' '}
-              <span className="product-info-block__spec-value uppercase">
+              <p className="product-info-block__spec-value uppercase">
                 {gadget?.ram}
-              </span>
+              </p>
             </div>
           </div>
         </div>
-        <div className="product-info-block__id product-info-block__id--desktop small-text">
+        <span className="product-info-block__id product-info-block__id--desktop small-text">
           ID: {gadget?.namespaceId}
-        </div>
+        </span>
       </div>
 
       <div className="product-info-block__details">
@@ -219,7 +219,7 @@ export const ProductInfoPage = () => {
 
       <SliderForProduct
         visibleProducts={productsMayLike}
-        title={'You may also like'}
+        title={translate('common', 'You may also like')}
       />
     </div>
   );

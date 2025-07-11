@@ -25,19 +25,19 @@ export const Footer = () => {
       <nav className="footer__nav">
         <a
           href="https://github.com/"
-          className="footer__link"
+          className={`footer__link footer__link--${theme}`}
         >
           {translate('common', 'GITHUB')}
         </a>
         <NavLink
           to="/tablets"
-          className="footer__link"
+          className={`footer__link footer__link--${theme}`}
         >
           {translate('common', 'CONTACTS')}
         </NavLink>
         <NavLink
           to="/accessories"
-          className="footer__link"
+          className={`footer__link footer__link--${theme}`}
         >
           {translate('common', 'RIGHTS')}
         </NavLink>
