@@ -1,3 +1,4 @@
+import { useTranslation } from '../../hooks/useTranslation';
 import type { Gadget } from '../../types/gadgets';
 import { helperToCreateTechSpecs } from '../../utils/helperToCreateTechSpecs';
 import './TechSpecs.scss';
@@ -7,11 +8,13 @@ interface TechSpecsProps {
 }
 
 export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
+  const { translate } = useTranslation();
   if (!gadget) {
     return null;
   }
 
   const techSpecs = helperToCreateTechSpecs(gadget);
+  console.log(techSpecs);
 
   return (
     <section className="techspecs">
@@ -21,7 +24,9 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
             className="techspecs__row"
             key={spec}
           >
-            <dt className="techspecs__name body-text">{spec}</dt>
+            <dt className="techspecs__name body-text">
+              {translate('common', `${spec}`)}
+            </dt>
             <dd className="techspecs__value body-text">
               {spec === 'cell' ?
                 Array.isArray(value) ?

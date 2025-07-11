@@ -14,10 +14,10 @@ export const FavoritesPage = () => {
 
   return (
     <div className="favorites">
-      <UrlWay category={'favorites'} />
+      <UrlWay category={translate('common', 'favorites')} />
 
       <div className="favorites__title">
-        <h1 className="title__text">{translate('common', 'Favorites')}</h1>
+        <h1 className="title__text">{translate('common', 'favorites')}</h1>
         <div className="title__count body-text">
           {favoritesLength} {translate('common', 'items')}
         </div>

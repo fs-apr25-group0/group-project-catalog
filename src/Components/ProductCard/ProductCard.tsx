@@ -95,19 +95,19 @@ export const ProductCard: React.FC<PropsProductCart> = ({
           <div className="productCard__container-specifications">
             <div className="productCard__block">
               <span className="small-text">
-                {translate('common', 'Screen')}
+                {translate('common', 'screen')}
               </span>
               <p className="uppercase">{product.screen}</p>
             </div>
             <div className="productCard__block">
               <span className="productCard__info small-text">
-                {translate('common', 'Capacity')}
+                {translate('common', 'capacity')}
               </span>
               <p className="uppercase">{product.capacity}</p>
             </div>
             <div className="productCard__block">
               <span className="productCard__info small-text">
-                {translate('common', 'RAM')}
+                {translate('common', 'ram')}
               </span>
               <p className="uppercase">{product.ram}</p>
             </div>

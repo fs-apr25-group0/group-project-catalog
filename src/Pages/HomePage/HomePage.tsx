@@ -32,7 +32,7 @@ export const HomePage = () => {
 
       <SliderForProduct
         visibleProducts={newProducts}
-        title={'Brand new models'}
+        title={translate('common', 'Brand new models')}
       />
 
       <ShopByCategory
@@ -43,7 +43,7 @@ export const HomePage = () => {
 
       <SliderForProduct
         visibleProducts={hotPriceProducts}
-        title={'Hot prices'}
+        title={translate('common', 'Hot prices')}
       />
     </main>
   );
