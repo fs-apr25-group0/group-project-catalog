@@ -6,10 +6,12 @@ console.log('SCSS importing...');
 import './CartPage.scss';
 import type { Product } from '../../types/products';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useThemeState } from '../../stateManagers/themeState';
 
 export const CartPage = () => {
   const { productInCart, setProductInCart, setCount } = useContext(CartContext);
   const { translate } = useTranslation();
+  const { theme } = useThemeState();
 
   function deleteProductFromCart(product: Product) {
     setProductInCart(product);
@@ -69,7 +71,9 @@ export const CartPage = () => {
                 </div>
               </div>
               <div className="cart__line"></div>
-              <button className="cart__check-button body-text">
+              <button
+                className={`cart__check-button cart__check-button--${theme}`}
+              >
                 {translate('common', 'Checkout')}
               </button>
             </div>

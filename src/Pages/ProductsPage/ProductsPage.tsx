@@ -42,7 +42,7 @@ export const ProductsPage = () => {
   const sortedProducts = helperToSortProducts(products, sortBy);
   const visibleProducts = sortedProducts.slice(startIndex, endIndex);
 
-  const paginationVariantsValues = [3, 5, 10, 16];
+  const paginationVariantsValues = ['3', '5', '10', '16'];
 
   const handleSortChange = (value: string) => {
     const newSort = value as SortType;
@@ -112,7 +112,7 @@ export const ProductsPage = () => {
                   value={perPage}
                   onChange={handlePerPageChange}
                   variants={paginationVariantsValues}
-                  cl="pagination"
+                  cl="paginator"
                 />
               </div>
 

@@ -3,6 +3,7 @@ import './CartItemCard.scss';
 import { NavLink } from 'react-router-dom';
 import type { localProduct } from '../../hooks/useLocalStorage';
 import classNames from 'classnames';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface CartItemCardProps {
   product: localProduct;
@@ -17,17 +18,18 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
   addCount,
   subCount,
 }) => {
+  const { theme } = useThemeState();
   const isDisabled = product.quantity === 1;
 
   const totalPriceForOneProduct = product.price * product.quantity;
 
   return (
-    <article className="cart-item-card">
+    <article className={`cart-item-card cart-item-card--${theme}`}>
       <div className="cart-item-card__content">
-        <div
-          className="cart-item-card__icon-delete"
+        <button
+          className={`cart-item-card__icon-delete cart-item-card__icon-delete--${theme}`}
           onClick={onDelete}
-        ></div>
+        ></button>
         <NavLink to={`/${product.category}/${product.itemId}`}>
           <img
             src={product.image}
@@ -37,7 +39,7 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
         </NavLink>
 
         <NavLink to={`/${product.category}/${product.itemId}`}>
-          <div className="cart-item-card__title body-text">{product.name}</div>
+          <p className="cart-item-card__title">{product.name}</p>
         </NavLink>
       </div>
 
@@ -54,9 +56,7 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
               })}
             ></div>
           </button>
-          <div className="cart-item-card__number body-text">
-            {product.quantity}
-          </div>
+          <p className="cart-item-card__number">{product.quantity}</p>
           <button
             className="cart-item-card__button cart-item-card__button--add"
             onClick={addCount}

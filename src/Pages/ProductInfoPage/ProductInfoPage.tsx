@@ -59,7 +59,7 @@ export const ProductInfoPage = () => {
   const selectedColor = gadget?.color;
   const selectedCapacity = gadget?.capacity;
 
-  const hadleChangeVariant = (
+  const handleChangeVariant = (
     color: string | undefined,
     capacity: string | undefined,
   ) => {
@@ -100,25 +100,24 @@ export const ProductInfoPage = () => {
       <h2 className="product-info-title">{`${gadget?.name}`}</h2>
 
       <div className="product-info-block">
-        {/* <h2 style={{ color: 'green' }}>HERE MUST BE PICTURE BLOCK</h2> */}
         <div className="product-info-block__left">
           <ProductImageSlider images={images} />
         </div>
-        <div className="product-info-block-right">
+        <div className="product-info-block__right">
           <div className="product-info-block__top-row">
             <span className="product-info-block__label small-text">
               {translate('common', 'Available colors')}
             </span>
-            {/* <span className="product-info-block__id small-text">
-              ID: {gadget?.id}
-            </span> */}
+            <span className="product-info-block__id product-info-block__id--mobile small-text">
+              ID: {gadget?.namespaceId}
+            </span>
           </div>
 
           <ColorPicker
             colors={colors}
             selectedColor={selectedColor || ''}
             onSelect={(color) => {
-              hadleChangeVariant(color, selectedCapacity);
+              handleChangeVariant(color, selectedCapacity);
             }}
             colorMap={appleColors}
           />
@@ -135,7 +134,7 @@ export const ProductInfoPage = () => {
                   selected: selectedCapacity == capacity,
                 })}
                 onClick={() => {
-                  hadleChangeVariant(selectedColor, capacity);
+                  handleChangeVariant(selectedColor, capacity);
                 }}
               >
                 {capacity}
@@ -164,40 +163,43 @@ export const ProductInfoPage = () => {
               <span className="product-info-block__spec-label small-text">
                 {translate('common', 'screen')}
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.screen}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
                 {translate('common', 'resolution')}
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.resolution}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
                 {translate('common', 'processor')}
               </span>{' '}
-              <span className="product-info-block__spec-value small-text">
+              <p className="product-info-block__spec-value small-text">
                 {gadget?.processor}
-              </span>
+              </p>
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
                 {translate('common', 'ram')}
               </span>{' '}
-              <span className="product-info-block__spec-value uppercase">
+              <p className="product-info-block__spec-value uppercase">
                 {gadget?.ram}
-              </span>
+              </p>
             </div>
           </div>
         </div>
+        <span className="product-info-block__id product-info-block__id--desktop small-text">
+          ID: {gadget?.namespaceId}
+        </span>
       </div>
 
       <div className="product-info-block__details">
-        <section className="techspecs__about">
+        <section>
           <h3 className="product-info-block__details__about">
             {translate('common', 'About')}
           </h3>
@@ -205,11 +207,11 @@ export const ProductInfoPage = () => {
           <Description gadget={gadget} />
         </section>
         <section>
-          <section className="techspecs__header">
+          <section>
             <h3 className="product-info-block__details__techspecs">
               {translate('common', 'Tech specs')}
             </h3>
-            <div className="techspecs__divider"></div>
+            <div className="product-info-block__techspecs-divider"></div>
             <TechSpecs gadget={gadget} />
           </section>
         </section>

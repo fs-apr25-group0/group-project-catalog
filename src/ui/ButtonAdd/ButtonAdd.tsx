@@ -5,7 +5,7 @@ import { useThemeState } from '../../stateManagers/themeState';
 import { useTranslation } from '../../hooks/useTranslation';
 
 interface ButtonAddProps {
-  isActive?: boolean;
+  isActive: boolean;
   onClick?: () => void;
 }
 
