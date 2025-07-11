@@ -119,16 +119,65 @@
     justify-content: center;
     height: 32px;
     width: 32px;
-    border: 1px solid colors.$color-icons;
     border-radius: 50%;
 
-    &:hover {
-      border-color: colors.$color-primary;
-      color: colors.$color-primary;
+    &--light {
+      border: 1px solid colors.$color-icons;
+
+      &:hover {
+        border-color: colors.$color-primary;
+        color: colors.$color-primary;
+      }
+
+      &:disabled {
+        border: 1px solid colors.$color-elements;
+      }
     }
 
-    &:disabled {
-      border: 1px solid colors.$color-elements;
+    &--dark {
+      border: 1px solid colors.$color-added-button-dark-mode;
+      background-color: colors.$color-added-button-dark-mode;
+
+      &:hover {
+        border-color: white;
+      }
+
+      &:disabled {
+        border: 1px solid colors.$color-added-button-dark-mode;
+        background-color: transparent;
+      }
+    }
+
+    &--sub {
+      height: 16px;
+      width: 16px;
+
+      &--light {
+        background-image: url('../../images/icons/minus.svg');
+      }
+
+      &--dark {
+        background-image: url('../../images/icons/Minus-dark.png');
+      }
+    }
+
+    &--sub-disabled {
+      background-image: url('../../images/icons/minus-gray.svg');
+      height: 16px;
+      width: 16px;
+    }
+
+    &--add {
+      height: 16px;
+      width: 16px;
+
+      &--light {
+        background-image: url('../../images/icons/plus.svg');
+      }
+
+      &--dark {
+        background-image: url('../../images/icons/Plus-dark.png');
+      }
     }
   }
 
@@ -139,25 +188,4 @@
       width: 80px;
     }
   }
-}
-
-.subtract {
-  background-color: colors.$color-primary;
-  mask: url(../../images/icons/minus.svg);
-  width: 16px;
-  height: 16px;
-}
-
-.subtract-disabled {
-  background-color: colors.$color-icons;
-  mask: url(../../images/icons/minus.svg);
-  width: 16px;
-  height: 16px;
-}
-
-.add {
-  background-color: colors.$color-primary;
-  mask: url(../../images/icons/plus.svg);
-  width: 16px;
-  height: 16px;
 }

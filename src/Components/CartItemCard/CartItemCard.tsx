@@ -2,7 +2,6 @@ import type React from 'react';
 import './CartItemCard.scss';
 import { NavLink } from 'react-router-dom';
 import type { localProduct } from '../../hooks/useLocalStorage';
-import classNames from 'classnames';
 import { useThemeState } from '../../stateManagers/themeState';
 
 interface CartItemCardProps {
@@ -46,22 +45,25 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
       <div className="cart-item-card__second-part">
         <div className="cart-item-card__count">
           <button
-            className="cart-item-card__button cart-item-card__button--subtract"
+            className={`cart-item-card__button cart-item-card__button--${theme}`}
             disabled={isDisabled}
             onClick={subCount}
           >
-            <div
-              className={classNames('subtract', {
-                'subtract-disabled': isDisabled,
-              })}
-            ></div>
+            {isDisabled ?
+              <div className="cart-item-card__button--sub-disabled"></div>
+            : <div
+                className={`cart-item-card__button--sub cart-item-card__button--sub--${theme}`}
+              ></div>
+            }
           </button>
           <p className="cart-item-card__number">{product.quantity}</p>
           <button
-            className="cart-item-card__button cart-item-card__button--add"
+            className={`cart-item-card__button cart-item-card__button--${theme}`}
             onClick={addCount}
           >
-            <div className="add"></div>
+            <div
+              className={`cart-item-card__button--add cart-item-card__button--add--${theme}`}
+            ></div>
           </button>
         </div>
         <h3 className="cart-item-card__price">${totalPriceForOneProduct}</h3>
