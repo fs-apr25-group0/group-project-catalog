@@ -5,7 +5,7 @@ import { useTranslation } from '../../hooks/useTranslation';
 import classNames from 'classnames';
 
 interface DropdownProps {
-  title: string;
+  title?: string;
   value: string | number;
   onChange: (v: string) => void;
   variants: (string | number)[];
@@ -24,9 +24,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className="dropdown">
-      <label className="dropdown__name small-text">{title}</label>
+      {title && <label className="dropdown__name small-text">{title}</label>}
       <Select.Root
-        value={value.toString()}
+        value={value.toString().toLowerCase()}
         onValueChange={onChange}
         onOpenChange={setIsOpen}
       >
@@ -58,7 +58,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 {variants.map((variant) => (
                   <Select.Item
                     key={variant}
-                    value={variant.toString()}
+                    value={variant.toString().toLowerCase()}
                     className="SelectItem"
                   >
                     <Select.ItemText>
