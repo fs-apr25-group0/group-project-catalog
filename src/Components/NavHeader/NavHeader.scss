@@ -1,0 +1,63 @@
+@use '../../styles/variables/colors/colors' as color;
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    list-style: none;
+    margin: 0;
+    padding: 0 24px;
+    height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    justify-content: flex-start;
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-family: 'Mont', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: color.$color-secondary;
+    text-decoration: none;
+    padding: 0;
+
+    &--active {
+      color: color.$color-primary;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: color.$color-primary;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .nav__list {
+    padding: 0 16px;
+    gap: 32px;
+  }
+}
