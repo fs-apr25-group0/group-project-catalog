@@ -1,11 +1,14 @@
 .light {
   background-image: url('../../images/icons/sun.svg');
+  background-repeat: no-repeat;
+  background-position: center;
   width: 48px;
   height: 48px;
 }
-
 .dark {
   background-image: url(../../images/icons/moon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   width: 48px;
   height: 48px;
 }

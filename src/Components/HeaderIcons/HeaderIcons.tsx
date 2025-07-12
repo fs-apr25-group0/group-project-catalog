@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext';
 import { FavoriteContext } from '../../context/FavoriteContext';
 
 interface HeaderIconsProps {
-  type: 'favorites' | 'card' | 'menu' | 'close';
+  type: 'favorites' | 'card';
 }
 
 export const HeaderIcons: React.FC<HeaderIconsProps> = ({ type }) => {
