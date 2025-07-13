@@ -1,4 +1,4 @@
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 import './ShopByCategoties.scss';
 import { Link } from 'react-router-dom';
 
@@ -13,13 +13,11 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
   amountTablets,
   amountAccessories,
 }) => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   return (
     <section className="categories">
-      <h2 className="categories__title">
-        {translate('common', 'Shop by category')}
-      </h2>
+      <h2 className="categories__title">{translate('Shop by category')}</h2>
 
       <div className="categories__list">
         <div className="category category--phones">
@@ -31,12 +29,10 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="phones"
             className="category__title-link"
           >
-            <p className="category__title">
-              {translate('common', 'Mobile phones')}
-            </p>
+            <p className="category__title">{translate('Mobile phones')}</p>
           </Link>
           <span className="category__count">
-            {amountPhones} {translate('common', 'models')}
+            {amountPhones} {translate('models')}
           </span>
         </div>
 
@@ -49,10 +45,10 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="tablets"
             className="category__title-link"
           >
-            <p className="category__title">{translate('common', 'tablets')}</p>
+            <p className="category__title">{translate('tablets')}</p>
           </Link>
           <span className="category__count">
-            {amountTablets} {translate('common', 'models')}
+            {amountTablets} {translate('models')}
           </span>
         </div>
 
@@ -65,12 +61,10 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
             to="accessories"
             className="category__title-link"
           >
-            <p className="category__title">
-              {translate('common', 'accessories')}
-            </p>
+            <p className="category__title">{translate('accessories')}</p>
           </Link>
           <span className="category__count">
-            {amountAccessories} {translate('common', 'models')}
+            {amountAccessories} {translate('models')}
           </span>
         </div>
       </div>

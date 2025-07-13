@@ -17,15 +17,14 @@ import { ColorPicker } from '../../ui/ColorPicker/ColorPicker';
 import cn from 'classnames';
 import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
-
-import { useTranslation } from '../../hooks/useTranslation';
 import { appleColors } from '../../constans/appleColors';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike, gadgets } =
     useGadget();
 
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   const { productInCart, setProductInCart } = useContext(CartContext);
   const { productInFavorite, setProductInFavorite } =
@@ -106,7 +105,7 @@ export const ProductInfoPage = () => {
         <div className="product-info-block__right">
           <div className="product-info-block__top-row">
             <span className="product-info-block__label small-text">
-              {translate('common', 'Available colors')}
+              {translate('Available colors')}
             </span>
             <span className="product-info-block__id product-info-block__id--mobile small-text">
               ID: {gadget?.namespaceId}
@@ -124,7 +123,7 @@ export const ProductInfoPage = () => {
           <div className="product-info-block__divider" />
 
           <span className="product-info-block__label small-text">
-            {translate('common', 'Select Capacity')}
+            {translate('Select Capacity')}
           </span>
           <div className="product-info-block__capacities">
             {capacities.map((capacity) => (
@@ -161,7 +160,7 @@ export const ProductInfoPage = () => {
           <div className="product-info-block__short-specs">
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                {translate('common', 'screen')}
+                {translate('screen')}
               </span>{' '}
               <p className="product-info-block__spec-value small-text">
                 {gadget?.screen}
@@ -169,7 +168,7 @@ export const ProductInfoPage = () => {
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                {translate('common', 'resolution')}
+                {translate('resolution')}
               </span>{' '}
               <p className="product-info-block__spec-value small-text">
                 {gadget?.resolution}
@@ -177,7 +176,7 @@ export const ProductInfoPage = () => {
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                {translate('common', 'processor')}
+                {translate('processor')}
               </span>{' '}
               <p className="product-info-block__spec-value small-text">
                 {gadget?.processor}
@@ -185,7 +184,7 @@ export const ProductInfoPage = () => {
             </div>
             <div className="product-info-block__spec-row">
               <span className="product-info-block__spec-label small-text">
-                {translate('common', 'ram')}
+                {translate('ram')}
               </span>{' '}
               <p className="product-info-block__spec-value uppercase">
                 {gadget?.ram}
@@ -201,7 +200,7 @@ export const ProductInfoPage = () => {
       <div className="product-info-block__details">
         <section>
           <h3 className="product-info-block__details__about">
-            {translate('common', 'About')}
+            {translate('About')}
           </h3>
           <div className="product-info-block__about-divider"></div>
           <Description gadget={gadget} />
@@ -209,7 +208,7 @@ export const ProductInfoPage = () => {
         <section>
           <section>
             <h3 className="product-info-block__details__techspecs">
-              {translate('common', 'Tech specs')}
+              {translate('Tech specs')}
             </h3>
             <div className="product-info-block__techspecs-divider"></div>
             <TechSpecs gadget={gadget} />
@@ -219,7 +218,7 @@ export const ProductInfoPage = () => {
 
       <SliderForProduct
         visibleProducts={productsMayLike}
-        title={translate('common', 'You may also like')}
+        title={translate('You may also like')}
       />
     </div>
   );
