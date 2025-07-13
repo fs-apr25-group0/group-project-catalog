@@ -1,49 +1,53 @@
 import './Header.scss';
-import { useTranslation } from '../../hooks/useTranslation';
+// import { useTranslation } from '../../hooks/useTranslation';
+// import { NavLink, useNavigate } from 'react-router-dom';
+import { LogoShop } from '../../ui/LogoShop';
+import { NavigationMain } from '../NavigationMain';
+import { NavigationCartFavorite } from '../NavigationCartFavorite';
+import cn from 'classnames';
+import { useAsideState } from '../../stateManagers/asideState';
+import { Dropdown } from '../../ui/Dropdown';
+import { ButtonTheme } from '../../ui/ButtonTheme';
 import { useNavigate } from 'react-router-dom';
-
-import { NavHeader } from '../NavHeader/NavHeader';
-import { NavActionsDesktop } from '../NavActionsDesktop/NavActionsDesktop';
-import { BurgerButton } from '../BurgerButton/BurgerButton';
-import { MobileMenu } from '../MobileMenu/MobileMenu';
-import { Logo } from '../Logo/Logo';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export const Header = () => {
-  const { language, setLanguage } = useTranslation();
+  const { isAsideOpen, toggleAside } = useAsideState();
+  const { setLanguage, language } = useTranslation();
   const navigate = useNavigate();
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedLang = event.target.value;
-    if (selectedLang === 'ru') {
+  const handleChange = (value: string) => {
+    if (value === 'ru') {
       navigate('/russians-are-not-people');
       return;
     }
-    setLanguage(selectedLang as 'ua' | 'en');
+
+    setLanguage(value as 'en' | 'ua');
   };
 
   return (
-    <header
-      className="header"
-      id="header"
-    >
-      <input
-        type="checkbox"
-        id="menu-toggle"
-        className="menu-toggle"
-        hidden
-      />
-      <div className="header__container">
-        <Logo />
-        <div className="header__desktop">
-          <NavHeader />
-          <NavActionsDesktop />
-        </div>
-        <BurgerButton />
-        <MobileMenu
-          handleChange={handleChange}
-          language={language}
+    <header className="header">
+      <LogoShop />
+
+      <nav className="header__nav-bar">
+        <NavigationMain />
+        <NavigationCartFavorite />
+      </nav>
+
+      <div className="user-comfort">
+        <ButtonTheme />
+        <Dropdown
+          value={language}
+          onChange={handleChange}
+          variants={['UA', 'EN', 'RU']}
+          cl="language"
         />
       </div>
+
+      <button
+        className={cn(isAsideOpen ? 'menu-open' : 'menu-close')}
+        onClick={toggleAside}
+      ></button>
     </header>
   );
 };

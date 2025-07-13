@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 import { useThemeState } from '../../stateManagers/themeState';
-import logoLight from '../../images/logo.svg';
-import logoDark from '../../images/Logo-dark.svg';
+import { LogoShop } from '../../ui/LogoShop';
 
 export const Footer = () => {
   const { translate } = useTranslation();
@@ -12,15 +11,7 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <NavLink
-        to="/"
-        className="footer__logo"
-      >
-        <img
-          src={theme === 'light' ? logoLight : logoDark}
-          alt="Shop logo"
-        />
-      </NavLink>
+      <LogoShop />
 
       <nav className="footer__nav">
         <a

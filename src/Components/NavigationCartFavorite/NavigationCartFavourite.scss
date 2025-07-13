@@ -1,0 +1,42 @@
+@use '../../styles/variables/colors/colors' as color;
+
+.navigation-cart {
+  display: flex;
+  height: 100%;
+
+  &__item {
+    border-inline: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+  }
+}
+
+.navigation-cart-aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 64px;
+  width: 100%;
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
+.link-cart {
+  display: flex;
+  font-size: 12px;
+  height: 100%;
+  width: 64px;
+
+  align-items: center;
+  justify-content: center;
+  &__active {
+    border-bottom: 3px solid color.$color-primary;
+  }
+}

@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  margin-top: 64px;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -16,7 +20,7 @@ html {
     h2,
     h3,
     h4 {
-      color: colors.$color-primary-dark-mode;
+      color: colors.$color-primary;
     }
 
     p {

@@ -7,7 +7,10 @@
 .icon {
   width: 16px;
   height: 16px;
+  padding-inline: 24px;
   pointer-events: none;
+  background-position: center;
+  background-repeat: no-repeat;
 
   background-image: url('../../images/icons/shopping_bag_cart.svg');
 
@@ -33,12 +36,4 @@
 
 .icon__card {
   background-image: url('../../images/icons/shopping_bag_cart.svg');
-}
-
-.icon__menu {
-  background-image: url('../../images/icons/menu.svg');
-}
-
-.icon__close {
-  background-image: url('../../images/icons/close.svg');
 }

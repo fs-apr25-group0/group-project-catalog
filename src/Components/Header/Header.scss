@@ -1,65 +1,70 @@
 @use '../../styles/variables/colors/colors' as color;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
 .header {
-  height: 64px;
-  box-shadow: 0 1px 0 0 color.$color-elements;
-  position: relative;
-  z-index: 100;
   display: flex;
+  box-sizing: border-box;
+  padding-left: 24px;
   align-items: center;
-  overflow-x: hidden;
+  text-align: center;
+  width: 100%;
+  height: 64px;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  background-color: #fff;
+  z-index: 1000;
 
-  &__container {
+  @media (min-width: 640px) {
+    > *:first-child {
+      margin-right: 24px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    justify-content: space-between;
+  }
+
+  &__nav-bar {
     display: flex;
-    align-items: center;
+    flex-grow: 1;
     justify-content: space-between;
     height: 100%;
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
 
-  &__desktop {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+}
+
+.menu-close {
+  display: none;
+
+  @media (max-width: 640px) {
     display: flex;
     align-items: center;
-    flex-grow: 1;
+    justify-content: center;
+    background-image: url('../../images/icons/menu.svg');
+    width: 48px;
     height: 100%;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    width: 100%;
-    background-color: transparent;
-    pointer-events: none;
-    transition: background-color 0.3s ease;
-    z-index: 101;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
-// MEDIA QUERIES
+.menu-open {
+  display: none;
 
-@media (max-width: 1199px) {
-  .header {
-    height: 48px;
+  @media (max-width: 640px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../images/icons/close.svg');
+    width: 48px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
-@media (max-width: 639px) {
-  .header__desktop {
-    display: none;
-  }
-
-  .header {
-    height: 48px;
-  }
+.user-comfort {
+  height: 100%;
 }
