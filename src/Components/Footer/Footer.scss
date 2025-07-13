@@ -38,17 +38,6 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    color: color.$color-secondary;
-
-    &--light {
-      &:hover {
-        color: color.$color-primary;
-      }
-    }
-
-    &--dark {
-      color: #f1f2f9;
-    }
   }
 
   &__to-top {
