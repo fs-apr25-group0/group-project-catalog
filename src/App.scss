@@ -16,6 +16,8 @@ main {
   font-family: 'Mont', sans-serif;
 
   &--light {
+    background-color: colors.$color-bg-app-light-mode;
+
     h1,
     h2,
     h3,
@@ -30,10 +32,20 @@ main {
     span {
       color: colors.$color-secondary;
     }
-    background-color: colors.$color-bg-app-light-mode;
+
+    footer {
+      a {
+        color: colors.$color-secondary;
+        &:hover {
+          color: colors.$color-primary;
+        }
+      }
+    }
   }
 
   &--dark {
+    background-color: colors.$color-bg-app-dark-mode;
+
     h1,
     h2,
     h3,
@@ -48,7 +60,12 @@ main {
     span {
       color: colors.$color-secondary-dark-mode;
     }
-    background-color: colors.$color-bg-app-dark-mode;
+
+    footer {
+      a {
+        color: #f1f2f9;
+      }
+    }
   }
 }
 
