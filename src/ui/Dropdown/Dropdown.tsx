@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Select } from 'radix-ui';
 import './Dropdown.scss';
-import { useTranslation } from '../../hooks/useTranslation';
 import classNames from 'classnames';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 interface DropdownProps {
   title?: string;
@@ -19,7 +19,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   variants,
   cl,
 }) => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -63,7 +63,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   >
                     <Select.ItemText>
                       {typeof variant === 'string' ?
-                        translate('common', `${variant}`)
+                        translate(`${variant}`)
                       : variant}
                     </Select.ItemText>
                   </Select.Item>

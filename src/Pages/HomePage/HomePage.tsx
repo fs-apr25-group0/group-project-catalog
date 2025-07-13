@@ -3,7 +3,7 @@ import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
 import { ShopByCategory } from '../../Components/ShopByCategories';
 import { SliderForProduct } from '../../Components/SliderForProduct';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const HomePage = () => {
   const {
@@ -15,7 +15,7 @@ export const HomePage = () => {
     hotPriceProducts,
   } = useProductForHomePage();
 
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -25,14 +25,14 @@ export const HomePage = () => {
     <main>
       <div>
         <div className="page-title">
-          <h1>{translate('common', 'Welcome to Nice Gadgets store!')}</h1>
+          <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
         </div>
         <MainSlider />
       </div>
 
       <SliderForProduct
         visibleProducts={newProducts}
-        title={translate('common', 'Brand new models')}
+        title={translate('Brand new models')}
       />
 
       <ShopByCategory
@@ -43,7 +43,7 @@ export const HomePage = () => {
 
       <SliderForProduct
         visibleProducts={hotPriceProducts}
-        title={translate('common', 'Hot prices')}
+        title={translate('Hot prices')}
       />
     </main>
   );

@@ -1,12 +1,12 @@
 import './Footer.scss';
 import { NavLink } from 'react-router-dom';
-import { useTranslation } from '../../hooks/useTranslation';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 import { useThemeState } from '../../stateManagers/themeState';
 import { LogoShop } from '../../ui/LogoShop';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const Footer = () => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
   const { theme } = useThemeState();
 
   return (
@@ -18,25 +18,25 @@ export const Footer = () => {
           href="https://github.com/"
           className={`footer__link footer__link--${theme}`}
         >
-          {translate('common', 'GITHUB')}
+          {translate('GITHUB')}
         </a>
         <NavLink
           to="/tablets"
           className={`footer__link footer__link--${theme}`}
         >
-          {translate('common', 'CONTACTS')}
+          {translate('CONTACTS')}
         </NavLink>
         <NavLink
           to="/accessories"
           className={`footer__link footer__link--${theme}`}
         >
-          {translate('common', 'RIGHTS')}
+          {translate('RIGHTS')}
         </NavLink>
       </nav>
 
       <div className="footer__to-top">
         <span className="footer__text uppercase">
-          {translate('common', 'Back to top')}
+          {translate('Back to top')}
         </span>
         <button
           className="footer__button"

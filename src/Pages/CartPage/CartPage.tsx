@@ -5,12 +5,12 @@ import { LinkBack } from '../../Components/LinkBack';
 console.log('SCSS importing...');
 import './CartPage.scss';
 import type { Product } from '../../types/products';
-import { useTranslation } from '../../hooks/useTranslation';
 import { useThemeState } from '../../stateManagers/themeState';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const CartPage = () => {
   const { productInCart, setProductInCart, setCount } = useContext(CartContext);
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
   const { theme } = useThemeState();
 
   function deleteProductFromCart(product: Product) {
@@ -44,7 +44,7 @@ export const CartPage = () => {
       <div className="cart__up-part">
         <LinkBack />
 
-        <h1>{translate('common', 'Cart')}</h1>
+        <h1>{translate('Cart')}</h1>
       </div>
 
       <div className="cart__down-part">
@@ -66,15 +66,15 @@ export const CartPage = () => {
               <div className="cart__checkout-content-text">
                 <h2 className="cart__total-price">${totalPrice}</h2>
                 <div className="cart__total-number body-text">
-                  {translate('common', 'Total for')} {productInCartLength}{' '}
-                  {translate('common', `${stringItem}`)}
+                  {translate('Total for')} {productInCartLength}{' '}
+                  {translate(`${stringItem}`)}
                 </div>
               </div>
               <div className="cart__line"></div>
               <button
                 className={`cart__check-button cart__check-button--${theme}`}
               >
-                {translate('common', 'Checkout')}
+                {translate('Checkout')}
               </button>
             </div>
           </div>

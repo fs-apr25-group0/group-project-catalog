@@ -2,7 +2,7 @@ import React from 'react';
 import './ButtonAdd.scss';
 import cn from 'classnames';
 import { useThemeState } from '../../stateManagers/themeState';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 interface ButtonAddProps {
   isActive: boolean;
@@ -13,7 +13,7 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
   isActive = false,
   onClick,
 }) => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
   const { theme } = useThemeState();
   return (
     <button
@@ -24,9 +24,7 @@ export const ButtonAdd: React.FC<ButtonAddProps> = ({
       aria-label={isActive ? 'Remove from cart' : 'Add to cart'}
       onClick={onClick}
     >
-      {isActive ?
-        translate('common', 'Added')
-      : translate('common', 'Add to cart')}
+      {isActive ? translate('Added') : translate('Add to cart')}
     </button>
   );
 };

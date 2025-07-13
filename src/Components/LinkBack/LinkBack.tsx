@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import './LinkBack.scss';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const LinkBack = () => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   return (
     <div className="url-back">
@@ -12,7 +12,7 @@ export const LinkBack = () => {
         to="../"
         className="small-text title-grey"
       >
-        {translate('common', 'Back')}
+        {translate('Back')}
       </Link>
     </div>
   );

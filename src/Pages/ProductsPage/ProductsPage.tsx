@@ -9,7 +9,7 @@ import { sortVariants, sortVariantsValues } from '../../constans/sortVariants';
 import { helperToSortProducts } from '../../utils/helperToSortProducts';
 import { Dropdown } from '../../ui/Dropdown';
 import type { Category } from '../../types/category/сategory';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const ProductsPage = () => {
   const {
@@ -23,7 +23,7 @@ export const ProductsPage = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   const perPage = Number(searchParams.get('perPage')) || 16;
   const currentPage = Number(searchParams.get('page')) || 1;
@@ -80,27 +80,24 @@ export const ProductsPage = () => {
             <Outlet />
           : <section className="products-page__container">
               <div className="products-page__url-way">
-                <UrlWay category={translate('common', `${category}`)} />
+                <UrlWay category={translate(`${category}`)} />
               </div>
 
               <div className="products-page__header">
                 {category && (
                   <h1>
-                    {translate(
-                      'common',
-                      `${titleVariables[category as Category]}`,
-                    )}
+                    {translate(`${titleVariables[category as Category]}`)}
                   </h1>
                 )}
               </div>
 
               <p className="products-page__count body-text">
-                {amountProduct} {translate('common', 'models')}
+                {amountProduct} {translate('models')}
               </p>
 
               <div className="products-page__filter-panel">
                 <Dropdown
-                  title={translate('common', 'Sort by')}
+                  title={translate('Sort by')}
                   value={sortBy}
                   onChange={handleSortChange}
                   variants={sortVariantsValues}
@@ -108,7 +105,7 @@ export const ProductsPage = () => {
                 />
 
                 <Dropdown
-                  title={translate('common', 'Items on page')}
+                  title={translate('Items on page')}
                   value={perPage}
                   onChange={handlePerPageChange}
                   variants={paginationVariantsValues}

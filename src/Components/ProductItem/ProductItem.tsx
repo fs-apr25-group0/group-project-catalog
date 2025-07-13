@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import type { Product } from '../../types/products';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 interface ProductItemProps {
   product: Product;
@@ -11,7 +11,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({
   product,
   category,
 }) => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   return (
     <li>
@@ -26,22 +26,22 @@ export const ProductItem: React.FC<ProductItemProps> = ({
 
       <div>
         <div>
-          <span>{translate('common', 'Screen')}</span>
+          <span>{translate('Screen')}</span>
           <span>{product.screen}</span>
         </div>
         <div>
-          <span>{translate('common', 'Capacity')}</span>
+          <span>{translate('Capacity')}</span>
           <span>{product.capacity}</span>
         </div>
         <div>
-          <span>{translate('common', 'RAM')}</span>
+          <span>{translate('RAM')}</span>
           <span>{product.ram}</span>
         </div>
       </div>
 
       <div>
-        <button>{translate('common', 'Add to cart')}</button>
-        <button>{translate('common', 'favorites')}</button>
+        <button>{translate('Add to cart')}</button>
+        <button>{translate('favorites')}</button>
       </div>
     </li>
   );

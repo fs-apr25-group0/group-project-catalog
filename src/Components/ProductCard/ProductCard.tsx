@@ -7,8 +7,8 @@ import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { CartContext } from '../../context/CartContext';
-import { useTranslation } from '../../hooks/useTranslation';
 import { useThemeState } from '../../stateManagers/themeState';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 // type ProductCardProps = {
 //   product: Product;
@@ -42,7 +42,7 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   // localStorage.removeItem('favorite');
   // window.location.reload();
 
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
   const { theme } = useThemeState();
 
   const { productInCart, setProductInCart } = useContext(CartContext);
@@ -94,20 +94,18 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
           <div className="productCard__container-specifications">
             <div className="productCard__block">
-              <span className="small-text">
-                {translate('common', 'screen')}
-              </span>
+              <span className="small-text">{translate('screen')}</span>
               <p className="uppercase">{product.screen}</p>
             </div>
             <div className="productCard__block">
               <span className="productCard__info small-text">
-                {translate('common', 'capacity')}
+                {translate('capacity')}
               </span>
               <p className="uppercase">{product.capacity}</p>
             </div>
             <div className="productCard__block">
               <span className="productCard__info small-text">
-                {translate('common', 'ram')}
+                {translate('ram')}
               </span>
               <p className="uppercase">{product.ram}</p>
             </div>
