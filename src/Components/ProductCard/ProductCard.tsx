@@ -31,6 +31,7 @@ import { useTranslationState } from '../../stateManagers/languageState';
 interface PropsProductCart {
   product: Product;
   category: string;
+  loading: boolean;
 }
 
 export const ProductCard: React.FC<PropsProductCart> = ({

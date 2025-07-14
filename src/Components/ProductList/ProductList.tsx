@@ -4,9 +4,10 @@ import './ProductList.scss';
 
 type Props = {
   visibleProducts: Product[];
+  loading: boolean;
 };
 
-export const ProductList: React.FC<Props> = ({ visibleProducts }) => {
+export const ProductList: React.FC<Props> = ({ visibleProducts, loading }) => {
   return (
     <ul className="product-list">
       {visibleProducts.map((product) => (
@@ -14,6 +15,7 @@ export const ProductList: React.FC<Props> = ({ visibleProducts }) => {
           <ProductCard
             category={product.category}
             product={product}
+            loading={loading}
           />
         </li>
       ))}

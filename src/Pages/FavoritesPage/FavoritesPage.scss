@@ -4,15 +4,13 @@
   width: 100%;
   max-width: 288px;
   margin: 0 auto;
-  padding-top: 56px;
+  padding-top: 24px;
 
   @media (min-width: 640px) {
-    padding-top: 56px;
     max-width: 592px;
   }
 
   @media (min-width: 1200px) {
-    padding-top: 56px;
     max-width: 1136px;
   }
 
