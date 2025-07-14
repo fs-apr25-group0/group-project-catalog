@@ -10,11 +10,12 @@ export const ProductList: React.FC<Props> = ({ visibleProducts }) => {
   return (
     <ul className="product-list">
       {visibleProducts.map((product) => (
-        <ProductCard
-          key={product.id}
-          category={product.category}
-          product={product}
-        />
+        <li key={product.id}>
+          <ProductCard
+            category={product.category}
+            product={product}
+          />
+        </li>
       ))}
     </ul>
   );
