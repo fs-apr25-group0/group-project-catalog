@@ -2,7 +2,7 @@ import type { Dictionary } from '../types/dictionary';
 import type { Language } from '../types/language';
 
 export const dictionaries: Record<Language, Dictionary> = {
-  en: {
+  EN: {
     'A14 Bionic chip. The only thing even close was our last chip.':
       'A14 Bionic chip. The only thing even close was our last chip.',
     'A15 Bionic': 'A15 Bionic',
@@ -261,7 +261,7 @@ export const dictionaries: Record<Language, Dictionary> = {
     'Checkout': 'Checkout',
     'Total for': 'Total for',
   },
-  ua: {
+  UA: {
     'A14 Bionic chip. The only thing even close was our last chip.':
       'Чіп A14 Bionic. Єдине, що наближається — наш попередній чіп.',
     'A15 Bionic': 'A15 Bionic',
