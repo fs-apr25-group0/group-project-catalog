@@ -9,6 +9,7 @@ main {
   flex-direction: column;
   margin-top: 64px;
   box-sizing: border-box;
+  align-items: center;
 
   @media (min-width: 1200px) {
     justify-content: center;
