@@ -41,9 +41,11 @@ export const CartPage = () => {
 
   return (
     <section className="cart">
-      <LinkBack />
+      <div className="cart__text">
+        <LinkBack />
 
-      <h1 className="cart__title">{translate('Cart')}</h1>
+        <h1 className="cart__title">{translate('Cart')}</h1>
+      </div>
 
       <div className="cart__down-part">
         <div className="cart__product">
