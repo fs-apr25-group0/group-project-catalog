@@ -121,7 +121,10 @@ export const ProductsPage = () => {
             </div>
 
             <div className="products-page__product-list">
-              <ProductList visibleProducts={visibleProducts} />
+              <ProductList
+                visibleProducts={visibleProducts}
+                loading={loading}
+              />
             </div>
 
             <div className="products-page__pagination-wrapper">

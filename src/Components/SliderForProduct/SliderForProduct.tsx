@@ -24,7 +24,6 @@ export const SliderForProduct = ({
   title,
 }: PropsSliderNewProduct) => {
   const swiperRef = useRef<SwiperClass | null>(null);
-  const slidesPerView = 4;
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = () => {
@@ -43,9 +42,11 @@ export const SliderForProduct = ({
       setActiveIndex(swiper.activeIndex);
     });
   };
+  const swiperInstance = swiperRef.current;
+  const dynamicSlides = swiperInstance?.slidesPerViewDynamic() || 1;
 
   const isBeginning = activeIndex === 0;
-  const isEnd = activeIndex >= visibleProducts.length - slidesPerView;
+  const isEnd = activeIndex >= visibleProducts.length - dynamicSlides;
 
   return (
     <section className="slider-for-product">
