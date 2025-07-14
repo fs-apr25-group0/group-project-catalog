@@ -5,16 +5,21 @@ html {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   margin-top: 64px;
   box-sizing: border-box;
-  padding: 0 16px 64px;
-
-  @media (min-width: 640px) {
-    padding: 0 24px 64px;
-  }
 
   @media (min-width: 1200px) {
-    padding: 0 32px 80px;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    padding-inline: 24px;
+  }
+
+  @media (max-width: 639) {
+    padding-inline: 16px;
   }
 }
 

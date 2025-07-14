@@ -23,12 +23,10 @@ export const HomePage = () => {
 
   return (
     <>
-      <div>
-        <div className="page-title">
-          <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
-        </div>
+      <section className="main-section">
+        <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
         <MainSlider />
-      </div>
+      </section>
 
       <SliderForProduct
         visibleProducts={newProducts}

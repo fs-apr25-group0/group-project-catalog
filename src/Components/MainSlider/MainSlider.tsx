@@ -34,7 +34,7 @@ export const MainSlider = () => {
   ];
 
   return (
-    <div className="banner-slider">
+    <section className="banner-slider">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         slidesPerView={1}
@@ -87,6 +87,6 @@ export const MainSlider = () => {
       />
 
       <div className="banner-slider__pagination"></div>
-    </div>
+    </section>
   );
 };
