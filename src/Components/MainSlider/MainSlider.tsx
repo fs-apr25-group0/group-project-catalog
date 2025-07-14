@@ -74,12 +74,14 @@ export const MainSlider = () => {
         </Swiper>
 
         <ButtonArrow
+          icon="arrow"
           direction="left"
           className="banner-slider__button banner-slider__button--prev slider-arrow--tall"
           aria-label="Previous"
         />
 
         <ButtonArrow
+          icon="arrow"
           direction="right"
           className="banner-slider__button banner-slider__button--next slider-arrow--tall"
           aria-label="Next"

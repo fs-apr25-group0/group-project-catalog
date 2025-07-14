@@ -43,6 +43,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     <ul className="pagination">
       <li className="pagination__item">
         <ButtonArrow
+          icon="arrow"
           direction="left"
           onClick={handlePageBefore}
           disabled={currentPage === 1}
@@ -72,6 +73,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
       <li className="pagination__item">
         <ButtonArrow
+          icon="arrow"
           direction="right"
           onClick={handlePageNext}
           disabled={currentPage === pageAmount}

@@ -54,11 +54,13 @@ export const SliderForProduct = ({
           <h2 className="slider-title">{title}</h2>
           <div className="slider-navigation-buttons">
             <ButtonArrow
+              icon="arrow"
               direction="left"
               onClick={handlePrev}
               disabled={isBeginning}
             />
             <ButtonArrow
+              icon="arrow"
               direction="right"
               onClick={handleNext}
               disabled={isEnd}
