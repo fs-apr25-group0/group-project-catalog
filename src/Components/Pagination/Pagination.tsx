@@ -1,8 +1,8 @@
 import './Pagination.scss';
 import cn from 'classnames';
-import { getNumbers } from '../../utils/paginationHelper';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 import { useThemeState } from '../../stateManagers/themeState';
+import { getPaginationRange } from '../../utils/getPaginationRange/getPaginationRange';
 
 interface PaginationProps {
   amountProduct: number;
@@ -50,24 +50,27 @@ export const Pagination: React.FC<PaginationProps> = ({
         />
       </li>
 
-      {getNumbers(1, pageAmount).map((pageLink) => (
+      {getPaginationRange(currentPage, pageAmount).map((pageLink, i) => (
         <li
-          key={pageLink}
+          key={i}
           className="pagination__item"
         >
-          <button
-            className={cn(
-              'pagination__number',
-              `pagination__number--${theme}`,
-              {
-                [`pagination__number--active--${theme}`]:
-                  currentPage === pageLink,
-              },
-            )}
-            onClick={handlePageClick(pageLink)}
-          >
-            {pageLink}
-          </button>
+          {pageLink === 'dots' ?
+            <span className="pagination__dots">...</span>
+          : <button
+              className={cn(
+                'pagination__number',
+                `pagination__number--${theme}`,
+                {
+                  [`pagination__number--active--${theme}`]:
+                    currentPage === pageLink,
+                },
+              )}
+              onClick={handlePageClick(pageLink)}
+            >
+              {pageLink}
+            </button>
+          }
         </li>
       ))}
 

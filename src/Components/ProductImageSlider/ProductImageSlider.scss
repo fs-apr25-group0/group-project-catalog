@@ -4,6 +4,7 @@
   display: flex;
   gap: 16px;
   align-items: flex-start;
+  padding-right: 64px;
 
   &__small {
     display: flex;
@@ -22,8 +23,6 @@
     border: 1px solid colors.$color-elements;
     border-radius: 8px;
     padding: 0;
-    background: none;
-    cursor: pointer;
 
     &.selected {
       border-color: colors.$color-primary;
@@ -38,17 +37,12 @@
   }
 
   &__main {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 464px;
-    min-height: 464px;
     max-width: 464px;
     max-height: 464px;
-    background: #fff;
     border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
     img {
       max-width: 464px;
@@ -67,30 +61,52 @@
   }
 }
 
+@media (min-width: 650px) and (max-width: 1199px) {
+  .product-image-slider {
+    &__small {
+      gap: 8px;
+    }
+
+    &__smaller {
+      width: 35px;
+      height: 35px;
+
+      img {
+        width: 29px;
+        height: 29px;
+      }
+    }
+
+    &__main {
+      max-width: 287px;
+      max-height: 287px;
+      img {
+      }
+    }
+
+    &__empty {
+    }
+  }
+}
+
 @media (max-width: 639px) {
   .product-image-slider {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
 
-    &__main {
-      order: 1;
-    }
     &__small {
       flex-direction: row;
       gap: 8px;
-      margin-top: 16px;
-      margin-bottom: 40px;
       order: 2;
     }
 
     &__smaller {
-      width: 60px;
-      height: 60px;
+      width: 51px;
+      height: 51px;
 
       img {
-        width: 52px;
-        height: 52px;
+        width: 42px;
+        height: 42px;
         object-fit: contain;
         border-radius: 4px;
       }
