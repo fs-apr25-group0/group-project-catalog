@@ -1,4 +1,6 @@
 import './ProductsPage.scss';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
@@ -62,11 +64,11 @@ export const ProductsPage = () => {
     setSearchParams(searchParams);
   };
 
-  const isPageVisible = products.length > 0;
+  // const isPageVisible = products.length > 0;
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
   if (!categoryVariables.includes(selectedCategory)) {
     return <NavLink to={'*'}>Not found page</NavLink>;
@@ -74,61 +76,65 @@ export const ProductsPage = () => {
 
   return (
     <>
-      {isPageVisible && (
-        <section className="products-page">
-          {itemId ?
-            <Outlet />
-          : <section className="products-page__container">
-              <div className="products-page__url-way">
-                <UrlWay category={translate(`${category}`)} />
-              </div>
+      <section className="products-page">
+        {itemId ?
+          <Outlet />
+        : <section className="products-page__container">
+            <div className="products-page__url-way">
+              <UrlWay category={translate(`${category}`)} />
+            </div>
 
-              <div className="products-page__header">
-                {category && (
-                  <h1>
-                    {translate(`${titleVariables[category as Category]}`)}
-                  </h1>
-                )}
-              </div>
+            <div className="products-page__header">
+              {category && (
+                <h1>{translate(`${titleVariables[category as Category]}`)}</h1>
+              )}
+            </div>
 
-              <p className="products-page__count body-text">
-                {amountProduct} {translate('models')}
-              </p>
-
-              <div className="products-page__filter-panel">
-                <Dropdown
-                  title={translate('Sort by')}
-                  value={sortBy}
-                  onChange={handleSortChange}
-                  variants={sortVariantsValues}
-                  cl="sort"
+            <p className="products-page__count body-text">
+              {loading ?
+                <Skeleton
+                  height={21}
+                  width={100}
                 />
+              : <>
+                  {amountProduct} {translate('models')}
+                </>
+              }
+            </p>
 
-                <Dropdown
-                  title={translate('Items on page')}
-                  value={perPage}
-                  onChange={handlePerPageChange}
-                  variants={paginationVariantsValues}
-                  cl="paginator"
-                />
-              </div>
+            <div className="products-page__filter-panel">
+              <Dropdown
+                title={translate('Sort by')}
+                value={sortBy}
+                onChange={handleSortChange}
+                variants={sortVariantsValues}
+                cl="sort"
+              />
 
-              <div className="products-page__product-list">
-                <ProductList visibleProducts={visibleProducts} />
-              </div>
+              <Dropdown
+                title={translate('Items on page')}
+                value={perPage}
+                onChange={handlePerPageChange}
+                variants={paginationVariantsValues}
+                cl="paginator"
+              />
+            </div>
 
-              <div className="products-page__pagination-wrapper">
-                <Pagination
-                  amountProduct={amountProduct}
-                  perPage={perPage}
-                  currentPage={currentPage}
-                  onPageChange={handlePageChange}
-                />
-              </div>
-            </section>
-          }
-        </section>
-      )}
+            <div className="products-page__product-list">
+              <ProductList visibleProducts={visibleProducts} />
+            </div>
+
+            <div className="products-page__pagination-wrapper">
+              <Pagination
+                amountProduct={amountProduct}
+                perPage={perPage}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+              />
+            </div>
+          </section>
+        }
+      </section>
     </>
   );
 };
