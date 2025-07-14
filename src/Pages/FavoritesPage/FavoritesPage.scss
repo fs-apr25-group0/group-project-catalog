@@ -1,19 +1,17 @@
 @use '../../styles/variables/colors/colors' as colors;
 
 .favorites {
-  max-width: 1200px;
   width: 100%;
+  max-width: 288px;
   margin: 0 auto;
-  padding-top: 56px;
+  padding-top: 24px;
 
   @media (min-width: 640px) {
-    margin: 0 auto;
-    padding-top: 56px;
+    max-width: 592px;
   }
 
   @media (min-width: 1200px) {
-    margin: 0 auto;
-    padding-top: 56px;
+    max-width: 1136px;
   }
 
   &__title {

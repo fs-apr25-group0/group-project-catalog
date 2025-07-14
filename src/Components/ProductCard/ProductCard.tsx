@@ -31,6 +31,7 @@ import { useTranslationState } from '../../stateManagers/languageState';
 interface PropsProductCart {
   product: Product;
   category: string;
+  loading: boolean;
 }
 
 export const ProductCard: React.FC<PropsProductCart> = ({
@@ -65,66 +66,64 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   );
 
   return (
-    <li className="productCard">
-      <article
-        className={`productCard__container productCard__container--${theme}`}
+    <article
+      className={`productCard__container productCard__container--${theme}`}
+    >
+      <NavLink
+        to={`/${category}/${product.itemId}`}
+        className="productCard__link-zone"
       >
-        <NavLink
-          to={`/${category}/${product.itemId}`}
-          className="productCard__link-zone"
-        >
-          <div className="productCard__container-photo">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="productCard__photo"
-            />
-          </div>
-
-          <div className="productCard__container-title">
-            <p className="body-text">{product.name}</p>
-          </div>
-
-          <div className="productCard__container-price">
-            <h3>{`$${product.price}`}</h3>
-            <span className="productCard__price-regular">{`$${product.fullPrice}`}</span>
-          </div>
-
-          <div className="productCard__divider" />
-
-          <div className="productCard__container-specifications">
-            <div className="productCard__block">
-              <span className="small-text">{translate('screen')}</span>
-              <p className="uppercase">{product.screen}</p>
-            </div>
-            <div className="productCard__block">
-              <span className="productCard__info small-text">
-                {translate('capacity')}
-              </span>
-              <p className="uppercase">{product.capacity}</p>
-            </div>
-            <div className="productCard__block">
-              <span className="productCard__info small-text">
-                {translate('ram')}
-              </span>
-              <p className="uppercase">{product.ram}</p>
-            </div>
-          </div>
-        </NavLink>
-
-        <div className="productCard__container-buttons">
-          <ButtonAdd
-            isActive={isProductInCart}
-            onClick={() => addProductInCart(product)}
-          />
-
-          <ButtonFavorite
-            isActive={isProductInFavorite}
-            onClick={() => addProductInFavorite(product)}
+        <div className="productCard__container-photo">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="productCard__photo"
           />
         </div>
-      </article>
-    </li>
+
+        <h2 className="productCard__container-title body-text">
+          {product.name}
+        </h2>
+
+        <div className="productCard__container-price">
+          <h3>{`$${product.price}`}</h3>
+          <span className="productCard__price-regular">{`$${product.fullPrice}`}</span>
+        </div>
+
+        <hr className="productCard__divider" />
+
+        <div className="productCard__container-specifications">
+          <div className="productCard__block">
+            <span className="small-text">{translate('screen')}</span>
+            <p className="uppercase">{product.screen}</p>
+          </div>
+          <div className="productCard__block">
+            <span className="productCard__info small-text">
+              {translate('capacity')}
+            </span>
+            <p className="uppercase">{product.capacity}</p>
+          </div>
+          <div className="productCard__block">
+            <span className="productCard__info small-text">
+              {translate('ram')}
+            </span>
+            <p className="uppercase">{product.ram}</p>
+          </div>
+        </div>
+      </NavLink>
+
+      <div className="productCard__container-buttons">
+        <ButtonAdd
+          isActive={isProductInCart}
+          onClick={() => addProductInCart(product)}
+        />
+
+        <ButtonFavorite
+          isActive={isProductInFavorite}
+          onClick={() => addProductInFavorite(product)}
+        />
+      </div>
+    </article>
   );
 };
 
