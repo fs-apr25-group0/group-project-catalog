@@ -35,56 +35,54 @@ export const MainSlider = () => {
 
   return (
     <div className="banner-slider">
-      <div className="banner-slider__container">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          slidesPerView={1}
-          loop={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            nextEl: '.banner-slider__button--next',
-            prevEl: '.banner-slider__button--prev',
-          }}
-          pagination={{
-            el: '.banner-slider__pagination',
-            clickable: true,
-          }}
-          className="banner-slider__swiper"
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide
-              key={index}
-              className="banner-slider__slide"
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        navigation={{
+          nextEl: '.banner-slider__button--next',
+          prevEl: '.banner-slider__button--prev',
+        }}
+        pagination={{
+          el: '.banner-slider__pagination',
+          clickable: true,
+        }}
+        className="banner-slider__swiper"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide
+            key={index}
+            className="banner-slider__slide"
+          >
+            <NavLink
+              to={slide.link}
+              className="banner-slider__image-container"
             >
-              <NavLink
-                to={slide.link}
-                className="banner-slider__image-container"
-              >
-                <img
-                  src={slide.imagePath}
-                  alt={slide.imageTitle}
-                  className="banner-slider__image"
-                />
-              </NavLink>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              <img
+                src={slide.imagePath}
+                alt={slide.imageTitle}
+                className="banner-slider__image"
+              />
+            </NavLink>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-        <ButtonArrow
-          direction="left"
-          className="banner-slider__button banner-slider__button--prev slider-arrow--tall"
-          aria-label="Previous"
-        />
+      <ButtonArrow
+        direction="left"
+        className="banner-slider__button banner-slider__button--prev"
+        aria-label="Previous"
+      />
 
-        <ButtonArrow
-          direction="right"
-          className="banner-slider__button banner-slider__button--next slider-arrow--tall"
-          aria-label="Next"
-        />
-      </div>
+      <ButtonArrow
+        direction="right"
+        className="banner-slider__button banner-slider__button--next"
+        aria-label="Next"
+      />
 
       <div className="banner-slider__pagination"></div>
     </div>
