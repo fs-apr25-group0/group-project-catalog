@@ -6,17 +6,17 @@
   display: grid;
   gap: 32px;
   margin: 0 auto;
-  padding: 24px 16px 56px;
+  padding-top: 56px;
 
   @media (min-width: 640px) {
     margin: 0 auto;
-    padding: 24px 24px 64px;
+    padding-top: 56px;
     gap: 40px;
   }
 
   @media (min-width: 1200px) {
     margin: 0 auto;
-    padding: 24px 32px 80px;
+    padding-top: 56px;
   }
 }
 
