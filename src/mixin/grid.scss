@@ -8,13 +8,13 @@ $gap: 16px;
   padding-right: 32px;
 
   @media (max-width: 1199px) {
-    grid-template-columns: repeat(12, 32px);
+    grid-template-columns: repeat(12, 34px);
     padding-left: 24px;
     padding-right: 24px;
   }
 
   @media (max-width: 639px) {
-    grid-template-columns: repeat(4, 32px);
+    grid-template-columns: repeat(4, 60px);
     padding-left: 16px;
     padding-right: 16px;
   }

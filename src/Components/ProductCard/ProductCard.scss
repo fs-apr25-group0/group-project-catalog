@@ -4,7 +4,7 @@
   &__container {
     cursor: pointer;
 
-    width: 287px;
+    width: 100%;
     height: 506px;
 
     box-sizing: border-box;
@@ -29,7 +29,7 @@
     }
 
     @media (min-width: 1200px) {
-      width: 272px;
+      width: 100%;
     }
 
     &-photo {
