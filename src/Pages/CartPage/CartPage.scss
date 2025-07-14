@@ -1,15 +1,26 @@
 @use '../../styles/variables/colors/colors' as colors;
 
 .cart {
-  max-width: 1200px;
   width: 100%;
+  max-width: 288px;
   margin: 0 auto;
   padding-top: 24px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media (min-width: 640px) {
+    max-width: 592px;
     padding-top: 40px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1136px;
+    padding-top: 40px;
+  }
+
+  &__text {
+    align-self: flex-start;
   }
 
   &__title {
@@ -26,7 +37,6 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    align-items: center;
 
     @media (min-width: 1200px) {
       flex-direction: row;
@@ -62,17 +72,9 @@
 
   &__line {
     background-color: colors.$color-elements;
-    width: 240px;
+    width: 100%;
     height: 1px;
     margin-bottom: 16px;
-
-    @media (min-width: 640px) {
-      width: 544px;
-    }
-
-    @media (min-width: 1200px) {
-      width: 321px;
-    }
   }
 
   &__total-number {
