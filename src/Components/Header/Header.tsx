@@ -16,7 +16,7 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const handleChange = (value: string) => {
-    if (value === 'ru') {
+    if (value === 'RU') {
       navigate('/russians-are-not-people');
       return;
     }

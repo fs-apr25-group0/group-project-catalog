@@ -9,7 +9,7 @@ interface TranslationState {
 }
 
 export const useTranslationState = create<TranslationState>((set, get) => ({
-  language: 'en',
+  language: 'EN',
   setLanguage: (lang) => set({ language: lang }),
   translate: (value) => {
     const lang = get().language;

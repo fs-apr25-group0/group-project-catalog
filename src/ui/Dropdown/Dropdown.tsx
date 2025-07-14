@@ -26,7 +26,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
     <div className="dropdown">
       {title && <label className="dropdown__name small-text">{title}</label>}
       <Select.Root
-        value={value.toString().toLowerCase()}
+        value={value.toString()}
         onValueChange={onChange}
         onOpenChange={setIsOpen}
       >
@@ -58,7 +58,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 {variants.map((variant) => (
                   <Select.Item
                     key={variant}
-                    value={variant.toString().toLowerCase()}
+                    value={variant.toString()}
                     className="SelectItem"
                   >
                     <Select.ItemText>
