@@ -31,7 +31,6 @@ import { useTranslationState } from '../../stateManagers/languageState';
 interface PropsProductCart {
   product: Product;
   category: string;
-  loading: boolean;
 }
 
 export const ProductCard: React.FC<PropsProductCart> = ({
@@ -73,6 +72,7 @@ export const ProductCard: React.FC<PropsProductCart> = ({
         to={`/${category}/${product.itemId}`}
         className="productCard__link-zone"
       >
+        {' '}
         <div className="productCard__container-photo">
           <img
             src={product.image}
@@ -80,18 +80,14 @@ export const ProductCard: React.FC<PropsProductCart> = ({
             className="productCard__photo"
           />
         </div>
-
         <h2 className="productCard__container-title body-text">
           {product.name}
         </h2>
-
         <div className="productCard__container-price">
           <h3>{`$${product.price}`}</h3>
           <span className="productCard__price-regular">{`$${product.fullPrice}`}</span>
         </div>
-
         <hr className="productCard__divider" />
-
         <div className="productCard__container-specifications">
           <div className="productCard__block">
             <span className="small-text">{translate('screen')}</span>
