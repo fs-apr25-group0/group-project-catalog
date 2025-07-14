@@ -40,12 +40,10 @@ export const CartPage = () => {
   const stringItem = productInCartLength > 1 ? `items` : `item`;
 
   return (
-    <div className="cart">
-      <div className="cart__up-part">
-        <LinkBack />
+    <section className="cart">
+      <LinkBack />
 
-        <h1>{translate('Cart')}</h1>
-      </div>
+      <h1 className="cart__title">{translate('Cart')}</h1>
 
       <div className="cart__down-part">
         <div className="cart__product">
@@ -76,6 +74,6 @@ export const CartPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };

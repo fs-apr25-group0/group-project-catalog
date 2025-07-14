@@ -3,25 +3,34 @@
 .favorites {
   max-width: 1200px;
   width: 100%;
-  display: grid;
-  gap: 32px;
   margin: 0 auto;
   padding-top: 56px;
 
   @media (min-width: 640px) {
     margin: 0 auto;
     padding-top: 56px;
-    gap: 40px;
   }
 
   @media (min-width: 1200px) {
     margin: 0 auto;
     padding-top: 56px;
   }
-}
 
-.title {
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 8px;
+
+    @media (min-width: 640px) {
+      margin-top: 40px;
+    }
+  }
+
   &__count {
-    color: colors.$color-secondary;
+    display: block;
+    margin-bottom: 32px;
+
+    @media (min-width: 640px) {
+      margin-bottom: 40px;
+    }
   }
 }

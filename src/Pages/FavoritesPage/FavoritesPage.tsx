@@ -16,12 +16,10 @@ export const FavoritesPage = () => {
     <section className="favorites">
       <UrlWay category={translate('favorites')} />
 
-      <div className="favorites__title">
-        <h1 className="title__text">{translate('favorites')}</h1>
-        <span className="title__count body-text">
-          {favoritesLength} {translate('items')}
-        </span>
-      </div>
+      <h1 className="favorites__title">{translate('favorites')}</h1>
+      <span className="favorites__count body-text">
+        {favoritesLength} {translate('items')}
+      </span>
 
       <ProductList visibleProducts={productInFavorite} />
     </section>
