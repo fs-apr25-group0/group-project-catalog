@@ -3,25 +3,34 @@
 .favorites {
   max-width: 1200px;
   width: 100%;
-  display: grid;
-  gap: 32px;
   margin: 0 auto;
-  padding: 24px 16px 56px;
+  padding-top: 56px;
 
   @media (min-width: 640px) {
     margin: 0 auto;
-    padding: 24px 24px 64px;
-    gap: 40px;
+    padding-top: 56px;
   }
 
   @media (min-width: 1200px) {
     margin: 0 auto;
-    padding: 24px 32px 80px;
+    padding-top: 56px;
   }
-}
 
-.title {
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 8px;
+
+    @media (min-width: 640px) {
+      margin-top: 40px;
+    }
+  }
+
   &__count {
-    color: colors.$color-secondary;
+    display: block;
+    margin-bottom: 32px;
+
+    @media (min-width: 640px) {
+      margin-bottom: 40px;
+    }
   }
 }

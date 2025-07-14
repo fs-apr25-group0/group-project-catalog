@@ -13,17 +13,15 @@ export const FavoritesPage = () => {
   const favoritesLength = productInFavorite.length;
 
   return (
-    <div className="favorites">
+    <section className="favorites">
       <UrlWay category={translate('favorites')} />
 
-      <div className="favorites__title">
-        <h1 className="title__text">{translate('favorites')}</h1>
-        <div className="title__count body-text">
-          {favoritesLength} {translate('items')}
-        </div>
-      </div>
+      <h1 className="favorites__title">{translate('favorites')}</h1>
+      <span className="favorites__count body-text">
+        {favoritesLength} {translate('items')}
+      </span>
 
       <ProductList visibleProducts={productInFavorite} />
-    </div>
+    </section>
   );
 };
