@@ -45,7 +45,10 @@ export const Footer = () => {
             }
           }}
         >
-          <ButtonArrow direction="up" />
+          <ButtonArrow
+            icon="arrow"
+            direction="up"
+          />
         </button>
       </div>
     </footer>

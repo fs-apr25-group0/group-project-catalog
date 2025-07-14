@@ -1,6 +1,6 @@
 @use '../../styles/variables/colors' as colors;
 
-.button-arrow {
+.button-icon {
   width: 32px;
   height: 32px;
   background-color: transparent;
@@ -19,6 +19,7 @@
 
   &--dark {
     background-color: colors.$color-added-button-dark-mode;
+
     &:hover {
       border-color: colors.$color-primary;
     }
@@ -34,42 +35,44 @@
     background-size: contain;
   }
 
-  &--left .button-arrow__icon {
+  &.button-icon--arrow:not(.is-disabled) .button-icon__icon {
+    background-image: url('../../images/icons/chevron_arrow_ennable.svg');
+  }
+
+  &.button-icon--arrow.is-disabled .button-icon__icon {
     background-image: url('../../images/icons/chevron_arrow_left.svg');
   }
 
-  &--right .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_left.svg');
+  &.button-icon--plus:not(.is-disabled) .button-icon__icon {
+    background-image: url('../../images/icons/plus.svg');
+  }
+
+  &.button-icon--plus.is-disabled .button-icon__icon {
+    background-image: url('../../images/icons/Plus-dark.png');
+  }
+
+  &.button-icon--minus:not(.is-disabled) .button-icon__icon {
+    background-image: url('../../images/icons/minus.svg');
+  }
+
+  &.button-icon--minus.is-disabled .button-icon__icon {
+    background-image: url('../../images/icons/minus-gray.svg');
+  }
+
+  &.right .button-icon__icon {
     transform: rotate(180deg);
   }
 
-  &--up .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_left.svg');
+  &.left .button-icon__icon {
+    transform: rotate(0deg);
+  }
+
+  &.up .button-icon__icon {
     transform: rotate(90deg);
   }
 
-  &--down .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_left.svg');
+  &.down .button-icon__icon {
     transform: rotate(-90deg);
-  }
-
-  &--right:disabled .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_right.svg');
-    transform: rotate(0deg);
-  }
-
-  &--up:disabled .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_up.svg');
-    transform: rotate(0deg);
-  }
-
-  &--down:disabled .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_down.svg');
-    transform: rotate(0deg);
-  }
-
-  &--left:disabled .button-arrow__icon {
-    background-image: url('../../images/icons/chevron_arrow_left.svg');
   }
 
   &.is-disabled {
