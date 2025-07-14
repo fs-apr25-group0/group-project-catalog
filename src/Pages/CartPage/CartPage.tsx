@@ -40,12 +40,10 @@ export const CartPage = () => {
   const stringItem = productInCartLength > 1 ? `items` : `item`;
 
   return (
-    <div className="cart">
-      <div className="cart__up-part">
-        <LinkBack />
+    <section className="cart">
+      <LinkBack />
 
-        <h1>{translate('Cart')}</h1>
-      </div>
+      <h1 className="cart__title">{translate('Cart')}</h1>
 
       <div className="cart__down-part">
         <div className="cart__product">
@@ -62,24 +60,20 @@ export const CartPage = () => {
 
         {isVisibleCheckout && (
           <div className="cart__checkout">
-            <div className="cart__checkout-content">
-              <div className="cart__checkout-content-text">
-                <h2 className="cart__total-price">${totalPrice}</h2>
-                <div className="cart__total-number body-text">
-                  {translate('Total for')} {productInCartLength}{' '}
-                  {translate(`${stringItem}`)}
-                </div>
-              </div>
-              <div className="cart__line"></div>
-              <button
-                className={`cart__check-button cart__check-button--${theme}`}
-              >
-                {translate('Checkout')}
-              </button>
-            </div>
+            <h2 className="cart__total-price">${totalPrice}</h2>
+            <span className="cart__total-number body-text">
+              {translate('Total for')} {productInCartLength}{' '}
+              {translate(`${stringItem}`)}
+            </span>
+            <div className="cart__line"></div>
+            <button
+              className={`cart__check-button cart__check-button--${theme}`}
+            >
+              {translate('Checkout')}
+            </button>
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };

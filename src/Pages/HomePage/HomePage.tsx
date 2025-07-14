@@ -22,7 +22,7 @@ export const HomePage = () => {
   }
 
   return (
-    <main>
+    <>
       <div>
         <div className="page-title">
           <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
@@ -45,6 +45,6 @@ export const HomePage = () => {
         visibleProducts={hotPriceProducts}
         title={translate('Hot prices')}
       />
-    </main>
+    </>
   );
 };
