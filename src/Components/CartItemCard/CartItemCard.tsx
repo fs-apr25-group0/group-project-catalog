@@ -5,11 +5,14 @@ import type { localProduct } from '../../hooks/useLocalStorage';
 import { useThemeState } from '../../stateManagers/themeState';
 import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
 
+import cn from 'classnames';
+
 interface CartItemCardProps {
   product: localProduct;
   onDelete: () => void;
   addCount: () => void;
   subCount: () => void;
+  hideCountControls?: boolean;
 }
 
 export const CartItemCard: React.FC<CartItemCardProps> = ({
@@ -17,6 +20,7 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
   onDelete,
   addCount,
   subCount,
+  hideCountControls = false,
 }) => {
   const { theme } = useThemeState();
   const isDisabled = product.quantity === 1;
@@ -24,7 +28,11 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
   const totalPriceForOneProduct = product.price * product.quantity;
 
   return (
-    <article className={`cart-item-card cart-item-card--${theme}`}>
+    <article
+      className={cn('cart-item-card', `cart-item-card--${theme}`, {
+        'cart-item-card--search': hideCountControls,
+      })}
+    >
       <div className="cart-item-card__content">
         <button
           className={`cart-item-card__icon-delete cart-item-card__icon-delete--${theme}`}
@@ -44,20 +52,27 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({
       </div>
 
       <div className="cart-item-card__second-part">
-        <div className="cart-item-card__count">
-          <ButtonArrow
-            icon="minus"
-            onClick={subCount}
-            disabled={isDisabled}
-          />
-
-          <p className="cart-item-card__number">{product.quantity}</p>
-          <ButtonArrow
-            icon="plus"
-            onClick={addCount}
-          />
-        </div>
-        <h3 className="cart-item-card__price">${totalPriceForOneProduct}</h3>
+        {!hideCountControls && (
+          <div className="cart-item-card__count">
+            <ButtonArrow
+              icon="minus"
+              onClick={subCount}
+              disabled={isDisabled}
+            />
+            <p className="cart-item-card__number">{product.quantity}</p>
+            <ButtonArrow
+              icon="plus"
+              onClick={addCount}
+            />
+          </div>
+        )}
+        <h3
+          className={cn('cart-item-card__price', {
+            'cart-item-card__price--search': hideCountControls,
+          })}
+        >
+          ${totalPriceForOneProduct}
+        </h3>
       </div>
     </article>
   );
