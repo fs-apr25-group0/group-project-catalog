@@ -10,6 +10,7 @@ interface DropdownProps {
   onChange: (v: string) => void;
   variants: (string | number)[];
   cl: string;
+  chewron?: boolean;
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -18,6 +19,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   onChange,
   variants,
   cl,
+  chewron = true,
 }) => {
   const { translate } = useTranslationState();
   const [isOpen, setIsOpen] = React.useState(false);
@@ -31,24 +33,20 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onOpenChange={setIsOpen}
       >
         <Select.Trigger
-          className={classNames(
-            'SelectTrigger',
-            cl,
-            'btn-reset',
-            'button-text',
-          )}
+          className={classNames('SelectTrigger', cl, 'btn-reset')}
           aria-label="dropdown"
         >
           <Select.Value />
 
-          {isOpen ?
-            <div className="icon-chewron-up"></div>
-          : <div className="icon-chewron-down"></div>}
+          {chewron &&
+            (isOpen ?
+              <div className="icon-chewron-up"></div>
+            : <div className="icon-chewron-down"></div>)}
         </Select.Trigger>
 
         <Select.Portal>
           <Select.Content
-            className={classNames('SelectContent', cl)}
+            className={classNames('SelectContent', `${cl}-content`)}
             position="popper"
             side="bottom"
             collisionPadding={-10}
