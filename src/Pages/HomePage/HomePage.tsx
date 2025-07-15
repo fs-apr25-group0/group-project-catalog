@@ -25,8 +25,8 @@ export const HomePage = () => {
     <>
       <div className="page-title">
         <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
-        <MainSlider />
       </div>
+      <MainSlider />
 
       <SliderForProduct
         loading={loading}
