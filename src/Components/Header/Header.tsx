@@ -40,6 +40,7 @@ export const Header = () => {
           onChange={handleChange}
           variants={['UA', 'EN', 'RU']}
           cl="language"
+          chewron={false}
         />
       </div>
 
