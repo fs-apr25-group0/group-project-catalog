@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './NavigationMain.scss';
+import { useAsideState } from '../../stateManagers/asideState';
 
 interface NavigationMain {
   isAside?: boolean;
@@ -10,6 +11,8 @@ const activeLink = ({ isActive }: { isActive: boolean }) =>
   cn('link', { link__active: isActive });
 
 export const NavigationMain = ({ isAside = false }) => {
+  const { closeAside } = useAsideState();
+
   return (
     <ul
       className={cn(
@@ -20,6 +23,7 @@ export const NavigationMain = ({ isAside = false }) => {
         <NavLink
           to="/"
           className={activeLink}
+          onClick={closeAside}
         >
           home
         </NavLink>
@@ -28,6 +32,7 @@ export const NavigationMain = ({ isAside = false }) => {
         <NavLink
           to="/phones"
           className={activeLink}
+          onClick={closeAside}
         >
           phones
         </NavLink>
@@ -36,6 +41,7 @@ export const NavigationMain = ({ isAside = false }) => {
         <NavLink
           to="/tablets"
           className={activeLink}
+          onClick={closeAside}
         >
           tablets
         </NavLink>
@@ -44,6 +50,7 @@ export const NavigationMain = ({ isAside = false }) => {
         <NavLink
           to="/accessories"
           className={activeLink}
+          onClick={closeAside}
         >
           accessories
         </NavLink>
