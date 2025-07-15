@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './NavigationMain.scss';
 import { useAsideState } from '../../stateManagers/asideState';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 interface NavigationMain {
   isAside?: boolean;
@@ -12,6 +13,7 @@ const activeLink = ({ isActive }: { isActive: boolean }) =>
 
 export const NavigationMain = ({ isAside = false }) => {
   const { closeAside } = useAsideState();
+  const { translate } = useTranslationState();
 
   return (
     <ul
@@ -25,7 +27,7 @@ export const NavigationMain = ({ isAside = false }) => {
           className={activeLink}
           onClick={closeAside}
         >
-          home
+          {translate('Home')}
         </NavLink>
       </li>
       <li>
@@ -34,7 +36,7 @@ export const NavigationMain = ({ isAside = false }) => {
           className={activeLink}
           onClick={closeAside}
         >
-          phones
+          {translate('phones')}
         </NavLink>
       </li>
       <li>
@@ -43,7 +45,7 @@ export const NavigationMain = ({ isAside = false }) => {
           className={activeLink}
           onClick={closeAside}
         >
-          tablets
+          {translate('tablets')}
         </NavLink>
       </li>
       <li>
@@ -52,7 +54,7 @@ export const NavigationMain = ({ isAside = false }) => {
           className={activeLink}
           onClick={closeAside}
         >
-          accessories
+          {translate('accessories')}
         </NavLink>
       </li>
     </ul>

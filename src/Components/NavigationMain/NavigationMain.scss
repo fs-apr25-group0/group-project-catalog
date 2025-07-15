@@ -2,11 +2,20 @@
 
 .navigation-categories {
   display: flex;
-  gap: 64px;
   justify-content: center;
   align-items: center;
+  gap: 64px;
+
   li {
     height: 100%;
+  }
+
+  @media (max-width: 1199px) and (min-width: 640px) {
+    gap: 32px;
+  }
+
+  @media (max-width: 639px) {
+    display: none;
   }
 }
 

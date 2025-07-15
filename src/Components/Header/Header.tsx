@@ -33,14 +33,16 @@ export const Header = () => {
         <NavigationCartFavorite />
       </nav>
 
-      <div className="user-comfort">
-        <ButtonTheme />
-        <Dropdown
-          value={language}
-          onChange={handleChange}
-          variants={['UA', 'EN', 'RU']}
-          cl="language"
-        />
+      <div className="header__right-controls">
+        <div className="user-comfort">
+          <ButtonTheme />
+          <Dropdown
+            value={language}
+            onChange={handleChange}
+            variants={['UA', 'EN', 'RU']}
+            cl="language"
+          />
+        </div>
       </div>
 
       <button
