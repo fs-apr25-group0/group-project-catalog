@@ -121,3 +121,51 @@
     }
   }
 }
+
+//Стилі для дропдауна в меню пошуку
+
+.cart-item-card--search {
+  min-height: 56px;
+  width: 400px; //ширина випадашки
+  padding: 6px 8px;
+  // box-shadow: none;
+  border-radius: 6px;
+
+  // Контент картки у випадашці
+  .cart-item-card__content {
+    gap: 8px;
+  }
+
+  // Зменшене зображення
+  .cart-item-card__image {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+    @media (max-width: 1199px) {
+      width: 48px;
+      height: 48px;
+    }
+    @media (max-width: 639px) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  // Тайтл у випадашці
+  .cart-item-card__title {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  // Ціна у випадашці поки залишив її прихованою
+  .cart-item-card__second-part {
+    h3.cart-item-card__price--search {
+      display: none;
+    }
+  }
+
+  // Приховуємо кнопку видалення у випадашці
+  .cart-item-card__icon-delete {
+    display: none;
+  }
+}

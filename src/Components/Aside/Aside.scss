@@ -1,3 +1,5 @@
+@use '../../styles/variables/colors/colors' as color;
+
 .aside {
   display: flex;
   justify-content: center;
@@ -6,7 +8,12 @@
   height: calc(100vh - 64px);
   position: fixed;
   z-index: 1000;
-  background-color: #e2e6e9;
+  background-color: color.$color-bg-app-light-mode;
+
+  &--dark {
+    background-color: color.$color-bg-app-dark-mode;
+  }
+
   &__nav-bar {
     display: flex;
     flex-direction: column;
