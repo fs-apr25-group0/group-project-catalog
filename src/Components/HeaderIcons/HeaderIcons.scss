@@ -16,7 +16,6 @@
 
   &__counter-header {
     position: absolute;
-    background-color: colors.$color-accent;
     height: 14px;
     width: 14px;
     color: white;
@@ -30,10 +29,30 @@
   }
 }
 
+.icon-container--light {
+  .icon__counter-header {
+    background-color: colors.$color-accent;
+  }
+}
+
 .icon__favorites {
   background-image: url('../../images/icons/favourites_heart_like.svg');
 }
 
 .icon__card {
   background-image: url('../../images/icons/shopping_bag_cart.svg');
+}
+
+.icon-container--dark {
+  .icon__counter-header {
+    background-color: colors.$color-red;
+  }
+
+  .icon__favorites {
+    background-image: url('../../images/icons/Favourites_dark_mode.svg');
+  }
+
+  .icon__card {
+    background-image: url('../../images/icons/shoping_bag_dark.svg');
+  }
 }
