@@ -9,18 +9,34 @@
   width: 100%;
   height: 64px;
   position: fixed;
-  z-index: 1000;
+  z-index: 1100;
 
   &--light {
     background-color: color.$color-bg-app-light-mode;
     color: color.$color-secondary;
     box-shadow: 0 4px 6px -1px color.$color-elements;
+
+    .menu-close {
+      background-image: url('../../images/icons/menu.svg');
+    }
+
+    .menu-open {
+      background-image: url('../../images/icons/close.svg');
+    }
   }
 
   &--dark {
     background-color: color.$color-bg-app-dark-mode;
     color: color.$color-primary-dark-mode;
     box-shadow: 0 4px 6px -1px color.$color-added-button-dark-mode;
+
+    .menu-close {
+      background-image: url('../../images/icons/menu_burger_dark.svg');
+    }
+
+    .menu-open {
+      background-image: url('../../images/icons/close_dark.svg');
+    }
   }
 
   @media (min-width: 640px) {
@@ -80,7 +96,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../../images/icons/menu.svg');
     width: 48px;
     height: 100%;
     background-repeat: no-repeat;
@@ -108,6 +123,7 @@
 }
 
 .user-comfort {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;

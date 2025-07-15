@@ -10,12 +10,12 @@
     height: 100%;
   }
 
-  @media (max-width: 1199px) and (min-width: 640px) {
+  @media (max-width: 1199px) and (min-width: 685px) {
     gap: 32px;
   }
 
-  @media (max-width: 639px) {
-    display: none;
+  @media (max-width: 684px) and (min-width: 639px) {
+    gap: 16px;
   }
 }
 
