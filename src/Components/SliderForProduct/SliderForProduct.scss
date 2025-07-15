@@ -35,6 +35,7 @@
     overflow: hidden;
     .swiper-wrapper {
       display: flex;
+      gap: 16px;
     }
     .swiper-slide {
       flex-shrink: 0;
