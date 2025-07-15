@@ -17,9 +17,9 @@ export const HomePage = () => {
 
   const { translate } = useTranslationState();
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <>
@@ -31,17 +31,20 @@ export const HomePage = () => {
       </div>
 
       <SliderForProduct
+        loading={loading}
         visibleProducts={newProducts}
         title={translate('Brand new models')}
       />
 
       <ShopByCategory
+        loading={loading}
         amountPhones={amountPhones}
         amountTablets={amountTablets}
         amountAccessories={amountAccessories}
       />
 
       <SliderForProduct
+        loading={loading}
         visibleProducts={hotPriceProducts}
         title={translate('Hot prices')}
       />

@@ -17,11 +17,13 @@ import 'swiper/css/navigation';
 interface PropsSliderNewProduct {
   visibleProducts: Product[];
   title: string;
+  loading?: boolean;
 }
 
 export const SliderForProduct = ({
   visibleProducts,
   title,
+  loading,
 }: PropsSliderNewProduct) => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -70,6 +72,7 @@ export const SliderForProduct = ({
         </div>
 
         <SwiperComponent
+          loading={loading}
           products={visibleProducts}
           onSwiperInit={onSwiperInit}
         />
