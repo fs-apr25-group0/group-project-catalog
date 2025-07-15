@@ -14,7 +14,7 @@ import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import type { Product } from '../../types/products';
 import { ColorPicker } from '../../ui/ColorPicker/ColorPicker';
-// import cn from 'classnames';
+import cn from 'classnames';
 import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
 import { appleColors } from '../../constans/appleColors';
@@ -121,7 +121,9 @@ export const ProductInfoPage = () => {
             {capacities.map((capacity) => (
               <button
                 key={capacity}
-                className={selectedCapacity == capacity ? 'selected' : ''}
+                className={cn('capacity-button', {
+                  selected: selectedCapacity == capacity,
+                })}
                 onClick={() => handleChangeVariant(selectedColor, capacity)}
               >
                 {capacity}
@@ -148,27 +150,32 @@ export const ProductInfoPage = () => {
           </div>
 
           <div className="shortspecs">
-            <div>
-              <span>{translate('screen')}</span>
-              <span>{gadget?.screen}</span>
+            <div className="shortspecs-row">
+              <span className="small-text">{translate('screen')}</span>
+              <span className="small-text shortspecs-value">
+                {gadget?.screen}
+              </span>
             </div>
-            <div>
-              <span>{translate('resolution')}</span>
-              <span>{gadget?.resolution}</span>
+            <div className="shortspecs-row">
+              <span className="small-text">{translate('resolution')}</span>
+              <span className="small-text shortspecs-value">
+                {gadget?.resolution}
+              </span>
             </div>
-            <div>
-              <span>{translate('processor')}</span>
-              <span>{gadget?.processor}</span>
+            <div className="shortspecs-row">
+              <span className="small-text">{translate('processor')}</span>
+              <span className="small-text shortspecs-value">
+                {gadget?.processor}
+              </span>
             </div>
-            <div>
-              <span>{translate('ram')}</span>
-              <span>{gadget?.ram}</span>
+            <div className="shortspecs-row">
+              <span className="small-text">{translate('ram')}</span>
+              <span className="small-text shortspecs-value">{gadget?.ram}</span>
             </div>
           </div>
-          <span className="small-text id-desktop">
-            ID: {gadget?.namespaceId}
-          </span>
         </div>
+
+        <span className="small-text id-desktop">ID: {gadget?.namespaceId}</span>
       </div>
 
       <div className="product-info-details">

@@ -20,7 +20,7 @@ main {
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(24, 32px);
-    margin: 0 auto;
+    // margin: 0 auto;
     justify-content: center;
   }
 }
