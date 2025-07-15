@@ -1,54 +1,43 @@
 @use '../../styles/variables/colors/colors' as colors;
 
 .cart {
-  width: 100%;
-  max-width: 288px;
-  margin: 0 auto;
-  padding-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  grid-column: 4 / 22;
 
-  @media (min-width: 640px) {
-    max-width: 592px;
-    padding-top: 40px;
+  @media (max-width: 1199px) {
+    grid-column: 1 / -1;
   }
 
-  @media (min-width: 1200px) {
-    max-width: 1136px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
+  padding-top: 40px;
+
+  @media (max-width: 1199px) {
+    display: block;
+    gap: 0;
     padding-top: 40px;
   }
 
   &__text {
+    grid-column: 1 / -1;
     align-self: flex-start;
   }
 
-  &__title {
-    padding-top: 24px;
-    padding-bottom: 32px;
-
-    @media (min-width: 640px) {
-      padding-top: 16px;
-      padding-bottom: 32px;
-    }
-  }
-
   &__down-part {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-
-    @media (min-width: 1200px) {
-      flex-direction: row;
-      gap: 16px;
-      align-items: start;
-    }
+    display: contents;
   }
 
   &__product {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    grid-column: 1 / 2;
+
+    @media (max-width: 1199px) {
+      grid-column: 1 / -1;
+    }
   }
 
   &__checkout {
@@ -57,63 +46,16 @@
     align-items: center;
     box-sizing: border-box;
     padding: 24px;
-    width: 288px;
     border: 1px solid colors.$color-elements;
     border-radius: 16px;
-
-    @media (min-width: 640px) {
-      width: 592px;
-    }
-
-    @media (min-width: 1200px) {
-      width: 368px;
-    }
-  }
-
-  &__line {
-    background-color: colors.$color-elements;
     width: 100%;
-    height: 1px;
-    margin-bottom: 16px;
-  }
+    max-width: 368px;
+    grid-column: 2 / 3;
 
-  &__total-number {
-    color: colors.$color-secondary;
-    margin-bottom: 16px;
-  }
-
-  &__check-button {
-    width: 100%;
-    height: 48px;
-    color: white;
-    border: none;
-    border-radius: 48px;
-    justify-content: center;
-    text-align: center;
-
-    &--light {
-      background-color: colors.$color-accent;
-      &:active {
-        background-color: #fff;
-        color: colors.$color-accent;
-        border: 1px solid colors.$color-elements;
-        box-shadow: none;
-      }
-      &:hover {
-        box-shadow: 0 4px 8px rgba(23, 32, 49, 0.4);
-      }
-    }
-
-    &--dark {
-      background-color: #905bff;
-      &:active {
-        background-color: #323542;
-        border: 1px solid colors.$color-elements;
-        box-shadow: none;
-      }
-      &:hover {
-        background-color: #a378ff;
-      }
+    @media (max-width: 1199px) {
+      margin-top: 32px;
+      max-width: 100%;
+      grid-column: 1 / -1;
     }
   }
 }

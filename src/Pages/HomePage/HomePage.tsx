@@ -23,10 +23,8 @@ export const HomePage = () => {
 
   return (
     <>
-      <div>
-        <div className="page-title">
-          <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
-        </div>
+      <div className="page-title">
+        <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
         <MainSlider />
       </div>
 
@@ -37,7 +35,7 @@ export const HomePage = () => {
       />
 
       <ShopByCategory
-        loading={loading}
+        // loading={loading}
         amountPhones={amountPhones}
         amountTablets={amountTablets}
         amountAccessories={amountAccessories}

@@ -14,7 +14,7 @@ import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import type { Product } from '../../types/products';
 import { ColorPicker } from '../../ui/ColorPicker/ColorPicker';
-import cn from 'classnames';
+// import cn from 'classnames';
 import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
 import { appleColors } from '../../constans/appleColors';
@@ -87,27 +87,22 @@ export const ProductInfoPage = () => {
 
   return (
     <div className="product-info-page">
-      <UrlWay
-        category={category}
-        itemId={itemId}
-      />
-
-      <div className="product-info-back">
+      <div className="product-info-top">
         <LinkBack />
+        <UrlWay
+          category={category}
+          itemId={itemId}
+        />
       </div>
+      <h2 className="product-info-title">{gadget?.name}</h2>
 
-      <h2 className="product-info-title">{`${gadget?.name}`}</h2>
+      <div className="product-info-main">
+        <ProductImageSlider images={images} />
 
-      <div className="product-info-block">
-        <div className="product-info-block__left">
-          <ProductImageSlider images={images} />
-        </div>
-        <div className="product-info-block__right">
-          <div className="product-info-block__top-row">
-            <span className="product-info-block__label small-text">
-              {translate('Available colors')}
-            </span>
-            <span className="product-info-block__id product-info-block__id--mobile small-text">
+        <div className="product-info-aside">
+          <div className="info-row">
+            <span className="small-text">{translate('Available colors')}</span>
+            <span className="small-text id-mobile">
               ID: {gadget?.namespaceId}
             </span>
           </div>
@@ -115,39 +110,33 @@ export const ProductInfoPage = () => {
           <ColorPicker
             colors={colors}
             selectedColor={selectedColor || ''}
-            onSelect={(color) => {
-              handleChangeVariant(color, selectedCapacity);
-            }}
+            onSelect={(color) => handleChangeVariant(color, selectedCapacity)}
             colorMap={appleColors}
           />
-          <div className="product-info-block__divider" />
 
-          <span className="product-info-block__label small-text">
-            {translate('Select Capacity')}
-          </span>
-          <div className="product-info-block__capacities">
+          <div className="divider" />
+
+          <span className="small-text">{translate('Select Capacity')}</span>
+          <div className="capacities">
             {capacities.map((capacity) => (
               <button
                 key={capacity}
-                className={cn('product-info-block__capacity-button', {
-                  selected: selectedCapacity == capacity,
-                })}
-                onClick={() => {
-                  handleChangeVariant(selectedColor, capacity);
-                }}
+                className={selectedCapacity == capacity ? 'selected' : ''}
+                onClick={() => handleChangeVariant(selectedColor, capacity)}
               >
                 {capacity}
               </button>
             ))}
           </div>
-          <div className="product-info-block__divider" />
-          <div className="product-info-block__price-row">
-            <h2 className="product-info-block__price">${price}</h2>
-            {oldPrice && (
-              <span className="product-info-block__old-price">${oldPrice}</span>
-            )}
+
+          <div className="divider" />
+
+          <div className="price-row">
+            <h2>${price}</h2>
+            {oldPrice && <span className="old">${oldPrice}</span>}
           </div>
-          <div className="product-info-block__actions">
+
+          <div className="actions">
             <ButtonAdd
               isActive={isInCart}
               onClick={handleAddToCart}
@@ -157,63 +146,42 @@ export const ProductInfoPage = () => {
               onClick={handleAddToFavorite}
             />
           </div>
-          <div className="product-info-block__short-specs">
-            <div className="product-info-block__spec-row">
-              <span className="product-info-block__spec-label small-text">
-                {translate('screen')}
-              </span>{' '}
-              <p className="product-info-block__spec-value small-text">
-                {gadget?.screen}
-              </p>
+
+          <div className="shortspecs">
+            <div>
+              <span>{translate('screen')}</span>
+              <span>{gadget?.screen}</span>
             </div>
-            <div className="product-info-block__spec-row">
-              <span className="product-info-block__spec-label small-text">
-                {translate('resolution')}
-              </span>{' '}
-              <p className="product-info-block__spec-value small-text">
-                {gadget?.resolution}
-              </p>
+            <div>
+              <span>{translate('resolution')}</span>
+              <span>{gadget?.resolution}</span>
             </div>
-            <div className="product-info-block__spec-row">
-              <span className="product-info-block__spec-label small-text">
-                {translate('processor')}
-              </span>{' '}
-              <p className="product-info-block__spec-value small-text">
-                {gadget?.processor}
-              </p>
+            <div>
+              <span>{translate('processor')}</span>
+              <span>{gadget?.processor}</span>
             </div>
-            <div className="product-info-block__spec-row">
-              <span className="product-info-block__spec-label small-text">
-                {translate('ram')}
-              </span>{' '}
-              <p className="product-info-block__spec-value uppercase">
-                {gadget?.ram}
-              </p>
+            <div>
+              <span>{translate('ram')}</span>
+              <span>{gadget?.ram}</span>
             </div>
           </div>
+          <span className="small-text id-desktop">
+            ID: {gadget?.namespaceId}
+          </span>
         </div>
-        <span className="product-info-block__id product-info-block__id--desktop small-text">
-          ID: {gadget?.namespaceId}
-        </span>
       </div>
 
-      <div className="product-info-block__details">
-        <section>
-          <h3 className="product-info-block__details__about">
-            {translate('About')}
-          </h3>
-          <div className="product-info-block__about-divider"></div>
+      <div className="product-info-details">
+        <div>
+          <h3>{translate('About')}</h3>
+          <div className="divider" />
           <Description gadget={gadget} />
-        </section>
-        <section>
-          <section>
-            <h3 className="product-info-block__details__techspecs">
-              {translate('Tech specs')}
-            </h3>
-            <div className="product-info-block__techspecs-divider"></div>
-            <TechSpecs gadget={gadget} />
-          </section>
-        </section>
+        </div>
+        <div>
+          <h3>{translate('Tech specs')}</h3>
+          <div className="divider" />
+          <TechSpecs gadget={gadget} />
+        </div>
       </div>
 
       <SliderForProduct

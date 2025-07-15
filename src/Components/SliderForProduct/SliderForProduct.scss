@@ -1,21 +1,19 @@
-@use '../../mixin/grid.scss' as grid;
-
-$gap: 16px;
-
 .slider-for-product {
+  grid-column: 1 / -1;
+  width: 100%;
   padding: 80px 0;
 
   .slider-content-wrapper {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1136px;
     margin: 0 auto;
-    padding: 0;
+    padding-inline: 16px;
 
-    @media (max-width: 1199px) {
-      padding: 0 24px;
+    @media (min-width: 640px) {
+      padding-inline: 24px;
     }
-
-    @media (max-width: 639px) {
-      padding: 0 16px;
+    @media (min-width: 1200px) {
+      padding-inline: 0;
     }
   }
 
@@ -24,27 +22,22 @@ $gap: 16px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
-
     .slider-title {
       margin: 0;
     }
-
     .slider-navigation-buttons {
       display: flex;
-      gap: $gap;
+      gap: 16px;
     }
   }
 
   .my-swiper {
     overflow: hidden;
-
     .swiper-wrapper {
       display: flex;
     }
-
     .swiper-slide {
       flex-shrink: 0;
-
       width: 272px;
     }
   }

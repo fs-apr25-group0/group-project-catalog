@@ -1,16 +1,7 @@
+.slider-for-product,
+.categories,
+.banner-slider,
 .page-title {
-  margin: 56px 0;
-
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (max-width: 1199px) {
-    margin: 32px 0;
-    max-width: unset;
-  }
-
-  @media (max-width: 639px) {
-    margin: 24px 0;
-  }
+  grid-column: 1 / -1;
+  width: 100%;
 }

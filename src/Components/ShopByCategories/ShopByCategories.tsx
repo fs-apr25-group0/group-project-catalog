@@ -1,93 +1,72 @@
-import Skeleton from 'react-loading-skeleton';
 import { useTranslationState } from '../../stateManagers/languageState';
 import './ShopByCategoties.scss';
 import { Link } from 'react-router-dom';
+import logoPhones from '../../../public/img/Phones.png';
+import logoTablets from '../../../public/img/Tablets.png';
+import logoAccessories from '../../../public/img/Accessories.png';
 
 interface ShopByCategoryProps {
   amountPhones: number;
   amountTablets: number;
   amountAccessories: number;
-  loading?: boolean;
 }
 
 export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
   amountPhones,
   amountTablets,
   amountAccessories,
-  loading,
 }) => {
   const { translate } = useTranslationState();
 
   return (
     <section className="categories">
-      <h2 className="categories__title">{translate('Shop by category')}</h2>
+      <h2>{translate('Shop by category')}</h2>
 
-      <div className="categories__list">
-        <div className="category category--phones">
-          <Link
-            to="phones"
-            className="category__block category__block--phones"
-          />
-          <Link
-            to="phones"
-            className="category__title-link"
-          >
-            <p className="category__title">{translate('Mobile phones')}</p>
-          </Link>
-          {loading ?
-            <Skeleton
-              height={16}
-              width={80}
+      <div className="categories__container">
+        <article className="redirect">
+          <Link to="phones">
+            <img
+              src={logoPhones}
+              alt="picturePhones"
             />
-          : <span className="category__count">
+          </Link>
+          <div className="contain-text">
+            <p>{translate('phones')}</p>
+            <span>
               {amountPhones} {translate('models')}
             </span>
-          }
-        </div>
+          </div>
+        </article>
 
-        <div className="category category--tablets">
-          <Link
-            to="tablets"
-            className="category__block category__block--tablets"
-          />
-          <Link
-            to="tablets"
-            className="category__title-link"
-          >
-            <p className="category__title">{translate('tablets')}</p>
-          </Link>
-          {loading ?
-            <Skeleton
-              height={16}
-              width={70}
+        <article className="redirect">
+          <Link to="tablets">
+            <img
+              src={logoTablets}
+              alt="pictureTablets"
             />
-          : <span className="category__count">
+          </Link>
+          <div className="contain-text">
+            <p>{translate('tablets')}</p>
+            <span>
               {amountTablets} {translate('models')}
             </span>
-          }
-        </div>
+          </div>
+        </article>
 
-        <div className="category category--accessories">
-          <Link
-            to="accessories"
-            className="category__block category__block--accessories"
-          />
-          <Link
-            to="accessories"
-            className="category__title-link"
-          >
-            <p className="category__title">{translate('accessories')}</p>
-          </Link>
-          {loading ?
-            <Skeleton
-              height={16}
-              width={70}
+        <article className="redirect">
+          <Link to="accessories">
+            <img
+              src={logoAccessories}
+              alt="pictureAccessories"
             />
-          : <span className="category__count">
+          </Link>
+          <div className="contain-text">
+            <p>{translate('accessories')}</p>
+            <span>
               {amountAccessories} {translate('models')}
             </span>
-          }
-        </div>
+          </div>
+        </article>
       </div>
     </section>
   );

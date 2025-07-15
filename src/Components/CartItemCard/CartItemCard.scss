@@ -1,43 +1,35 @@
 @use '../../styles/variables/colors/colors' as colors;
 
 .cart-item-card {
-  display: inline-flex;
-  gap: 16px;
+  width: 100%;
   box-sizing: border-box;
-  flex-direction: column;
-  padding: 16px;
-  height: fit-content;
-  width: 288px;
   border-radius: 16px;
-
-  &--light {
-    background-color: #ffffff;
-    border: 1px solid colors.$color-elements;
-    &:hover {
-      border-color: colors.$color-elements;
-      box-shadow: 0px 2px 16px 0px #0000001a;
-    }
-  }
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  border: 1px solid colors.$color-elements;
+  transition: box-shadow 0.2s;
 
   &--dark {
     background-color: #161827;
+    border: 1px solid colors.$color-elements;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 16px 0px #0001;
   }
 
   @media (min-width: 640px) {
     flex-direction: row;
-    gap: 24px;
-    width: 592px;
     align-items: center;
+    gap: 24px;
     padding: 24px;
-  }
-
-  @media (min-width: 1200px) {
-    width: 752px;
   }
 
   &__content {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 23px;
 
@@ -47,20 +39,23 @@
   }
 
   &__icon-delete {
-    &:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s;
-    }
+    background: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s;
+
     &--light {
       background-image: url(../../images/icons/close.svg);
-      height: 16px;
-      width: 16px;
     }
-
     &--dark {
       background-image: url(../../images/icons/Close-dard.png);
-      height: 16px;
-      width: 16px;
+    }
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
@@ -69,6 +64,7 @@
     width: 66px;
     background-size: contain;
     background-repeat: no-repeat;
+    object-fit: contain;
 
     &:hover {
       transform: scale(1.05);
@@ -78,6 +74,7 @@
 
   &__title {
     width: 128px;
+    font-size: 14px;
 
     @media (min-width: 640px) {
       width: 176px;
@@ -95,17 +92,19 @@
 
   &__second-part {
     display: flex;
-    gap: 109px;
+    align-items: center;
+    gap: 24px;
 
-    @media (min-width: 640px) {
-      gap: 24px;
+    @media (max-width: 639px) {
+      gap: 16px;
+      margin-top: 8px;
     }
   }
 
   &__count {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    gap: 8px;
   }
 
   &__number {
@@ -113,76 +112,9 @@
     text-align: center;
   }
 
-  &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-
-    &--light {
-      border: 1px solid colors.$color-icons;
-
-      &:hover {
-        border-color: colors.$color-primary;
-        color: colors.$color-primary;
-      }
-
-      &:disabled {
-        border: 1px solid colors.$color-elements;
-      }
-    }
-
-    &--dark {
-      border: 1px solid colors.$color-added-button-dark-mode;
-      background-color: colors.$color-added-button-dark-mode;
-
-      &:hover {
-        border-color: white;
-      }
-
-      &:disabled {
-        border: 1px solid colors.$color-added-button-dark-mode;
-        background-color: transparent;
-      }
-    }
-
-    &--sub {
-      height: 16px;
-      width: 16px;
-
-      &--light {
-        background-image: url('../../images/icons/minus.svg');
-      }
-
-      &--dark {
-        background-image: url('../../images/icons/Minus-dark.png');
-      }
-    }
-
-    &--sub-disabled {
-      background-image: url('../../images/icons/minus-gray.svg');
-      height: 16px;
-      width: 16px;
-    }
-
-    &--add {
-      height: 16px;
-      width: 16px;
-
-      &--light {
-        background-image: url('../../images/icons/plus.svg');
-      }
-
-      &--dark {
-        background-image: url('../../images/icons/Plus-dark.png');
-      }
-    }
-  }
-
   &__price {
     text-align: right;
+    font-size: 16px;
 
     @media (min-width: 640px) {
       width: 80px;

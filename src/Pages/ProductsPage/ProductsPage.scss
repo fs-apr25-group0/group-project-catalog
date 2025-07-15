@@ -1,14 +1,19 @@
 @use '../../styles/variables/colors/colors' as color;
 
 .products-page {
+  grid-column: 1 / -1; // Вся ширина grid main!
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 24px 0 0 0;
 
   &__container {
-    @media (min-width: 1200px) {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0; // control spacing via children
   }
 
   &__url-way {
@@ -32,8 +37,6 @@
   }
 
   &__product-list {
-    display: grid;
-    gap: 16px;
     margin-bottom: 24px;
 
     @media (min-width: 640px) {
