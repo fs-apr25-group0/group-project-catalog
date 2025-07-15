@@ -1,3 +1,5 @@
+@use '../../styles/variables/colors/colors' as colors;
+
 .product-info-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -14,7 +16,6 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 40px;
     margin-bottom: 24px;
 
     @media (max-width: 639px) {
@@ -64,19 +65,23 @@
       .id-desktop {
         display: block;
       }
+
       @media (max-width: 639px) {
         .id-mobile {
           display: block;
         }
-        .id-desktop {
-          display: none;
+      }
+
+      @media (max-width: 1199px) {
+        .id-mobile {
+          display: block;
         }
       }
 
       .divider {
         width: 100%;
         height: 1px;
-        background-color: #e2e6e9;
+        background-color: colors.$color-elements;
         margin: 16px 0;
       }
 
@@ -87,16 +92,22 @@
           min-width: 56px;
           height: 32px;
           border-radius: 4px;
-          border: 1px solid #b4bdc3;
+          border: 1px solid colors.$color-icons;
           background: transparent;
           font-size: 14px;
           cursor: pointer;
           &.selected {
-            background: #4c4ddc;
+            background: colors.$color-primary;
             color: #fff;
             border: none;
           }
         }
+      }
+
+      .capacity-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .price-row {
@@ -110,7 +121,7 @@
         .old {
           font-size: 18px;
           text-decoration: line-through;
-          color: #616070;
+          color: colors.$color-secondary;
         }
       }
 
@@ -121,9 +132,9 @@
       }
 
       .shortspecs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         font-size: 14px;
         div {
           display: flex;
@@ -133,6 +144,26 @@
           grid-template-columns: 1fr;
         }
       }
+
+      .shortspecs-row {
+        gap: 8px;
+      }
+
+      .shortspecs-value {
+        color: colors.$color-primary;
+      }
+    }
+  }
+
+  @media (max-width: 639px) {
+    .id-desktop {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .id-desktop {
+      display: none;
     }
   }
 
@@ -150,8 +181,12 @@
     .divider {
       width: 100%;
       height: 1px;
-      background-color: #e2e6e9;
+      background-color: colors.$color-elements;
       margin: 24px 0;
     }
   }
+}
+
+.id-desktop {
+  white-space: nowrap;
 }
