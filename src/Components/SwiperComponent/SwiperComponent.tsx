@@ -10,17 +10,21 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 // @ts-expect-error
 import 'swiper/css/navigation';
+import { SkeletonProductCard } from '../SkeletonProductCard';
 /* eslint-enable @typescript-eslint/ban-ts-comment */
 
 type Props = {
   products: Product[];
   onSwiperInit?: (swiper: SwiperClass) => void;
+  loading?: boolean;
 };
 
 export const SwiperComponent: React.FC<Props> = ({
   products,
   onSwiperInit,
+  loading,
 }) => {
+  const skeletons = Array.from({ length: 12 });
   return (
     <Swiper
       slidesPerView={'auto'}
@@ -32,14 +36,21 @@ export const SwiperComponent: React.FC<Props> = ({
         onSwiperInit?.(swiper);
       }}
     >
-      {products.map((product) => (
-        <SwiperSlide key={product.id}>
-          <ProductCard
-            product={product}
-            category={product.category}
-          />
-        </SwiperSlide>
-      ))}
+      {loading ?
+        skeletons.map((_, i) => (
+          <SwiperSlide key={`skeleton-${i}`}>
+            <SkeletonProductCard />
+          </SwiperSlide>
+        ))
+      : products.map((product) => (
+          <SwiperSlide key={product.id}>
+            <ProductCard
+              product={product}
+              category={product.category}
+            />
+          </SwiperSlide>
+        ))
+      }
     </Swiper>
   );
 };

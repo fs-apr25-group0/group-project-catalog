@@ -1,3 +1,4 @@
+import Skeleton from 'react-loading-skeleton';
 import { useTranslationState } from '../../stateManagers/languageState';
 import './ShopByCategoties.scss';
 import { Link } from 'react-router-dom';
@@ -6,12 +7,14 @@ interface ShopByCategoryProps {
   amountPhones: number;
   amountTablets: number;
   amountAccessories: number;
+  loading?: boolean;
 }
 
 export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
   amountPhones,
   amountTablets,
   amountAccessories,
+  loading,
 }) => {
   const { translate } = useTranslationState();
 
@@ -31,9 +34,15 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
           >
             <p className="category__title">{translate('Mobile phones')}</p>
           </Link>
-          <span className="category__count">
-            {amountPhones} {translate('models')}
-          </span>
+          {loading ?
+            <Skeleton
+              height={16}
+              width={80}
+            />
+          : <span className="category__count">
+              {amountPhones} {translate('models')}
+            </span>
+          }
         </div>
 
         <div className="category category--tablets">
@@ -47,9 +56,15 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
           >
             <p className="category__title">{translate('tablets')}</p>
           </Link>
-          <span className="category__count">
-            {amountTablets} {translate('models')}
-          </span>
+          {loading ?
+            <Skeleton
+              height={16}
+              width={70}
+            />
+          : <span className="category__count">
+              {amountTablets} {translate('models')}
+            </span>
+          }
         </div>
 
         <div className="category category--accessories">
@@ -63,9 +78,15 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
           >
             <p className="category__title">{translate('accessories')}</p>
           </Link>
-          <span className="category__count">
-            {amountAccessories} {translate('models')}
-          </span>
+          {loading ?
+            <Skeleton
+              height={16}
+              width={70}
+            />
+          : <span className="category__count">
+              {amountAccessories} {translate('models')}
+            </span>
+          }
         </div>
       </div>
     </section>

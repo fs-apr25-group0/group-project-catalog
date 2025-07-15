@@ -1,8 +1,7 @@
 import type { Product } from '../../types/products';
 import { ProductCard } from '../ProductCard';
 import './ProductList.scss';
-import 'react-loading-skeleton/dist/skeleton.css';
-import Skeleton from 'react-loading-skeleton';
+import { SkeletonProductCard } from '../SkeletonProductCard/SkeletonProductCard';
 
 type Props = {
   visibleProducts: Product[];
@@ -10,41 +9,23 @@ type Props = {
 };
 
 export const ProductList: React.FC<Props> = ({ visibleProducts, loading }) => {
-  const fakeProducts = Array.from({ length: 12 }, (_, i) => ({
-    id: `fake-${i}`,
-    category: '',
-    name: '',
-    price: 0,
-    fullPrice: 0,
-    itemId: '',
-    image: '',
-    screen: '',
-    capacity: '',
-    ram: '',
-  }));
-
+  const skeletons = Array.from({ length: 16 });
   return (
     <ul className="product-list">
       {loading ?
-        <>
-          {fakeProducts.map((pr) => (
-            <Skeleton
-              key={pr.id}
-              height={506}
-              width={272}
+        skeletons.map((_, i) => (
+          <li key={`skeleton-${i}`}>
+            <SkeletonProductCard />
+          </li>
+        ))
+      : visibleProducts.map((product) => (
+          <li key={product.id}>
+            <ProductCard
+              category={product.category}
+              product={product}
             />
-          ))}
-        </>
-      : <>
-          {visibleProducts.map((product) => (
-            <li key={product.id}>
-              <ProductCard
-                category={product.category}
-                product={product}
-              />
-            </li>
-          ))}
-        </>
+          </li>
+        ))
       }
     </ul>
   );
