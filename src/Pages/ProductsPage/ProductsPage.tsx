@@ -12,6 +12,7 @@ import { helperToSortProducts } from '../../utils/helperToSortProducts';
 import { Dropdown } from '../../ui/Dropdown';
 import type { Category } from '../../types/category/сategory';
 import { useTranslationState } from '../../stateManagers/languageState';
+import { ProductSearchInput } from '../../Components/ProductSearchInput';
 
 export const ProductsPage = () => {
   const {
@@ -118,6 +119,8 @@ export const ProductsPage = () => {
                 variants={paginationVariantsValues}
                 cl="paginator"
               />
+
+              <ProductSearchInput products={sortedProducts} />
             </div>
 
             <div className="products-page__product-list">
