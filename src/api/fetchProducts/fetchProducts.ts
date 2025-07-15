@@ -1,6 +1,6 @@
 import type { Product } from '../../types/products';
 
-const API_URL = 'http://localhost:5173/api/products.json';
+const API_URL = '/api/products.json';
 
 function wait(delay: number) {
   return new Promise((resolve) => setTimeout(resolve, delay));

@@ -62,15 +62,13 @@ export const CartPage = () => {
 
         {isVisibleCheckout && (
           <div className="cart__checkout">
-            <h2 className="cart__total-price">${totalPrice}</h2>
-            <span className="cart__total-number body-text">
+            <h2>${totalPrice}</h2>
+            <span>
               {translate('Total for')} {productInCartLength}{' '}
               {translate(`${stringItem}`)}
             </span>
-            <div className="cart__line"></div>
-            <button
-              className={`cart__check-button cart__check-button--${theme}`}
-            >
+            <hr className="border" />
+            <button className={`check-button check-button--${theme}`}>
               {translate('Checkout')}
             </button>
           </div>

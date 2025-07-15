@@ -1,6 +1,6 @@
 import type { Gadget } from '../../types/gadgets';
 
-const API_URL = 'http://localhost:5173/api/tablets.json';
+const API_URL = '/api/tablets.json';
 
 function wait(delay: number) {
   return new Promise((resolve) => setTimeout(resolve, delay));
