@@ -15,7 +15,7 @@ export const ButtonFavorite: React.FC<ButtonFavoriteProps> = ({
   const { theme } = useThemeState();
   return (
     <button
-      className={cn('buttonFavorite', {
+      className={cn('buttonFavorite', `buttonFavorite--${theme}`, {
         [`buttonFavorite--liked--${theme}`]: isActive,
       })}
       type="button"

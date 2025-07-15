@@ -6,7 +6,7 @@
   border: 1px solid colors.$color-icons;
   border-radius: 50%;
 
-  background-color: #fff;
+  background-color: colors.$color-bg-app-light-mode;
   background-image: url('../../images/icons/favourites_heart_like.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -20,13 +20,19 @@
     border-color 0.3s,
     background-image 0.3s;
 
+  &--dark {
+    background-image: url('../../images/icons/Favourites_dark_mode.svg');
+    background-color: colors.$color-added-button-dark-mode;
+    border: none;
+  }
+
   &:hover {
     border: 1px solid colors.$color-primary;
   }
 
   &:active,
   &--liked--light {
-    border: 1px solid colors.$color-elements;
+    // border: 1px solid colors.$color-elements;
     background-image: url('../../images/icons/favourites_filled_heart_like.svg');
   }
   &:active,
