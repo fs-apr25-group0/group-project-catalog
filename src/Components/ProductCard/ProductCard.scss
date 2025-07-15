@@ -2,7 +2,7 @@
 
 .productCard {
   &__container {
-    width: 287px;
+    width: 272px;
     min-width: 0;
     height: 440px;
     margin: 0 auto;
@@ -12,7 +12,6 @@
     gap: 8px;
     padding: 32px;
     text-decoration: none;
-    // background: colors.$color-white;
     transition:
       box-shadow 0.3s,
       border 0.3s;
@@ -20,13 +19,11 @@
     &--light {
       border: 1px solid colors.$color-elements;
       border-radius: 5px;
-      // background: colors.$color-white;
     }
 
     &--dark {
       background-color: colors.$color-bg-card-dark-mode;
       border-radius: 5px;
-      border: 1px solid colors.$color-elements;
     }
 
     &:hover {

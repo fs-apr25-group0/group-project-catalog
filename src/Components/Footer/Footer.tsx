@@ -9,47 +9,21 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <LogoShop />
+      <div className="footer__grid">
+        <LogoShop />
+        <nav className="footer__nav">
+          <a href="https://github.com/">{translate('GITHUB')}</a>
+          <Link to="/tablets">{translate('CONTACTS')}</Link>
+          <Link to="/accessories">{translate('RIGHTS')}</Link>
+        </nav>
+        <div className="footer__to-top">
+          <span>{translate('Back to top')}</span>
 
-      <nav className="footer__nav">
-        <a
-          href="https://github.com/"
-          className={`footer__link`}
-        >
-          {translate('GITHUB')}
-        </a>
-        <Link
-          to="/tablets"
-          className={`footer__link`}
-        >
-          {translate('CONTACTS')}
-        </Link>
-        <Link
-          to="/accessories"
-          className={`footer__link`}
-        >
-          {translate('RIGHTS')}
-        </Link>
-      </nav>
-
-      <div className="footer__to-top">
-        <span className="footer__text uppercase">
-          {translate('Back to top')}
-        </span>
-        <button
-          className="footer__button"
-          onClick={() => {
-            const header = document.getElementById('header');
-            if (header) {
-              header.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
-        >
           <ButtonArrow
             icon="arrow"
             direction="up"
           />
-        </button>
+        </div>
       </div>
     </footer>
   );
