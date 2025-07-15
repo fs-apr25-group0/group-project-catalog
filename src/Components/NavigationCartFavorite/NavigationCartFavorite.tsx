@@ -3,6 +3,7 @@ import { HeaderIcons } from '../HeaderIcons';
 import cn from 'classnames';
 import './NavigationCartFavourite.scss';
 import { useAsideState } from '../../stateManagers/asideState';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface NavigationCartFavoriteProps {
   isAside?: boolean;
@@ -15,8 +16,15 @@ export const NavigationCartFavorite: React.FC<NavigationCartFavoriteProps> = ({
   isAside = false,
 }) => {
   const { closeAside } = useAsideState();
+  const { theme } = useThemeState();
+
   return (
-    <ul className={cn(isAside ? 'navigation-cart-aside' : 'navigation-cart')}>
+    <ul
+      className={cn(
+        isAside ? 'navigation-cart-aside' : 'navigation-cart',
+        `navigation-cart--${theme}`,
+      )}
+    >
       <li className="navigation-cart__item">
         <NavLink
           to="/favorites"

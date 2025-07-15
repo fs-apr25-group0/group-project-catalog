@@ -9,11 +9,13 @@ import { ButtonTheme } from '../../ui/ButtonTheme';
 import { useNavigate } from 'react-router-dom';
 import type { Language } from '../../types/language';
 import { useTranslationState } from '../../stateManagers/languageState';
+import { useThemeState } from '../../stateManagers/themeState';
 
 export const Header = () => {
   const { isAsideOpen, toggleAside } = useAsideState();
   const { setLanguage, language } = useTranslationState();
   const navigate = useNavigate();
+  const { theme } = useThemeState();
 
   const handleChange = (value: string) => {
     if (value === 'RU') {
@@ -25,7 +27,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className={`header header--${theme}`}>
       <LogoShop />
 
       <nav className="header__nav-bar">
@@ -33,21 +35,23 @@ export const Header = () => {
         <NavigationCartFavorite />
       </nav>
 
-      <div className="user-comfort">
-        <ButtonTheme />
-        <Dropdown
-          value={language}
-          onChange={handleChange}
-          variants={['UA', 'EN', 'RU']}
-          cl="language"
-          chewron={false}
-        />
-      </div>
+      <div className="header__right-controls">
+        <div className="user-comfort">
+          <ButtonTheme />
+          <Dropdown
+            value={language}
+            onChange={handleChange}
+            variants={['UA', 'EN', 'RU']}
+            cl="language"
+            chewron={false}
+          />
+        </div>
 
-      <button
-        className={cn(isAsideOpen ? 'menu-open' : 'menu-close')}
-        onClick={toggleAside}
-      ></button>
+        <button
+          className={cn(isAsideOpen ? 'menu-open' : 'menu-close')}
+          onClick={toggleAside}
+        ></button>
+      </div>
     </header>
   );
 };

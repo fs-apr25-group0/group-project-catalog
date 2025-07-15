@@ -3,6 +3,7 @@ import cn from 'classnames';
 import './NavigationMain.scss';
 import { useAsideState } from '../../stateManagers/asideState';
 import { useTranslationState } from '../../stateManagers/languageState';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface NavigationMain {
   isAside?: boolean;
@@ -14,11 +15,13 @@ const activeLink = ({ isActive }: { isActive: boolean }) =>
 export const NavigationMain = ({ isAside = false }) => {
   const { closeAside } = useAsideState();
   const { translate } = useTranslationState();
+  const { theme } = useThemeState();
 
   return (
     <ul
       className={cn(
         isAside ? 'navigation-categories-aside' : 'navigation-categories',
+        `navigation--${theme}`,
       )}
     >
       <li>

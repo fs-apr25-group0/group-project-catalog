@@ -8,10 +8,20 @@
   text-align: center;
   width: 100%;
   height: 64px;
-  border-bottom: 1px solid #ccc;
   position: fixed;
-  background-color: #fff;
   z-index: 1000;
+
+  &--light {
+    background-color: color.$color-bg-app-light-mode;
+    color: color.$color-secondary;
+    box-shadow: 0 4px 6px -1px color.$color-elements;
+  }
+
+  &--dark {
+    background-color: color.$color-bg-app-dark-mode;
+    color: color.$color-primary-dark-mode;
+    box-shadow: 0 4px 6px -1px color.$color-added-button-dark-mode;
+  }
 
   @media (min-width: 640px) {
     > *:first-child {
