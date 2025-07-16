@@ -8,15 +8,18 @@
   column-gap: 16px;
   grid-auto-rows: max-content;
   padding-inline: 16px;
+  margin-top: 56px;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(12, 1fr);
     padding-inline: 24px;
+    margin-top: 64px;
   }
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(24, 32px);
     justify-content: center;
+    margin-top: 80px;
   }
 
   &__grid {
