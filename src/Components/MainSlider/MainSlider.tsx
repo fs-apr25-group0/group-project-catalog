@@ -1,90 +1,92 @@
-import React, { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { NavLink } from 'react-router-dom';
+import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
+
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-expect-error
+import 'swiper/css';
+// @ts-expect-error
+import 'swiper/css/pagination';
+// @ts-expect-error
+import 'swiper/css/navigation';
+/* eslint-enable @typescript-eslint/ban-ts-comment */
+
 import './MainSlider.scss';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import type { SwiperRef } from 'swiper/react';
-
-import { NavLink } from 'react-router-dom';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-const slides = [
-  {
-    imagePath: '/img/banner-phones.png',
-    imageTitle: 'banner-phones',
-    link: '/phones',
-  },
-  {
-    imagePath: '/img/banner-tablets.png',
-    imageTitle: 'banner-tablets',
-    link: '/tablets',
-  },
-  {
-    imagePath: '/img/banner-accessories.png',
-    imageTitle: 'banner-accessories',
-    link: '/accessories',
-  },
-];
-
-export const MainSlider: React.FC = () => {
-  const swiperRef = useRef<SwiperRef | null>(null);
+export const MainSlider = () => {
+  const slides = [
+    {
+      imagePath: '/img/banner-phones.png',
+      imageTitle: 'banner-phones',
+      link: '/phones',
+    },
+    {
+      imagePath: '/img/banner-tablets.png',
+      imageTitle: 'banner-tablets',
+      link: '/tablets',
+    },
+    {
+      imagePath: '/img/banner-accessories.png',
+      imageTitle: 'banner-accessories',
+      link: '/accessories',
+    },
+  ];
 
   return (
-    <div className="main-slider">
-      <button
-        className="main-slider__arrow main-slider__arrow--left"
-        type="button"
-        onClick={() => swiperRef.current?.swiper.slidePrev()}
-        aria-label="Previous slide"
-      >
-        <img
-          src="/src/images/icons/chevron_arrow_left.svg"
-          alt="prev"
-        />
-      </button>
-
+    <div className="banner-slider">
       <Swiper
-        modules={[Pagination, Navigation, Autoplay]}
-        pagination={{
-          clickable: true,
-        }}
+        modules={[Navigation, Pagination, Autoplay]}
+        slidesPerView={1}
+        loop={true}
         autoplay={{
           delay: 5000,
+          disableOnInteraction: false,
         }}
-        loop
-        className="main-slider__swiper"
-        ref={swiperRef}
+        navigation={{
+          nextEl: '.banner-slider__button--next',
+          prevEl: '.banner-slider__button--prev',
+        }}
+        pagination={{
+          el: '.banner-slider__pagination',
+          clickable: true,
+        }}
+        className="banner-slider__swiper"
       >
-        {slides.map((slide, i) => (
-          <SwiperSlide key={i}>
+        {slides.map((slide, index) => (
+          <SwiperSlide
+            key={index}
+            className="banner-slider__slide"
+          >
             <NavLink
               to={slide.link}
-              className="main-slider__link"
+              className="banner-slider__image-container"
             >
               <img
                 src={slide.imagePath}
                 alt={slide.imageTitle}
-                className="main-slider__image"
+                className="banner-slider__image"
               />
             </NavLink>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <button
-        className="main-slider__arrow main-slider__arrow--right"
-        type="button"
-        onClick={() => swiperRef.current?.swiper.slideNext()}
-        aria-label="Next slide"
-      >
-        <img
-          src="/src/images/icons/chevron_arrow_right.svg"
-          alt="next"
-        />
-      </button>
+      <ButtonArrow
+        icon="arrow"
+        direction="left"
+        className="banner-slider__button banner-slider__button--prev"
+        aria-label="Previous"
+      />
+
+      <ButtonArrow
+        icon="arrow"
+        direction="right"
+        className="banner-slider__button banner-slider__button--next"
+        aria-label="Next"
+      />
+
+      <div className="banner-slider__pagination"></div>
     </div>
   );
 };

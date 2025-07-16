@@ -1,0 +1,24 @@
+@use '../../styles/variables/colors' as colors;
+
+.skeletonCard {
+  width: 272px;
+  height: 506px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid colors.$color-elements;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 32px;
+
+  &__divider {
+    border: none;
+    height: 1px;
+    background-color: colors.$color-elements;
+  }
+
+  &__button {
+    display: flex;
+    gap: 8px;
+  }
+}

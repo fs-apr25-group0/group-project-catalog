@@ -1,22 +1,27 @@
 @use '../../styles/variables/colors/colors' as colors;
 
 .favorites {
-  display: grid;
-  gap: 32px;
-  margin: 24px 16px 56px;
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-top: 24px;
 
-  @media (min-width: 640px) {
-    margin: 24px 24px 64px;
-    gap: 40px;
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 8px;
+
+    @media (min-width: 640px) {
+      margin-top: 40px;
+    }
   }
 
-  @media (min-width: 1200px) {
-    margin: 24px 152px 80px;
-  }
-}
-
-.title {
   &__count {
-    color: colors.$color-secondary;
+    display: block;
+    margin-bottom: 32px;
+
+    @media (min-width: 640px) {
+      margin-bottom: 40px;
+    }
   }
 }

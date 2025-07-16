@@ -1,7 +1,9 @@
+import './HomePage.scss';
 import { useProductForHomePage } from '../../hooks/useProductsForHomePage';
 import { MainSlider } from '../../Components/MainSlider';
 import { ShopByCategory } from '../../Components/ShopByCategories';
 import { SliderForProduct } from '../../Components/SliderForProduct';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 export const HomePage = () => {
   const {
@@ -13,46 +15,37 @@ export const HomePage = () => {
     hotPriceProducts,
   } = useProductForHomePage();
 
-  const startIndexForNew = 0;
-  const endIndexForNew = startIndexForNew + 4;
-  const visibleNewProducts = newProducts.slice(
-    startIndexForNew,
-    endIndexForNew,
-  );
+  const { translate } = useTranslationState();
 
-  const startIndexForHot = 0;
-  const endIndexForHot = startIndexForHot + 4;
-  const visibleHotProducts = hotPriceProducts.slice(
-    startIndexForHot,
-    endIndexForHot,
-  );
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
-    <main>
-      <div>
-        <h1>Welcome to Nice Gadgets store!</h1>
-        <MainSlider />
+    <>
+      <div className="page-title">
+        <h1>{translate('Welcome to Nice Gadgets store!')}</h1>
       </div>
+      <MainSlider />
 
       <SliderForProduct
-        visibleProducts={visibleNewProducts}
-        title={'Brand new models'}
+        loading={loading}
+        visibleProducts={newProducts}
+        title={translate('Brand new models')}
       />
 
       <ShopByCategory
+        // loading={loading}
         amountPhones={amountPhones}
         amountTablets={amountTablets}
         amountAccessories={amountAccessories}
       />
 
       <SliderForProduct
-        visibleProducts={visibleHotProducts}
-        title={'Hot prices'}
+        loading={loading}
+        visibleProducts={hotPriceProducts}
+        title={translate('Hot prices')}
       />
-    </main>
+    </>
   );
 };

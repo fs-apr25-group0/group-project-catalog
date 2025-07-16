@@ -1,21 +1,30 @@
-import { useTranslation } from '../../hooks/useTranslation';
+import { useTranslationState } from '../../stateManagers/languageState';
 import type { Gadget } from '../../types/gadgets';
+import './Description.scss';
 
 interface DescriptionProps {
   gadget: Gadget | null;
 }
 
 export const Description: React.FC<DescriptionProps> = ({ gadget }) => {
-  const { translate } = useTranslation();
+  const { translate } = useTranslationState();
 
   return (
-    <section>
+    <section className="description-block">
       {gadget?.description.map(({ title, text }, index) => (
-        <article key={index}>
-          <h2>{translate('titleSection', title)}</h2>
+        <article
+          key={index}
+          className="article"
+        >
+          <h4 className="description-block__title">{translate(title)}</h4>
 
           {text.map((paragraph, i) => (
-            <p key={i}>{translate('titleText', paragraph)}</p>
+            <span
+              className="description-block__text body-text"
+              key={i}
+            >
+              {translate(paragraph)}
+            </span>
           ))}
         </article>
       ))}

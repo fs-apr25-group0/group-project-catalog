@@ -5,9 +5,16 @@
   gap: 8px;
 
   &__icon-home {
-    background-image: url('../../images/icons/home.svg');
     width: 16px;
     height: 16px;
+
+    &--light {
+      background-image: url('../../images/icons/home.svg');
+    }
+
+    &--dark {
+      background-image: url('../../images/icons/Home-white.svg');
+    }
   }
 
   &__icon-arrow {
@@ -19,4 +26,8 @@
 
 .title-grey {
   color: colors.$color-secondary;
+}
+
+.url-way--dark .category {
+  color: colors.$color-text-button-dark-mode;
 }

@@ -1,5 +1,9 @@
+import { useTranslationState } from '../../stateManagers/languageState';
 import './ShopByCategoties.scss';
 import { Link } from 'react-router-dom';
+import logoPhones from '../../../public/img/Phones.png';
+import logoTablets from '../../../public/img/Tablets.png';
+import logoAccessories from '../../../public/img/Accessories.png';
 
 interface ShopByCategoryProps {
   amountPhones: number;
@@ -12,52 +16,57 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
   amountTablets,
   amountAccessories,
 }) => {
+  const { translate } = useTranslationState();
+
   return (
     <section className="categories">
-      <h2 className="categories__title">Shop by category</h2>
+      <h2>{translate('Shop by category')}</h2>
 
-      <div className="categories__list">
-        <div className="category category--phones">
-          <Link
-            to="phones"
-            className="category__block category__block--phones"
-          />
-          <Link
-            to="phones"
-            className="category__title-link"
-          >
-            <p className="category__title">Mobile phones</p>
+      <div className="categories__container">
+        <article className="redirect">
+          <Link to="phones">
+            <img
+              src={logoPhones}
+              alt="picturePhones"
+            />
           </Link>
-          <span className="category__count">{amountPhones} models</span>
-        </div>
+          <div className="contain-text">
+            <p>{translate('phones')}</p>
+            <span>
+              {amountPhones} {translate('models')}
+            </span>
+          </div>
+        </article>
 
-        <div className="category category--tablets">
-          <Link
-            to="tablets"
-            className="category__block category__block--tablets"
-          />
-          <Link
-            to="tablets"
-            className="category__title-link"
-          >
-            <p className="category__title">Tablets</p>
+        <article className="redirect">
+          <Link to="tablets">
+            <img
+              src={logoTablets}
+              alt="pictureTablets"
+            />
           </Link>
-          <span className="category__count">{amountTablets} models</span>
-        </div>
+          <div className="contain-text">
+            <p>{translate('tablets')}</p>
+            <span>
+              {amountTablets} {translate('models')}
+            </span>
+          </div>
+        </article>
 
-        <div className="category category--accessories">
-          <Link
-            to="accessories"
-            className="category__block category__block--accessories"
-          />
-          <Link
-            to="accessories"
-            className="category__title-link"
-          >
-            <p className="category__title">Accessories</p>
+        <article className="redirect">
+          <Link to="accessories">
+            <img
+              src={logoAccessories}
+              alt="pictureAccessories"
+            />
           </Link>
-          <span className="category__count">{amountAccessories} models</span>
-        </div>
+          <div className="contain-text">
+            <p>{translate('accessories')}</p>
+            <span>
+              {amountAccessories} {translate('models')}
+            </span>
+          </div>
+        </article>
       </div>
     </section>
   );

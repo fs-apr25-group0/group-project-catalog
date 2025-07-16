@@ -1,17 +1,43 @@
 import type React from 'react';
-import type { Product } from '../../types/products';
 import './CartItemCard.scss';
 import { NavLink } from 'react-router-dom';
+import type { localProduct } from '../../hooks/useLocalStorage';
+import { useThemeState } from '../../stateManagers/themeState';
+import { ButtonArrow } from '../../ui/ButtonArrow/ButtonArrow';
+
+import cn from 'classnames';
 
 interface CartItemCardProps {
-  product: Product;
+  product: localProduct;
+  onDelete: () => void;
+  addCount: () => void;
+  subCount: () => void;
+  hideCountControls?: boolean;
 }
 
-export const CartItemCard: React.FC<CartItemCardProps> = ({ product }) => {
+export const CartItemCard: React.FC<CartItemCardProps> = ({
+  product,
+  onDelete,
+  addCount,
+  subCount,
+  hideCountControls = false,
+}) => {
+  const { theme } = useThemeState();
+  const isDisabled = product.quantity === 1;
+
+  const totalPriceForOneProduct = product.price * product.quantity;
+
   return (
-    <article className="cart-item-card">
+    <article
+      className={cn('cart-item-card', `cart-item-card--${theme}`, {
+        'cart-item-card--search': hideCountControls,
+      })}
+    >
       <div className="cart-item-card__content">
-        <div className="cart-item-card__icon-delete"></div>
+        <button
+          className={`cart-item-card__icon-delete cart-item-card__icon-delete--${theme}`}
+          onClick={onDelete}
+        ></button>
         <NavLink to={`/${product.category}/${product.itemId}`}>
           <img
             src={product.image}
@@ -21,28 +47,32 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({ product }) => {
         </NavLink>
 
         <NavLink to={`/${product.category}/${product.itemId}`}>
-          <div className="cart-item-card__title body-text">{product.name}</div>
+          <p className="cart-item-card__title">{product.name}</p>
         </NavLink>
       </div>
 
       <div className="cart-item-card__second-part">
-        <div className="cart-item-card__count">
-          <button
-            className="cart-item-card__button-subtract"
-            disabled
-          >
-            {/* прибарай subtract-disabled якщо кнопка активна */}
-            <div className="subtract subtract-disabled"></div>
-          </button>
-          <div className="cart-item-card__number body-text">1</div>
-          <button
-            className="cart-item-card__button-add"
-            disabled
-          >
-            <div className="add"></div>
-          </button>
-        </div>
-        <h3 className="cart-item-card__price">${product.price}</h3>
+        {!hideCountControls && (
+          <div className="cart-item-card__count">
+            <ButtonArrow
+              icon="minus"
+              onClick={subCount}
+              disabled={isDisabled}
+            />
+            <p className="cart-item-card__number">{product.quantity}</p>
+            <ButtonArrow
+              icon="plus"
+              onClick={addCount}
+            />
+          </div>
+        )}
+        <h3
+          className={cn('cart-item-card__price', {
+            'cart-item-card__price--search': hideCountControls,
+          })}
+        >
+          ${totalPriceForOneProduct}
+        </h3>
       </div>
     </article>
   );

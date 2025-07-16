@@ -13,8 +13,6 @@ html,
 body {
   height: 100%;
   font-family: 'Mont', sans-serif;
-  background-color: colors.$color-hover-bg;
-  color: colors.$color-primary;
 }
 
 a {
@@ -26,4 +24,9 @@ li,
 ul,
 ol {
   list-style: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
 }

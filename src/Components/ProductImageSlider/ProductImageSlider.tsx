@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ProductImageSlider.scss';
 import cn from 'classnames';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 type ProductImageSliderProps = {
   images: string[];
@@ -9,11 +10,15 @@ type ProductImageSliderProps = {
 export const ProductImageSlider: React.FC<ProductImageSliderProps> = ({
   images,
 }) => {
+  const { translate } = useTranslationState();
+
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   if (!images || !images.length) {
     return (
-      <div className="product-main-slider__empty body-text">No images</div>
+      <div className="product-main-slider__empty body-text">
+        {translate('No images')}
+      </div>
     );
   }
 

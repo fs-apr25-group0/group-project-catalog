@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import type { Product } from '../../types/products';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 interface ProductItemProps {
   product: Product;
@@ -10,6 +11,8 @@ export const ProductItem: React.FC<ProductItemProps> = ({
   product,
   category,
 }) => {
+  const { translate } = useTranslationState();
+
   return (
     <li>
       <NavLink to={`/${category}/${product.itemId}`}>
@@ -23,22 +26,22 @@ export const ProductItem: React.FC<ProductItemProps> = ({
 
       <div>
         <div>
-          <span>Screen</span>
+          <span>{translate('Screen')}</span>
           <span>{product.screen}</span>
         </div>
         <div>
-          <span>Capacity</span>
+          <span>{translate('Capacity')}</span>
           <span>{product.capacity}</span>
         </div>
         <div>
-          <span>RAM</span>
+          <span>{translate('RAM')}</span>
           <span>{product.ram}</span>
         </div>
       </div>
 
       <div>
-        <button>Add to cart</button>
-        <button>favorites</button>
+        <button>{translate('Add to cart')}</button>
+        <button>{translate('favorites')}</button>
       </div>
     </li>
   );
