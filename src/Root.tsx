@@ -11,6 +11,7 @@ import { ProductsPage } from './Pages/ProductsPage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { ProductInfoPage } from './Pages/ProductInfoPage';
 import { RussiaTrash } from './Pages/RussiaTrash';
+import { NotFoundPage } from './Pages/NotFoundPage';
 
 export const Root = () => (
   <Router>
@@ -67,7 +68,7 @@ export const Root = () => (
 
         <Route
           path="*"
-          element={<h1 className="title">Page not found</h1>}
+          element={<NotFoundPage />}
         />
       </Route>
     </Routes>
