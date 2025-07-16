@@ -48,7 +48,17 @@ export const Root = () => (
         <Route
           path="cart"
           element={<CartPage />}
-        />
+        >
+          <Route
+            path="make-your-choice"
+            element={<p>Here your choice</p>}
+          >
+            <Route
+              path="help-defenders"
+              element={<p>Here will be content</p>}
+            />
+          </Route>
+        </Route>
 
         <Route
           path="russians-are-not-people"
