@@ -18,23 +18,6 @@ import { useThemeState } from '../../stateManagers/themeState';
 export const MainSlider = () => {
   const { theme } = useThemeState();
 
-  // const slides = [
-  //   {
-  //     imagePath: '/img/banner-phones.png',
-  //     imageTitle: 'banner-phones',
-  //     link: '/phones',
-  //   },
-  //   {
-  //     imagePath: '/img/banner-tablets.png',
-  //     imageTitle: 'banner-tablets',
-  //     link: '/tablets',
-  //   },
-  //   {
-  //     imagePath: '/img/banner-accessories.png',
-  //     imageTitle: 'banner-accessories',
-  //     link: '/accessories',
-  //   },
-  // ];
   const slides = [
     {
       imagePath: '/img/banner-phones-transparent.png',
