@@ -1,4 +1,5 @@
 import { useTranslationState } from '../../stateManagers/languageState';
+import { useThemeState } from '../../stateManagers/themeState';
 import type { Gadget } from '../../types/gadgets';
 import { helperToCreateTechSpecs } from '../../utils/helperToCreateTechSpecs';
 import './TechSpecs.scss';
@@ -9,6 +10,7 @@ interface TechSpecsProps {
 
 export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
   const { translate } = useTranslationState();
+  const { theme } = useThemeState();
   if (!gadget) {
     return null;
   }
@@ -17,7 +19,7 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
   console.log(techSpecs);
 
   return (
-    <section className="techspecs">
+    <section className={`techspecs techspecs--${theme}`}>
       <dl className="techspecs__list">
         {Object.entries(techSpecs).map(([spec, value]) => (
           <div

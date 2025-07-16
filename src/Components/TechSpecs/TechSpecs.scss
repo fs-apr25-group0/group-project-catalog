@@ -16,13 +16,29 @@
   }
 
   &__name {
-    color: colors.$color-secondary;
     text-align: left;
   }
 
   &__value {
-    color: colors.$color-primary;
     text-align: right;
     white-space: nowrap;
+  }
+}
+
+.techspecs.product-info-page--light {
+  .techspecs__name {
+    color: colors.$color-secondary;
+  }
+  .techspecs__value {
+    color: colors.$color-primary;
+  }
+}
+
+.techspecs--dark {
+  .techspecs__name {
+    color: colors.$color-secondary-dark-mode;
+  }
+  .techspecs__value {
+    color: colors.$color-primary-dark-mode;
   }
 }
