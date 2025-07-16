@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Product } from '../types/products';
 
 export type localProduct = Product & {
@@ -7,7 +7,7 @@ export type localProduct = Product & {
 
 export function useLocalStorage<T extends { id: number }>(
   key: string,
-  startValue: T[],
+  startValue?: T[],
 ): [localProduct[], (v: T) => void, (v: T, op: 'add' | 'sub') => void] {
   const [value, setValue] = useState(() => {
     const data = localStorage.getItem(key);
@@ -23,6 +23,34 @@ export function useLocalStorage<T extends { id: number }>(
       return startValue;
     }
   });
+
+  useEffect(() => {
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', JSON.stringify('light'));
+    }
+
+    if (localStorage.getItem('language') === null) {
+      localStorage.setItem('language', JSON.stringify('EN'));
+    }
+  }, []);
+
+  // const changeTheme = () => {
+  //   const currentTheme = localStorage.getItem('theme');
+  //   let newTheme = '';
+
+  //   if (currentTheme !== null) {
+  //     try {
+  //       newTheme = JSON.parse(currentTheme);
+  //     } catch {
+  //       newTheme = 'light';
+  //     }
+  //   }
+
+  //   newTheme = newTheme === 'light' ? 'dark' : 'light';
+
+  //   localStorage.setItem('theme', JSON.stringify(newTheme))
+  //   setValue(newTheme);
+  // }
 
   const save = (newItem: T) => {
     const data = localStorage.getItem(key);

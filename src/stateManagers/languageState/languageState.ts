@@ -8,9 +8,21 @@ interface TranslationState {
   translate: (value: string) => string;
 }
 
+const getCurrentLanguage = (): 'EN' | 'UA' => {
+  try {
+    const language = localStorage.getItem('language');
+    return language ? JSON.parse(language) : 'EN';
+  } catch {
+    return 'EN';
+  }
+};
+
 export const useTranslationState = create<TranslationState>((set, get) => ({
-  language: 'EN',
-  setLanguage: (lang) => set({ language: lang }),
+  language: getCurrentLanguage(),
+  setLanguage: (lang) => {
+    localStorage.setItem('language', JSON.stringify(lang));
+    set({ language: lang });
+  },
   translate: (value) => {
     const lang = get().language;
     return dictionaries[lang][value] || value;
