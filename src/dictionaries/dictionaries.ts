@@ -195,6 +195,8 @@ export const dictionaries: Record<Language, Dictionary> = {
       'iPhone 11 Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with.',
     'iPhone 13 Mini takes stunning photos and videos with its advanced dual-camera system, with a new Night mode on all cameras. And Photographic Styles personalizes your photos in the moment for a beautiful look.':
       'iPhone 13 Mini takes stunning photos and videos with its advanced dual-camera system, with a new Night mode on all cameras. And Photographic Styles personalizes your photos in the moment for a beautiful look.',
+    "Sorry, unfortunately we can't sell you the product right now, but we can offer to help our defenders.":
+      "Sorry, unfortunately we can't sell you the product right now, but we can offer to help our defenders.",
     'black': 'black',
     'blue': 'blue',
     'coral': 'coral',
@@ -260,6 +262,8 @@ export const dictionaries: Record<Language, Dictionary> = {
     'item': 'item',
     'Checkout': 'Checkout',
     'Total for': 'Total for',
+    'Back to Store': 'Back to Store',
+    'Help': 'Help',
   },
   UA: {
     'A14 Bionic chip. The only thing even close was our last chip.':
@@ -455,6 +459,8 @@ export const dictionaries: Record<Language, Dictionary> = {
       'iPhone 11 Pro дозволяє знімати відео, що виглядають неймовірно природно — з високою деталізацією й плавним рухом. Епічна потужність дозволяє знімати відео в 4K з розширеним динамічним діапазоном і кінематографічною стабілізацією — усе при 60 кадрах/с. Ви також отримуєте більше креативного контролю, вчетверо ширший кадр і нові потужні інструменти редагування.',
     'iPhone 13 Mini takes stunning photos and videos with its advanced dual-camera system, with a new Night mode on all cameras. And Photographic Styles personalizes your photos in the moment for a beautiful look.':
       'iPhone 13 Mini робить приголомшливі фото й відео завдяки покращеній системі з двома камерами й новому нічному режиму на кожній. А функція «Фотостилі» налаштовує стиль фото в реальному часі для найкращого вигляду.',
+    "Sorry, unfortunately we can't sell you the product right now, but we can offer to help our defenders.":
+      'Вибачте, на жаль, ми зараз не можемо продати вам цей товар, але можемо запропонувати допомогти нашим захисникам.',
     'black': 'чорний',
     'blue': 'синій',
     'coral': 'кораловий',
@@ -519,5 +525,7 @@ export const dictionaries: Record<Language, Dictionary> = {
     'item': 'товар',
     'Checkout': 'Оформлення замовлення',
     'Total for': 'Всього за',
+    'Back to Store': 'Повернутись до магазину',
+    'Help': 'Допомогти',
   },
 };

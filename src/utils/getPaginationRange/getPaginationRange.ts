@@ -5,12 +5,12 @@ export function getPaginationRange(
   const delta = 1;
   const range: (number | 'dots')[] = [];
 
-  const left = Math.max(4, currentPage - delta);
-  const right = Math.min(totalPages - 3, currentPage + delta);
+  const left = Math.max(2, currentPage - delta);
+  const right = Math.min(totalPages - 2, currentPage + delta);
 
-  range.push(1, 2, 3);
+  range.push(1);
 
-  if (left > 4) {
+  if (left > 2) {
     range.push('dots');
   }
 
@@ -18,11 +18,11 @@ export function getPaginationRange(
     range.push(i);
   }
 
-  if (right < totalPages - 3) {
+  if (right < totalPages - 5) {
     range.push('dots');
   }
 
-  range.push(totalPages - 2, totalPages - 1, totalPages);
+  range.push(totalPages - 1, totalPages);
 
   return Array.from(
     new Set(
