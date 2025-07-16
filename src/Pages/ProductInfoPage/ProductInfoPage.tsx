@@ -19,12 +19,14 @@ import { ButtonAdd } from '../../ui/ButtonAdd';
 import { ButtonFavorite } from '../../ui/ButtonFavorite';
 import { appleColors } from '../../constans/appleColors';
 import { useTranslationState } from '../../stateManagers/languageState';
+import { useThemeState } from '../../stateManagers/themeState';
 
 export const ProductInfoPage = () => {
   const { category, itemId, loading, gadget, productsMayLike, gadgets } =
     useGadget();
 
   const { translate } = useTranslationState();
+  const { theme } = useThemeState();
 
   const { productInCart, setProductInCart } = useContext(CartContext);
   const { productInFavorite, setProductInFavorite } =
@@ -86,13 +88,13 @@ export const ProductInfoPage = () => {
   const oldPrice = gadget?.priceDiscount ? gadget.priceRegular : null;
 
   return (
-    <div className="product-info-page">
+    <div className={`product-info-page product-info-page--${theme}`}>
+      <UrlWay
+        category={category}
+        itemId={itemId}
+      />
       <div className="product-info-top">
         <LinkBack />
-        <UrlWay
-          category={category}
-          itemId={itemId}
-        />
       </div>
       <h2 className="product-info-title">{gadget?.name}</h2>
 
