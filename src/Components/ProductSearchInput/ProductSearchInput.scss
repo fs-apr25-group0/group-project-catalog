@@ -2,7 +2,7 @@
 
 .product-search-container {
   position: relative;
-  width: 450px;
+  width: 300px;
   height: 40px;
 
   display: flex;
@@ -37,18 +37,18 @@
 
   .product-search-dropdown {
     position: absolute; //позиція відносно інпута
-    top: 110%;
+    top: 125%;
     left: 0;
     width: 100%;
     background: colors.$color-hover-bg;
     width: 450px; // ширина бекгранду під випадашками
-    border-radius: 6px;
+    border-radius: 4px;
     z-index: 1001;
-    padding: 6px 0;
+    // padding: 2px 0;
 
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
   }
 
   .product-search-item {
