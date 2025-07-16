@@ -119,12 +119,12 @@ export const ProductsPage = () => {
 
               <ProductSearchInput products={sortedProducts} />
             </div>
-            <div className="products-page__product-list">
-              <ProductList
-                visibleProducts={visibleProducts}
-                loading={loading}
-              />
-            </div>
+
+            <ProductList
+              visibleProducts={visibleProducts}
+              loading={loading}
+            />
+
             <div className="products-page__pagination-wrapper">
               <Pagination
                 amountProduct={amountProduct}
