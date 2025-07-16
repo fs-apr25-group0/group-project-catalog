@@ -11,22 +11,17 @@ type Props = {
 export const ProductList: React.FC<Props> = ({ visibleProducts, loading }) => {
   const skeletons = Array.from({ length: 16 });
   return (
-    <ul className="product-list">
+    <div className="product-list">
       {loading ?
-        skeletons.map((_, i) => (
-          <li key={`skeleton-${i}`}>
-            <SkeletonProductCard />
-          </li>
-        ))
+        skeletons.map((_, i) => <SkeletonProductCard key={`skeleton-${i}`} />)
       : visibleProducts.map((product) => (
-          <li key={product.id}>
-            <ProductCard
-              category={product.category}
-              product={product}
-            />
-          </li>
+          <ProductCard
+            key={product.id}
+            category={product.category}
+            product={product}
+          />
         ))
       }
-    </ul>
+    </div>
   );
 };
