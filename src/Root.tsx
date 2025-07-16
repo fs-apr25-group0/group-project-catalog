@@ -67,7 +67,7 @@ export const Root = () => (
         >
           <Route
             path="help-defenders"
-            element={<p>Here will be content</p>}
+            element={<HelpDefenders />}
           />
         </Route>
 

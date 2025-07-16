@@ -1,12 +1,18 @@
-import '../MakeYourChoice/MakeYourChoice.scss';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { useThemeState } from '../../stateManagers/themeState';
-import { useNavigate } from 'react-router-dom';
 import { useTranslationState } from '../../stateManagers/languageState';
+import '../MakeYourChoice/MakeYourChoice.scss';
 
 export const MakeYourChoice = () => {
   const { theme } = useThemeState();
-  const navigate = useNavigate();
   const { translate } = useTranslationState();
+  const location = useLocation();
+
+  const isOnHelpPage = location.pathname.endsWith('/help-defenders');
+
+  if (isOnHelpPage) {
+    return <Outlet />;
+  }
 
   return (
     <section className={`make-your-choice make-your-choice--${theme}`}>
@@ -18,21 +24,19 @@ export const MakeYourChoice = () => {
             "Sorry, unfortunately we can't sell you the product right now, but we can offer to help our defenders.",
           )}
         </p>
-
-        {/* 👇 ця обгортка важлива */}
         <div className="make-your-choice__buttons">
-          <button
+          <Link
+            to="../"
             className="make-your-choice__button--back"
-            onClick={() => navigate(-1)}
           >
             {translate('Back to Store')}
-          </button>
-          <button
+          </Link>
+          <Link
+            to="help-defenders"
             className="make-your-choice__button--help"
-            onClick={() => alert('Thank you for helping!')}
           >
             {translate('Help')}
-          </button>
+          </Link>
         </div>
       </div>
     </section>
