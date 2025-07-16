@@ -8,11 +8,23 @@
   gap: 32px;
   align-items: start;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 24px;
+
+  @media (min-width: 640px) {
+    padding-top: 40px;
+  }
 
   &__text {
     grid-column: 1 / -1;
     align-self: flex-start;
+  }
+
+  &__title {
+    margin-top: 24px;
+
+    @media (min-width: 640px) {
+      margin-top: 16px;
+    }
   }
 
   &__down-part {
@@ -42,21 +54,21 @@
     border-radius: 16px;
     width: 100%;
     grid-column: 2 / 3;
+    gap: 16px;
 
     & > * {
       width: 100%;
     }
 
+    @media (min-with: 1200px) {
+      gap: 24px;
+    }
+
     @media (max-width: 1199px) {
-      margin-top: 32px;
       max-width: 100%;
       grid-column: 1 / -1;
     }
   }
-}
-
-.border {
-  margin-block: 8px;
 }
 
 .check-button {
