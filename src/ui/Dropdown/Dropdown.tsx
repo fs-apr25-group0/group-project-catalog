@@ -3,6 +3,7 @@ import { Select } from 'radix-ui';
 import './Dropdown.scss';
 import classNames from 'classnames';
 import { useTranslationState } from '../../stateManagers/languageState';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface DropdownProps {
   title?: string;
@@ -23,9 +24,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const { translate } = useTranslationState();
   const [isOpen, setIsOpen] = React.useState(false);
+  const { theme } = useThemeState();
 
   return (
-    <div className="dropdown">
+    <div className={`dropdown dropdown--${theme}`}>
       {title && <label className="dropdown__name small-text">{title}</label>}
       <Select.Root
         value={value.toString()}
@@ -33,7 +35,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
         onOpenChange={setIsOpen}
       >
         <Select.Trigger
-          className={classNames('SelectTrigger', cl, 'btn-reset')}
+          className={classNames(
+            'SelectTrigger',
+            `SelectTrigger--${theme}`,
+            cl,
+            'btn-reset',
+          )}
           aria-label="dropdown"
         >
           <Select.Value />
