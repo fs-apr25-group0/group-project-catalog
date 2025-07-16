@@ -7,10 +7,21 @@ interface ThemeState {
   toggleTheme: () => void;
 }
 
+const getCurrentTheme = (): 'light' | 'dark' => {
+  try {
+    const theme = localStorage.getItem('theme');
+    return theme ? JSON.parse(theme) : 'light';
+  } catch {
+    return 'light';
+  }
+};
+
 export const useThemeState = create<ThemeState>((set) => ({
-  theme: 'light',
+  theme: getCurrentTheme(),
   toggleTheme: () =>
-    set((state) => ({
-      theme: state.theme === 'light' ? 'dark' : 'light',
-    })),
+    set((state) => {
+      const newTheme = state.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', JSON.stringify(newTheme));
+      return { theme: newTheme };
+    }),
 }));
