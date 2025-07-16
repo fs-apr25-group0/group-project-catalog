@@ -169,3 +169,11 @@
     display: none;
   }
 }
+
+//адаптація випадашки для інпуту
+@media (max-width: 639px) {
+  .cart-item-card--search {
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
