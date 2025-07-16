@@ -11,8 +11,8 @@ import { ProductsPage } from './Pages/ProductsPage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { ProductInfoPage } from './Pages/ProductInfoPage';
 import { RussiaTrash } from './Pages/RussiaTrash';
-import { HelpDefenders } from './Pages/HelpDefenders';
 import { NotFoundPage } from './Pages/NotFoundPage';
+import { HelpDefenders } from './Pages/HelpDefenders';
 
 export const Root = () => (
   <Router>
