@@ -9,9 +9,8 @@ main {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
   grid-auto-rows: max-content;
-  margin-top: 64px;
   padding-inline: 16px;
-  // padding-bottom: 64px;
+  margin-top: 64px;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(12, 1fr);
@@ -20,7 +19,6 @@ main {
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(24, 32px);
-    // margin: 0 auto;
     justify-content: center;
   }
 }
@@ -51,12 +49,22 @@ main {
     }
 
     footer {
+      box-shadow: 0 -1px 0 0 colors.$color-elements;
+
       a {
         color: colors.$color-secondary;
+        font-weight: 800;
+
+        letter-spacing: 0.04em;
+
         &:hover {
           color: colors.$color-primary;
         }
       }
+    }
+
+    hr {
+      border: 1px solid colors.$color-elements;
     }
   }
 
@@ -79,9 +87,17 @@ main {
     }
 
     footer {
+      border-top: 1px solid #3b3e4a;
+
       a {
+        letter-spacing: 0.04em;
+        font-weight: 800;
+
         color: #f1f2f9;
       }
+    }
+    hr {
+      border: 1px solid #3b3e4a;
     }
   }
 }

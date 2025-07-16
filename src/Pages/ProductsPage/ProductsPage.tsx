@@ -80,17 +80,15 @@ export const ProductsPage = () => {
       <section className="products-page">
         {itemId ?
           <Outlet />
-        : <section className="products-page__container">
+        : <>
             <div className="products-page__url-way">
               <UrlWay category={translate(`${category}`)} />
             </div>
-
             <div className="products-page__header">
               {category && (
                 <h1>{translate(`${titleVariables[category as Category]}`)}</h1>
               )}
             </div>
-
             <p className="products-page__count body-text">
               {loading ?
                 <Skeleton
@@ -102,7 +100,6 @@ export const ProductsPage = () => {
                 </>
               }
             </p>
-
             <div className="products-page__filter-panel">
               <Dropdown
                 title={translate('Sort by')}
@@ -122,14 +119,12 @@ export const ProductsPage = () => {
 
               <ProductSearchInput products={sortedProducts} />
             </div>
-
             <div className="products-page__product-list">
               <ProductList
                 visibleProducts={visibleProducts}
                 loading={loading}
               />
             </div>
-
             <div className="products-page__pagination-wrapper">
               <Pagination
                 amountProduct={amountProduct}
@@ -138,7 +133,7 @@ export const ProductsPage = () => {
                 onPageChange={handlePageChange}
               />
             </div>
-          </section>
+          </>
         }
       </section>
     </>

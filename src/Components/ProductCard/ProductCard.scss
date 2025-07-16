@@ -2,7 +2,7 @@
 
 .productCard {
   &__container {
-    width: 287px;
+    width: 272px;
     min-width: 0;
     height: 440px;
     margin: 0 auto;
@@ -92,13 +92,6 @@
     font-size: 22px;
     line-height: 31px;
     color: colors.$color-secondary;
-  }
-
-  &__divider {
-    border: none;
-    height: 1px;
-    background-color: colors.$color-elements;
-    margin: 8px 0;
   }
 
   &__container-specifications {
