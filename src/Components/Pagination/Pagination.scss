@@ -1,3 +1,4 @@
+@use '../../styles/variables/colors/colors' as color;
 .pagination {
   display: flex;
   justify-content: center;
@@ -37,21 +38,30 @@
     }
 
     &--light {
-      border: 1px solid #b4bdc3;
-      color: #0f0f11;
+      border: 1px solid color.$color-icons;
+      color: color.$color-primary;
+
+      &:hover {
+        border: 1px solid color.$color-primary;
+      }
     }
 
     &--dark {
-      color: inherit;
+      background-color: color.$color-bg-card-dark-mode;
+      color: color.$color-text-button-dark-mode;
+
+      &:hover {
+        background-color: color.$color-button-pagination-dark-mode;
+      }
     }
 
     &--active--light {
-      background-color: #0f0f11;
-      color: #ffffff;
+      background-color: color.$color-primary;
+      color: color.$color-bg-app-light-mode;
     }
 
     &--active--dark {
-      background-color: #905bff;
+      background-color: color.$color-accent-dark-mode;
     }
   }
 }
