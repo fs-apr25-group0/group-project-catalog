@@ -11,6 +11,7 @@ import { ProductsPage } from './Pages/ProductsPage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { ProductInfoPage } from './Pages/ProductInfoPage';
 import { RussiaTrash } from './Pages/RussiaTrash';
+import { HelpDefenders } from './Pages/HelpDefenders';
 
 export const Root = () => (
   <Router>
@@ -52,14 +53,13 @@ export const Root = () => (
           <Route
             path="make-your-choice"
             element={<p>Here your choice</p>}
-          >
-            <Route
-              path="help-defenders"
-              element={<p>Here will be content</p>}
-            />
-          </Route>
+          ></Route>
         </Route>
 
+        <Route
+          path="help-defenders"
+          element={<HelpDefenders />}
+        />
         <Route
           path="russians-are-not-people"
           element={<RussiaTrash />}
