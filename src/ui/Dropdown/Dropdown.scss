@@ -1,10 +1,5 @@
 @use '../../styles/variables/colors/colors' as colors;
 
-/* reset */
-// button {
-//   all: unset;
-// }
-
 .btn-reset {
   all: unset;
 }
@@ -91,6 +86,10 @@
   color: colors.$color-primary;
   border: 1px solid colors.$color-icons;
 
+  span {
+    color: colors.$color-primary;
+  }
+
   &:hover {
     border: 1px solid colors.$color-secondary;
   }
@@ -102,7 +101,10 @@
 
 .SelectTrigger--dark {
   background-color: colors.$color-added-button-dark-mode;
-  color: colors.$color-primary-dark-mode;
+
+  span {
+    color: colors.$color-primary-dark-mode;
+  }
 
   &:hover {
     border: 1px solid colors.$color-secondary;
@@ -137,7 +139,6 @@
   box-shadow:
     0px 10px 38px -10px rgba(22, 23, 24, 0.35),
     0px 10px 20px -15px rgba(22, 23, 24, 0.2);
-  // width: 176px;
   z-index: 9999;
 }
 
@@ -147,7 +148,7 @@
 }
 
 .SelectContent--dark {
-  border: 1px solid colors.$color-product-card-hove-dark-mode;
+  border: 1px solid colors.$color-added-button-dark-mode;
   background-color: colors.$color-bg-app-dark-mode;
   color: colors.$color-primary-dark-mode;
 }
