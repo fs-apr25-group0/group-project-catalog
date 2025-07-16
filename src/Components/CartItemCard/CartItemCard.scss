@@ -127,8 +127,8 @@
   min-height: 56px;
   width: 450px; //ширина випадашки
   padding: 6px 8px;
-  // box-shadow: none;
   border-radius: 6px;
+  // padding-top: 10px;
 
   // Контент картки у випадашці
   .cart-item-card__content {
@@ -168,6 +168,17 @@
   .cart-item-card__icon-delete {
     display: none;
   }
+}
+
+.cart-item-card--search.cart-item-card--light {
+  // background: #dadadb; //колір для світлої теми
+  // border: 1px solid colors.$color-primary;
+  border: 1px solid colors.$color-elements;
+}
+
+.cart-item-card--search.cart-item-card--dark {
+  background: colors.$color-added-button-dark-mode; //колір для темної теми
+  border: 1px solid colors.$color-primary-dark-mode;
 }
 
 //адаптація випадашки для інпуту
