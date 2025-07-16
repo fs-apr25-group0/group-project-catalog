@@ -49,7 +49,7 @@ export const ProductImageSlider: React.FC<ProductImageSliderProps> = ({
           </button>
         ))}
       </div>
-      <div className="product-image-slider__main">
+      <div>
         <img
           src={images[selectedIndex]}
           alt={`Main product photo ${selectedIndex + 1}`}

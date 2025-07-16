@@ -181,12 +181,12 @@ export const ProductInfoPage = () => {
       </div>
 
       <div className="product-info-details">
-        <div>
+        <div className="div-for-grid-first">
           <h3>{translate('About')}</h3>
           <div className="divider" />
           <Description gadget={gadget} />
         </div>
-        <div>
+        <div className="div-for-grid-second">
           <h3>{translate('Tech specs')}</h3>
           <div className="divider" />
           <TechSpecs gadget={gadget} />
