@@ -2,13 +2,14 @@
 
 .productCard {
   &__container {
+    display: flex;
+    flex-direction: column;
     width: 272px;
     min-width: 0;
     height: 440px;
     margin: 0 auto;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+
     gap: 8px;
     padding: 32px;
     text-decoration: none;
