@@ -1,7 +1,7 @@
 import './ProductsPage.scss';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
 import { useProductForCategories } from '../../hooks/useProductsForCategories';
@@ -13,6 +13,7 @@ import { Dropdown } from '../../ui/Dropdown';
 import type { Category } from '../../types/category/сategory';
 import { useTranslationState } from '../../stateManagers/languageState';
 import { ProductSearchInput } from '../../Components/ProductSearchInput';
+import { NotFoundPage } from '../NotFoundPage';
 
 export const ProductsPage = () => {
   const {
@@ -71,8 +72,11 @@ export const ProductsPage = () => {
   //   return <p>Loading...</p>;
   // }
 
+  // if (!categoryVariables.includes(selectedCategory)) {
+  //   return <NavLink to={'*'}>Not found page</NavLink>;
+  // }
   if (!categoryVariables.includes(selectedCategory)) {
-    return <NavLink to={'*'}>Not found page</NavLink>;
+    return <NotFoundPage />;
   }
 
   return (
