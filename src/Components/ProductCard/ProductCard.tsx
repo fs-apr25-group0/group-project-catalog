@@ -66,7 +66,7 @@ export const ProductCard: React.FC<PropsProductCart> = ({
 
   return (
     <article
-      className={`productCard__container productCard__container--${theme}`}
+      className={`productCard productCard__container productCard__container--${theme}`}
     >
       <NavLink
         to={`/${category}/${product.itemId}`}

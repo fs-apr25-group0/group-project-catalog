@@ -7,6 +7,10 @@ import { useTranslationState } from '../../stateManagers/languageState';
 export const Footer = () => {
   const { translate } = useTranslationState();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <footer className="footer">
       <div className="footer__grid">
@@ -20,6 +24,7 @@ export const Footer = () => {
           <span>{translate('Back to top')}</span>
 
           <ButtonArrow
+            onClick={scrollToTop}
             icon="arrow"
             direction="up"
           />

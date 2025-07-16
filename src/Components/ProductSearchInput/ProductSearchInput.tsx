@@ -3,6 +3,7 @@ import type { Product } from '../../types/products';
 import { CartItemCard } from '../CartItemCard';
 import './ProductSearchInput.scss';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useThemeState } from '../../stateManagers/themeState';
 
 type ProductSearchInputProps = {
   products: Product[];
@@ -13,6 +14,7 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
 }) => {
   const [query, setQuery] = useState('');
   const location = useLocation();
+  const { theme } = useThemeState();
 
   useEffect(() => {
     setQuery('');
@@ -29,7 +31,9 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
   const showDropdown = filtered.length > 0 && query.length > 0;
 
   return (
-    <div className="product-search-container">
+    <div
+      className={`product-search-container product-search-container-${theme}`}
+    >
       <input
         type="text"
         className="product-search-input small-text"

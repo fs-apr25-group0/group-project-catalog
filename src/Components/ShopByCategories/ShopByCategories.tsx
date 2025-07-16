@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logoPhones from '../../../public/img/Phones.png';
 import logoTablets from '../../../public/img/Tablets.png';
 import logoAccessories from '../../../public/img/Accessories.png';
+import { useThemeState } from '../../stateManagers/themeState';
 
 interface ShopByCategoryProps {
   amountPhones: number;
@@ -17,13 +18,14 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
   amountAccessories,
 }) => {
   const { translate } = useTranslationState();
+  const { theme } = useThemeState();
 
   return (
     <section className="categories">
       <h2>{translate('Shop by category')}</h2>
 
       <div className="categories__container">
-        <article className="redirect">
+        <article className={`redirect redirect--${theme}`}>
           <Link to="phones">
             <img
               src={logoPhones}
@@ -38,7 +40,7 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
           </div>
         </article>
 
-        <article className="redirect">
+        <article className={`redirect redirect--${theme}`}>
           <Link to="tablets">
             <img
               src={logoTablets}
@@ -53,7 +55,7 @@ export const ShopByCategory: React.FC<ShopByCategoryProps> = ({
           </div>
         </article>
 
-        <article className="redirect">
+        <article className={`redirect redirect--${theme}`}>
           <Link to="accessories">
             <img
               src={logoAccessories}
