@@ -1,7 +1,7 @@
 @use '../../styles/variables/colors/colors' as color;
 
 .products-page {
-  grid-column: 1 / -1; // Вся ширина grid main!
+  grid-column: 1 / -1;
   width: 100%;
   max-width: none;
   margin: 0;
@@ -13,7 +13,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0; // control spacing via children
+    gap: 0;
   }
 
   &__url-way {
