@@ -11,7 +11,7 @@ interface UrlWayProps {
 export const UrlWay: React.FC<UrlWayProps> = ({ category, itemId }) => {
   const { theme } = useThemeState();
   return (
-    <div className="url-way">
+    <div className={`url-way url-way--${theme}`}>
       <Link
         to={'/'}
         className={`url-way__icon-home url-way__icon-home--${theme}`}
@@ -20,22 +20,24 @@ export const UrlWay: React.FC<UrlWayProps> = ({ category, itemId }) => {
       {itemId ?
         <Link
           to={'..'}
-          className={cn('small-text')}
+          className={cn('small-text category')}
         >
-          {category}
+          {category && category.charAt(0).toUpperCase() + category.slice(1)}
         </Link>
       : <Link
           to={'.'}
           className={cn('small-text', 'title-grey')}
         >
-          {category}
+          {category && category.charAt(0).toUpperCase() + category.slice(1)}
         </Link>
       }
 
       {itemId && (
         <>
           <div className="url-way__icon-arrow"></div>
-          <span className="small-text title-grey">{itemId}</span>
+          <span className="small-text title-grey">
+            {itemId && itemId.charAt(0).toUpperCase() + itemId.slice(1)}
+          </span>
         </>
       )}
     </div>
