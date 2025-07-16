@@ -46,14 +46,16 @@
 
   &--light {
     background-color: #f7f7fc;
+    &:hover {
+      box-shadow: 0 4px 24px 0 #0001;
+    }
   }
 
   &--dark {
     background-color: #191b2e;
-  }
-
-  &:hover {
-    box-shadow: 0 4px 24px 0 #0001;
+    &:hover {
+      background-color: #232548;
+    }
   }
 
   a {
