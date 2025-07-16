@@ -13,11 +13,14 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
   products,
 }) => {
   const [query, setQuery] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const location = useLocation();
   const { theme } = useThemeState();
 
   useEffect(() => {
     setQuery('');
+    setIsDropdownOpen(false);
   }, [location.pathname]);
 
   const filteredProducts = (products: Product[], query: string) => {
@@ -28,7 +31,8 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
   };
 
   const filtered = filteredProducts(products, query);
-  const showDropdown = filtered.length > 0 && query.length > 0;
+  const showDropdown =
+    filtered.length > 0 && query.length > 0 && isDropdownOpen;
 
   return (
     <div
@@ -40,6 +44,8 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
         placeholder="Search by category..."
         value={query}
         onChange={(event) => setQuery(event.target.value)}
+        onFocus={() => setIsDropdownOpen(true)}
+        onBlur={() => setTimeout(() => setIsDropdownOpen(false), 150)}
       />
 
       {showDropdown && (
