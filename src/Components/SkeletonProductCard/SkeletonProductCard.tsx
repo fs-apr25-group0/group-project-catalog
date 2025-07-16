@@ -4,31 +4,35 @@ import './SkeletonProductCard.scss';
 
 export const SkeletonProductCard = () => {
   return (
-    <div className="skeletonCard">
-      <Skeleton
-        height={196}
-        width={208}
-      />
+    <article className={`skeletonCard`}>
+      <div className="skeletonCard__image">
+        <Skeleton
+          height={196}
+          width="100%"
+        />
+      </div>
 
-      <Skeleton
-        width={208}
-        height={20}
-        count={2}
-      />
-      <Skeleton
-        width={208}
-        height={35}
-      />
+      <div className="skeletonCard__title">
+        <Skeleton
+          height={20}
+          count={2}
+        />
+      </div>
+
+      <div className="skeletonCard__price">
+        <Skeleton height={35} />
+      </div>
 
       <hr className="skeletonCard__divider" />
 
-      <Skeleton
-        height={10}
-        width={208}
-        count={3}
-      />
+      <div className="skeletonCard__specs">
+        <Skeleton
+          height={10}
+          count={3}
+        />
+      </div>
 
-      <div className="skeletonCard__button">
+      <div className="skeletonCard__buttons">
         <Skeleton
           height={40}
           width={160}
@@ -40,6 +44,6 @@ export const SkeletonProductCard = () => {
           style={{ borderRadius: 48 }}
         />
       </div>
-    </div>
+    </article>
   );
 };
