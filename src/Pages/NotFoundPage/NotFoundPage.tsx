@@ -11,7 +11,7 @@ export const NotFoundPage = () => {
   return (
     <section className={`notFoundPage notFoundPage--${theme}`}>
       <h1 className="notFoundPage__title">
-        {translate('Oops! Page not found')}
+        {translate('Oops! Page not found.')}
       </h1>
       <p className="notFoundPage__desc">
         {translate('Looks like this page doesn’t exist anymore')}
