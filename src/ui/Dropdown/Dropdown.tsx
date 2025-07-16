@@ -53,7 +53,11 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
         <Select.Portal>
           <Select.Content
-            className={classNames('SelectContent', `${cl}-content`)}
+            className={classNames(
+              'SelectContent',
+              `SelectContent--${theme}`,
+              `${cl}-content`,
+            )}
             position="popper"
             side="bottom"
             collisionPadding={-10}
@@ -64,7 +68,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   <Select.Item
                     key={variant}
                     value={variant.toString()}
-                    className="SelectItem"
+                    className={classNames('SelectItem', `SelectItem--${theme}`)}
                   >
                     <Select.ItemText>
                       {typeof variant === 'string' ?
