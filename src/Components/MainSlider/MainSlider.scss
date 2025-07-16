@@ -26,7 +26,15 @@
 .banner-slider {
   width: 1136px;
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 56px;
+
+  @media (min-width: 640px) {
+    margin: 0 auto 64px;
+  }
+
+  @media (min-width: 640px) {
+    margin: 0 auto 80px;
+  }
 
   &__swiper {
     width: 1040px;

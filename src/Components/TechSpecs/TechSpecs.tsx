@@ -26,7 +26,7 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ gadget }) => {
             className="techspecs__row"
             key={spec}
           >
-            <dt className="techspecs__name body-text">
+            <dt className="techspecs__name button-text">
               {translate(`${spec}`)}
             </dt>
             <dd className="techspecs__value body-text">
