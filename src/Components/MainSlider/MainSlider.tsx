@@ -13,28 +13,48 @@ import 'swiper/css/navigation';
 /* eslint-enable @typescript-eslint/ban-ts-comment */
 
 import './MainSlider.scss';
+import { useThemeState } from '../../stateManagers/themeState';
 
 export const MainSlider = () => {
+  const { theme } = useThemeState();
+
+  // const slides = [
+  //   {
+  //     imagePath: '/img/banner-phones.png',
+  //     imageTitle: 'banner-phones',
+  //     link: '/phones',
+  //   },
+  //   {
+  //     imagePath: '/img/banner-tablets.png',
+  //     imageTitle: 'banner-tablets',
+  //     link: '/tablets',
+  //   },
+  //   {
+  //     imagePath: '/img/banner-accessories.png',
+  //     imageTitle: 'banner-accessories',
+  //     link: '/accessories',
+  //   },
+  // ];
   const slides = [
     {
-      imagePath: '/img/banner-phones.png',
+      imagePath: '/img/banner-phones-transparent.png',
       imageTitle: 'banner-phones',
       link: '/phones',
     },
     {
-      imagePath: '/img/banner-tablets.png',
+      imagePath: '/img/banner-tablets-transparent.png',
       imageTitle: 'banner-tablets',
       link: '/tablets',
     },
     {
-      imagePath: '/img/banner-accessories.png',
+      imagePath: '/img/banner-accessories-transparent.png',
       imageTitle: 'banner-accessories',
       link: '/accessories',
     },
   ];
 
   return (
-    <div className="banner-slider">
+    <div className={`banner-slider banner-slider-${theme}`}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         slidesPerView={1}
