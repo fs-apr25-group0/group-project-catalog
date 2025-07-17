@@ -264,8 +264,18 @@ export const dictionaries: Record<Language, Dictionary> = {
     'Total for': 'Total for',
     'Back to Store': 'Back to Store',
     'Help': 'Help',
+    'Search by category...': 'Search by category...',
+    'Oops! Page not found.': 'Oops! Page not found.',
+    'Looks like this page doesn’t exist anymore':
+      'Looks like this page doesn’t exist anymore',
+    'Back to Home': 'Back to Home',
   },
   UA: {
+    'Oops! Page not found.': 'Ой! Сторінку не знайдено.',
+    'Looks like this page doesn’t exist anymore':
+      'Схоже, цієї сторінки більше не існує',
+    'Back to Home': 'Повернутися на головну',
+    'Search by category...': 'Пошук за категорією...',
     'A14 Bionic chip. The only thing even close was our last chip.':
       'Чіп A14 Bionic. Єдине, що наближається — наш попередній чіп.',
     'A15 Bionic': 'A15 Bionic',
