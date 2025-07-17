@@ -1,0 +1,54 @@
+.section-helper {
+  grid-column: 1/-1;
+  padding: 24px;
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .fund {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+
+    &__img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 8px;
+      background-color: white;
+    }
+
+    &__content {
+      flex: 1;
+
+      h2 {
+        margin: 0 0 8px;
+      }
+
+      p {
+        margin: 4px 0;
+      }
+
+      .progress-bar {
+        height: 12px;
+        width: 100%;
+        background: #e0e0e0;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 8px;
+
+        .progress-fill {
+          height: 100%;
+          background: #00acdc;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,7 @@ import { ProductInfoPage } from './Pages/ProductInfoPage';
 import { RussiaTrash } from './Pages/RussiaTrash';
 import { MakeYourChoice } from './Pages/MakeYourChoice/MakeYourChoice';
 import { NotFoundPage } from './Pages/NotFoundPage';
+import { HelpDefenders } from './Pages/HelpDefenders';
 
 export const Root = () => (
   <Router>
@@ -53,6 +54,10 @@ export const Root = () => (
         ></Route>
 
         <Route
+          path="help-defenders"
+          element={<HelpDefenders />}
+        />
+        <Route
           path="russians-are-not-people"
           element={<RussiaTrash />}
         />
@@ -62,7 +67,7 @@ export const Root = () => (
         >
           <Route
             path="help-defenders"
-            element={<p>Here will be content</p>}
+            element={<HelpDefenders />}
           />
         </Route>
 

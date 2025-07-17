@@ -11,6 +11,7 @@ main {
   grid-auto-rows: max-content;
   padding-inline: 16px;
   margin-top: 64px;
+  box-sizing: border-box;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(12, 1fr);
