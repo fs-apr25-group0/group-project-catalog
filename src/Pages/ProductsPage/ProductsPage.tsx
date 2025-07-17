@@ -68,15 +68,6 @@ export const ProductsPage = () => {
     setSearchParams(searchParams);
   };
 
-  // const isPageVisible = products.length > 0;
-
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
-  // if (!categoryVariables.includes(selectedCategory)) {
-  //   return <NavLink to={'*'}>Not found page</NavLink>;
-  // }
   if (!categoryVariables.includes(selectedCategory)) {
     return <NotFoundPage />;
   }
