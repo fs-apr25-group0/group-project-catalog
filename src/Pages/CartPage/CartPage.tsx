@@ -74,7 +74,7 @@ export const CartPage = () => {
             <hr className="border" />
             <button
               className={`check-button check-button--${theme}`}
-              onClick={() => navigate('make-your-choice')}
+              onClick={() => navigate('/make-your-choice')}
             >
               {translate('Checkout')}
             </button>

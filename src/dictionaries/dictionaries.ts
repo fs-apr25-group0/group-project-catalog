@@ -269,8 +269,10 @@ export const dictionaries: Record<Language, Dictionary> = {
     'Looks like this page doesn’t exist anymore':
       'Looks like this page doesn’t exist anymore',
     'Back to Home': 'Back to Home',
+    'They need help from you!': 'They need help from you!',
   },
   UA: {
+    'They need help from you!': 'Вони потребують вашої допомоги!',
     'Oops! Page not found.': 'Ой! Сторінку не знайдено.',
     'Looks like this page doesn’t exist anymore':
       'Схоже, цієї сторінки більше не існує',
