@@ -1,5 +1,6 @@
 import type { Organization } from '../../types/organization';
 import type { OrganizationFull } from '../../types/OrganizationsFull/OrganizationsFull';
+import { normalizeString } from '../../utils/helperNormalizedStr';
 
 const localAPI = '/api/organizations.json';
 
@@ -55,11 +56,12 @@ export const getOrganizationsWithJarInfo = async (): Promise<
     try {
       const extJarId = await getExtJarId(organization.id);
       const monoData = await getJarInfo(extJarId);
+      const normalizedDescription = normalizeString(monoData.description);
 
       return {
         ...organization,
         extJarId,
-        description: monoData.description,
+        description: normalizedDescription,
         goal: monoData.goal,
         balance: monoData.balance ?? monoData.amount ?? 0,
         currency: +monoData.currency,

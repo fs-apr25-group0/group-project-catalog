@@ -12,16 +12,17 @@ export const HelpDefenders = () => {
 
   useEffect(() => {
     getOrganizationsWithJarInfo().then((data) => {
-      console.log(data);
+      // console.log(data);
       setOrganizations(data);
     });
   }, []);
 
-  console.log(organizations.map((org) => org.description));
+  // console.log(organizations.map((org) => org.description));
   return (
     <section className={`section-helper section-helper--${theme}`}>
       <h1>{translate('They need help from you!')}</h1>
       {organizations.map((fund) => {
+        console.log(translate(fund.description));
         const raised = Math.floor(fund.balance / 100);
         const goal = Math.floor(fund.goal / 100);
         const percent = Math.min(Math.round((raised / goal) * 100), 100);
