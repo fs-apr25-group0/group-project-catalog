@@ -33,10 +33,42 @@
 
     &--dark {
       background-color: colors.$color-bg-card-dark-mode;
+
+      //кольори для кнопки Donate і полосу прогресу
+      .progress-bar {
+        background: #222;
+        .progress-fill {
+          background: colors.$color-accent-dark-mode;
+        }
+      }
+      .donate-button {
+        background-color: colors.$color-accent-dark-mode;
+        &:hover {
+          border: 1px solid colors.$color-accent-dark-mode;
+          color: colors.$color-accent-dark-mode;
+          background-color: #fff;
+        }
+      }
     }
 
     &--light {
       background-color: colors.$color-bg-app-light-mode;
+
+      //кольори для кнопки Donate і полосу прогресу
+      .progress-bar {
+        background: #e0e0e0;
+        .progress-fill {
+          background: colors.$color-accent;
+        }
+      }
+      .donate-button {
+        background-color: colors.$color-accent;
+        &:hover {
+          border: 1px solid colors.$color-accent;
+          color: colors.$color-accent;
+          background-color: #fff;
+        }
+      }
     }
 
     &__img {
@@ -93,7 +125,7 @@
 
         .progress-fill {
           height: 100%;
-          background: #00acdc;
+          // background: colors.$color-accent;
           transition: width 0.3s ease;
         }
       }
@@ -103,7 +135,8 @@
         margin-top: 12px;
         padding: 10px 20px;
         border-radius: 8px;
-        background-color: #00acdc;
+        // background-color: colors.$color-accent;
+
         color: #ffffff;
         font-weight: 600;
         text-decoration: none;
@@ -111,7 +144,10 @@
         text-align: center;
 
         &:hover {
-          background-color: #0093c1;
+          // background-color: #0093c1;
+          background-color: #fff;
+          // border: 1px solid colors.$color-accent;
+          // color: colors.$color-accent;
         }
       }
     }
