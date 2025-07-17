@@ -4,11 +4,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  grid-column: 1/-1;
 
   @media (min-width: 640px) {
     flex-direction: row;
     align-items: flex-start;
+    grid-column: 1/7;
+  }
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    align-items: flex-start;
+    grid-column: 1/12;
   }
 
   &__thumbnails {
@@ -51,23 +58,10 @@
     }
   }
 
-  &__main {
-    width: 288px;
-    height: 288px;
-    @media (min-width: 640px) {
-      width: 400px;
-      height: 400px;
-    }
-    @media (min-width: 1200px) {
-      width: 464px;
-      height: 464px;
-    }
-  }
-
   &__main-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     background: #fff;
     &.light {
       background: #fff;

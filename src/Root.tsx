@@ -11,6 +11,9 @@ import { ProductsPage } from './Pages/ProductsPage';
 import { FavoritesPage } from './Pages/FavoritesPage';
 import { ProductInfoPage } from './Pages/ProductInfoPage';
 import { RussiaTrash } from './Pages/RussiaTrash';
+import { MakeYourChoice } from './Pages/MakeYourChoice/MakeYourChoice';
+import { NotFoundPage } from './Pages/NotFoundPage';
+import { HelpDefenders } from './Pages/HelpDefenders';
 
 export const Root = () => (
   <Router>
@@ -48,16 +51,29 @@ export const Root = () => (
         <Route
           path="cart"
           element={<CartPage />}
-        />
+        ></Route>
 
+        <Route
+          path="help-defenders"
+          element={<HelpDefenders />}
+        />
         <Route
           path="russians-are-not-people"
           element={<RussiaTrash />}
         />
+        <Route
+          path="make-your-choice"
+          element={<MakeYourChoice />}
+        >
+          <Route
+            path="help-defenders"
+            element={<HelpDefenders />}
+          />
+        </Route>
 
         <Route
           path="*"
-          element={<h1 className="title">Page not found</h1>}
+          element={<NotFoundPage />}
         />
       </Route>
     </Routes>

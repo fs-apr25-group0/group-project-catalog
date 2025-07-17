@@ -78,7 +78,7 @@ export const RussiaTrash = () => {
   return (
     <div className="hymn-page">
       <div className="hymn-card">
-        <pre className="hymn-text">{displayedText}</pre>
+        <p className="hymn-text">{displayedText}</p>
       </div>
     </div>
   );

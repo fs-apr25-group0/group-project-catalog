@@ -7,6 +7,7 @@
   &__icon-home {
     width: 16px;
     height: 16px;
+    flex-shrink: 0;
 
     &--light {
       background-image: url('../../images/icons/home.svg');

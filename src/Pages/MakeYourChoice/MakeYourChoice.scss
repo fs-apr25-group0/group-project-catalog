@@ -1,0 +1,71 @@
+@use '../../styles/variables/colors/colors' as colors;
+
+.make-your-choice {
+  grid-column: 1/ -1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+
+  text-align: center;
+
+  &--light {
+    background-color: colors.$color-bg-app-light-mode;
+    color: colors.$color-primary;
+  }
+
+  &--dark {
+    background-color: colors.$color-bg-app-dark-mode;
+    color: colors.$color-primary-dark-mode;
+  }
+
+  &__content {
+    max-width: 1199px;
+    width: 100%;
+    padding: 160px 30px 150px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px colors.$color-product-card-hove-dark-mode;
+
+    &--light {
+      background-color: colors.$color-bg-app-light-mode;
+    }
+
+    &--dark {
+      background-color: colors.$color-bg-app-dark-mode;
+    }
+  }
+
+  &__message {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    a {
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+
+      background-color: colors.$color-accent-dark-mode;
+      color: colors.$color-text-button-dark-mode;
+
+      &:hover {
+        background-color: colors.$color-button-hover-dark-mode;
+        transform: scale(1.1);
+      }
+    }
+  }
+}

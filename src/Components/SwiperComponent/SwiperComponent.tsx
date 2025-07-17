@@ -36,7 +36,7 @@ export const SwiperComponent: React.FC<Props> = ({
         onSwiperInit?.(swiper);
       }}
     >
-      {loading ?
+      {loading || products.length === 0 ?
         skeletons.map((_, i) => (
           <SwiperSlide key={`skeleton-${i}`}>
             <SkeletonProductCard />

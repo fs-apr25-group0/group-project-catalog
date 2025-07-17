@@ -7,11 +7,13 @@ import './CartPage.scss';
 import type { Product } from '../../types/products';
 import { useThemeState } from '../../stateManagers/themeState';
 import { useTranslationState } from '../../stateManagers/languageState';
+import { useNavigate } from 'react-router-dom';
 
 export const CartPage = () => {
   const { productInCart, setProductInCart, setCount } = useContext(CartContext);
   const { translate } = useTranslationState();
   const { theme } = useThemeState();
+  const navigate = useNavigate();
 
   function deleteProductFromCart(product: Product) {
     setProductInCart(product);
@@ -61,7 +63,7 @@ export const CartPage = () => {
         </div>
 
         {isVisibleCheckout && (
-          <div className="cart__checkout">
+          <div className={`cart__checkout cart__checkout--${theme}`}>
             <div>
               <h2>${totalPrice}</h2>
               <span>
@@ -70,7 +72,10 @@ export const CartPage = () => {
               </span>
             </div>
             <hr className="border" />
-            <button className={`check-button check-button--${theme}`}>
+            <button
+              className={`check-button check-button--${theme}`}
+              onClick={() => navigate('make-your-choice')}
+            >
               {translate('Checkout')}
             </button>
           </div>

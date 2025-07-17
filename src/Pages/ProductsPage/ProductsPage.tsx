@@ -1,7 +1,7 @@
 import './ProductsPage.scss';
-import Skeleton from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 import { ProductList } from '../../Components/ProductList';
 import { Pagination } from '../../Components/Pagination';
 import { useProductForCategories } from '../../hooks/useProductsForCategories';
@@ -13,6 +13,8 @@ import { Dropdown } from '../../ui/Dropdown';
 import type { Category } from '../../types/category/сategory';
 import { useTranslationState } from '../../stateManagers/languageState';
 import { ProductSearchInput } from '../../Components/ProductSearchInput';
+import { NotFoundPage } from '../NotFoundPage';
+import { useThemeState } from '../../stateManagers/themeState';
 
 export const ProductsPage = () => {
   const {
@@ -27,6 +29,7 @@ export const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { translate } = useTranslationState();
+  const { theme } = useThemeState();
 
   const perPage = Number(searchParams.get('perPage')) || 16;
   const currentPage = Number(searchParams.get('page')) || 1;
@@ -65,14 +68,8 @@ export const ProductsPage = () => {
     setSearchParams(searchParams);
   };
 
-  // const isPageVisible = products.length > 0;
-
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
   if (!categoryVariables.includes(selectedCategory)) {
-    return <NavLink to={'*'}>Not found page</NavLink>;
+    return <NotFoundPage />;
   }
 
   return (
@@ -91,10 +88,15 @@ export const ProductsPage = () => {
             </div>
             <p className="products-page__count body-text">
               {loading ?
-                <Skeleton
-                  height={21}
-                  width={100}
-                />
+                <SkeletonTheme
+                  baseColor={theme === 'dark' ? '#161827' : '#efefefff'}
+                  highlightColor={theme === 'dark' ? '#1a1c2eff' : '#e2e2e2ff'}
+                >
+                  <Skeleton
+                    height={21}
+                    width={100}
+                  />
+                </SkeletonTheme>
               : <>
                   {amountProduct} {translate('models')}
                 </>

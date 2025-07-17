@@ -128,8 +128,10 @@
   align-items: center;
   gap: 8px;
   height: 100%;
+  padding-right: 40px;
 
   @media (max-width: 640px) {
     order: 0;
+    padding-right: 0;
   }
 }
