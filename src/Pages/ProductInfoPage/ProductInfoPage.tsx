@@ -7,8 +7,7 @@ import { useGadget } from '../../hooks/useGadget';
 import { LinkBack } from '../../Components/LinkBack';
 
 import { ProductImageSlider } from '../../Components/ProductImageSlider';
-/**/
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
@@ -84,6 +83,10 @@ export const ProductInfoPage = () => {
   const price = gadget?.priceDiscount || gadget?.priceRegular;
   const oldPrice = gadget?.priceDiscount ? gadget.priceRegular : null;
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [itemId]);
+
   return (
     <div className={`product-info-page product-info-page--${theme}`}>
       <UrlWay
@@ -105,6 +108,9 @@ export const ProductInfoPage = () => {
               <div className="info-row">
                 <span className="small-text">
                   {translate('Available colors')}
+                </span>
+                <span className="small-text id-mobile">
+                  ID: {gadget?.namespaceId}
                 </span>
               </div>
 
