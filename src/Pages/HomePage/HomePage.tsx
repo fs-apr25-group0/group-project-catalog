@@ -17,10 +17,6 @@ export const HomePage = () => {
 
   const { translate } = useTranslationState();
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
   return (
     <>
       <div className="page-title">
@@ -35,7 +31,6 @@ export const HomePage = () => {
       />
 
       <ShopByCategory
-        // loading={loading}
         amountPhones={amountPhones}
         amountTablets={amountTablets}
         amountAccessories={amountAccessories}

@@ -4,8 +4,6 @@ import { getOrganizationsWithJarInfo } from '../../api/fetchOrganizations';
 import type { OrganizationFull } from '../../types/OrganizationsFull/OrganizationsFull';
 
 export const HelpDefenders = () => {
-  // const [organizations, setOrganizations] = useState<OrganizationFull[]>([])
-
   useEffect(() => {
     getOrganizationsWithJarInfo().then((data) => console.log(data));
   }, []);
