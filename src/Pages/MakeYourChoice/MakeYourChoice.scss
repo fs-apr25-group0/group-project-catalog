@@ -14,11 +14,47 @@
   &--light {
     background-color: colors.$color-bg-app-light-mode;
     color: colors.$color-primary;
+
+    .make-your-choice__button--back {
+      background-color: #d32f2f;
+      color: white;
+
+      &:hover {
+        background-color: #b71c1c;
+      }
+    }
+
+    .make-your-choice__button--help {
+      background-color: #43a047;
+      color: white;
+
+      &:hover {
+        background-color: #388e3c;
+      }
+    }
   }
 
   &--dark {
     background-color: colors.$color-bg-app-dark-mode;
     color: colors.$color-primary-dark-mode;
+
+    .make-your-choice__button--back {
+      background-color: #9a1b1b;
+      color: white;
+
+      &:hover {
+        background-color: #7f1616;
+      }
+    }
+
+    .make-your-choice__button--help {
+      background-color: #2e7d32;
+      color: white;
+
+      &:hover {
+        background-color: #1b5e20;
+      }
+    }
   }
 
   &__content {
@@ -30,10 +66,22 @@
 
     &--light {
       background-color: colors.$color-bg-app-light-mode;
+
+      .make-your-choice__buttons a {
+        // background-color: colors.$color-accent-dark-mode;
+        // color: colors.$color-text-button-dark-mode;
+        // background-color: #e53935;
+        // color: colors.$color-text-button-dark-mode;
+      }
     }
 
     &--dark {
       background-color: colors.$color-bg-app-dark-mode;
+
+      // .make-your-choice__buttons a {
+      //   background-color: colors.$color-accent-dark-mode;
+      //   color: colors.$color-text-button-dark-mode;
+      // }
     }
   }
 
@@ -59,8 +107,8 @@
       border: none;
       transition: background-color 0.3s ease;
 
-      background-color: colors.$color-accent-dark-mode;
-      color: colors.$color-text-button-dark-mode;
+      // background-color: colors.$color-accent-dark-mode;
+      // color: colors.$color-text-button-dark-mode;
 
       &:hover {
         background-color: colors.$color-button-hover-dark-mode;

@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import './HelpDefenders.scss';
 import { getOrganizationsWithJarInfo } from '../../api/fetchOrganizations';
 import type { OrganizationFull } from '../../types/OrganizationsFull/OrganizationsFull';
+import { useTranslationState } from '../../stateManagers/languageState';
+import { useThemeState } from '../../stateManagers/themeState';
 
 export const HelpDefenders = () => {
   const [organizations, setOrganizations] = useState<OrganizationFull[]>([]);
+  const { translate } = useTranslationState();
+  const { theme } = useThemeState();
 
   useEffect(() => {
     getOrganizationsWithJarInfo().then((data) => {
@@ -14,9 +18,9 @@ export const HelpDefenders = () => {
   }, []);
 
   return (
-    <section className="section-helper">
-      <h1>They need help from you!</h1>
-
+    <section className={`section-helper section-helper--${theme}`}>
+      {/* <h1>They need help from you!</h1> */}
+      <h1>{translate('They need help from you!')}</h1>
       {organizations.map((fund) => {
         const raised = Math.floor(fund.balance / 100);
         const goal = Math.floor(fund.goal / 100);
@@ -25,7 +29,7 @@ export const HelpDefenders = () => {
         return (
           <div
             key={fund.id}
-            className="fund"
+            className={`fund fund--${theme}`}
           >
             <img
               src={fund.img}
@@ -35,7 +39,6 @@ export const HelpDefenders = () => {
             <div className="fund__content">
               <h2>{fund.name}</h2>
               <p>{fund.description}</p>
-
               <div className="fund__stats">
                 <p>
                   <strong>Raised:</strong> {raised.toLocaleString()} ₴
