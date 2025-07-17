@@ -1,12 +1,17 @@
 [
   {
+    "id": "81iPsH2t9T",
+    "img": "img/organizations/spartan-logo.png",
+    "name": "SPARTAN Brigade"
+  },
+  {
     "id": "25KwepLNoJ",
-    "img": "img/organizations/00.webp",
+    "img": "img/organizations/hroza-logo.webp",
     "name": "Battalion HROZA"
   },
   {
     "id": "5mrLTKRV2B",
-    "img": "img/organizations/Shostak.webp",
+    "img": "img/organizations/Shostak-logo.webp",
     "name": "Ruslan Shostak Charitable Foundation"
   },
   {
@@ -16,7 +21,7 @@
   },
   {
     "id": "3KnuZcZuKz",
-    "img": "img/organizations/prytyla-found.webp",
+    "img": "img/organizations/prytyla-found-logo.webp",
     "name": "Serhiy Prytula Charitable Foundation"
   },
   {
