@@ -3,12 +3,8 @@ import type { OrganizationFull } from '../../types/OrganizationsFull/Organizatio
 
 const localAPI = '/api/organizations.json';
 
-const extJarIdAPI = 'http://localhost:4000/mono/extJarId';
+const extJarIdAPI = 'https://ai-backend-n9dp.onrender.com/mono/extJarId';
 const jarInfoAPI = 'https://api.monobank.ua/bank/jar/';
-
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 async function getExtJarId(clientId: string): Promise<string> {
   const body = {
@@ -55,29 +51,26 @@ export const getOrganizationsWithJarInfo = async (): Promise<
   const response = await fetch(localAPI);
   const organizations: Organization[] = await response.json();
 
-  const result: OrganizationFull[] = [];
-
-  for (const organization of organizations) {
-    const clientId = organization.id;
-
+  const promises = organizations.map(async (organization) => {
     try {
-      const extJarId = await getExtJarId(clientId);
+      const extJarId = await getExtJarId(organization.id);
       const monoData = await getJarInfo(extJarId);
 
-      result.push({
+      return {
         ...organization,
         extJarId,
         description: monoData.description,
         goal: monoData.goal,
         balance: monoData.balance ?? monoData.amount ?? 0,
         currency: +monoData.currency,
-      });
+      };
     } catch (error) {
       console.warn(`Failed to fetch data for ${organization.name}:`, error);
+      return null;
     }
+  });
 
-    await delay(100);
-  }
+  const results = await Promise.all(promises);
 
-  return result;
+  return results.filter((item): item is OrganizationFull => item !== null);
 };

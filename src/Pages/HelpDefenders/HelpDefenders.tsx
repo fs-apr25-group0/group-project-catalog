@@ -19,7 +19,6 @@ export const HelpDefenders = () => {
 
   return (
     <section className={`section-helper section-helper--${theme}`}>
-      {/* <h1>They need help from you!</h1> */}
       <h1>{translate('They need help from you!')}</h1>
       {organizations.map((fund) => {
         const raised = Math.floor(fund.balance / 100);
