@@ -34,24 +34,6 @@ export function useLocalStorage<T extends { id: number }>(
     }
   }, []);
 
-  // const changeTheme = () => {
-  //   const currentTheme = localStorage.getItem('theme');
-  //   let newTheme = '';
-
-  //   if (currentTheme !== null) {
-  //     try {
-  //       newTheme = JSON.parse(currentTheme);
-  //     } catch {
-  //       newTheme = 'light';
-  //     }
-  //   }
-
-  //   newTheme = newTheme === 'light' ? 'dark' : 'light';
-
-  //   localStorage.setItem('theme', JSON.stringify(newTheme))
-  //   setValue(newTheme);
-  // }
-
   const save = (newItem: T) => {
     const data = localStorage.getItem(key);
     let parsed: localProduct[] = [];

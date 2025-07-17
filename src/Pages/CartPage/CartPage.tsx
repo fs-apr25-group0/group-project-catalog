@@ -63,7 +63,7 @@ export const CartPage = () => {
         </div>
 
         {isVisibleCheckout && (
-          <div className="cart__checkout">
+          <div className={`cart__checkout cart__checkout--${theme}`}>
             <div>
               <h2>${totalPrice}</h2>
               <span>

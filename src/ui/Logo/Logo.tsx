@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import logoLight from '../../images/logo.svg';
-// import logoDark from '../../images/Logo-dark.svg';
 import './Logo.scss';
 
 const closeMenu = () => {

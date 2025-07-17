@@ -78,10 +78,6 @@ export const ProductInfoPage = () => {
     }
   };
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
   const images = gadget?.images || [];
   const colors = gadget?.colorsAvailable || [];
   const capacities = gadget?.capacityAvailable || [];

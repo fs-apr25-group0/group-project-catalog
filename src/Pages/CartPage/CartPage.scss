@@ -50,11 +50,18 @@
     text-align: center;
     box-sizing: border-box;
     padding: 24px;
-    border: 1px solid colors.$color-elements;
     border-radius: 16px;
     width: 100%;
     grid-column: 2 / 3;
     gap: 16px;
+
+    &--light {
+      border: 1px solid colors.$color-elements;
+    }
+
+    &--dark {
+      border: 1px solid colors.$color-button-pagination-dark-mode;
+    }
 
     & > * {
       width: 100%;

@@ -10,24 +10,6 @@ import { CartContext } from '../../context/CartContext';
 import { useThemeState } from '../../stateManagers/themeState';
 import { useTranslationState } from '../../stateManagers/languageState';
 
-// type ProductCardProps = {
-//   product: Product;
-//   onAddToCart: (id: number) => void;
-//   onToggleFavorite: (id: number) => void;
-//   isFavorite?: boolean;
-//   isInCart?: boolean;
-// };
-
-// export const ProductCard: React.FC<ProductCardProps> = (
-//   {
-//     product,
-//     onAddToCart,
-//     onToggleFavorite,
-//     isFavorite,
-//     isInCart,
-//   },
-// ) => {
-
 interface PropsProductCart {
   product: Product;
   category: string;
@@ -37,11 +19,6 @@ export const ProductCard: React.FC<PropsProductCart> = ({
   product,
   category,
 }) => {
-  //це щоб повністю очистити localStorage
-  // localStorage.removeItem('cart');
-  // localStorage.removeItem('favorite');
-  // window.location.reload();
-
   const { translate } = useTranslationState();
   const { theme } = useThemeState();
 
@@ -121,10 +98,3 @@ export const ProductCard: React.FC<PropsProductCart> = ({
     </article>
   );
 };
-
-//додавання перевірки на наяність знижки
-// {product.fullPrice > product.price && (
-//   <span className="productCard__price-regular">
-//     ${product.fullPrice}
-//   </span>
-// )}
