@@ -264,8 +264,50 @@ export const dictionaries: Record<Language, Dictionary> = {
     'Total for': 'Total for',
     'Back to Store': 'Back to Store',
     'Help': 'Help',
+    'Search by category...': 'Search by category...',
+    'Oops! Page not found.': 'Oops! Page not found.',
+    'Looks like this page doesn’t exist anymore':
+      'Looks like this page doesn’t exist anymore',
+    'Back to Home': 'Back to Home',
+    'They need help from you!': 'They need help from you!',
+    'SPARTAN Brigade': 'SPARTAN Brigade',
+    'Raised': 'Raised',
+    'Goal': 'Goal',
+    'Progress': 'Progress',
+    'Battalion HROZA': 'Battalion HROZA',
+    'Ruslan Shostak Charitable Foundation':
+      'Ruslan Shostak Charitable Foundation',
+    '92 Brigade': '92 Brigade',
+    'Serhiy Prytula Charitable Foundation':
+      'Serhiy Prytula Charitable Foundation',
+    '30th Marine Corps': '30th Marine Corps',
+    'Charity fund Sternenko Community - RUSORIZ':
+      'Charity fund Sternenko Community - RUSORIZ',
+    '60 Brigade': '60 Brigade',
+    'Special Forces unit GUR MO - KRYLA': 'Special Forces unit GUR MO - KRYLA',
+    'Збираєм на дві зарядні станції EcoFlow Delta 2 Max, які нам допоможуть 24/7 мониторити та утилізувати мокшанських снохачей':
+      'We’re raising funds for two EcoFlow Delta 2 Max power stations to help us monitor and neutralize enemy targets 24/7.',
+    'На потреби аеророзвідки батальйону ГРОЗА':
+      'For the needs of aerial reconnaissance of the HROZA Battalion',
+    'Збираємо на 25 пікапів для бійців на Донецькому, Запорізькому, Херсонському та Харківському напрямках. Кожен донат кратний 100 грн. - шанс виграти Ford Mustang. Більше донатів = більше шансів.':
+      'We’re raising funds for 25 pickup trucks for our soldiers on the Donetsk, Zaporizhzhia, Kherson, and Kharkiv fronts. Every donation that is a multiple of 100 UAH is a chance to win a Ford Mustang. More donations = more chances.',
+    'Бійці 92 ОШБр нищать ворога на Харківському напрямку та критично потребують FPV дрони на оптоволокні.':
+      'The fighters of the 92nd Brigade are destroying the enemy on the Kharkiv front and are in critical need of fiber-optic FPV drones.',
+    'monobank за підтримки Фонду Сергія Притули збирає на дрони для ЗСУ':
+      'monobank, with the support of the Serhiy Prytula Foundation, is raising funds for drones for the Armed Forces of Ukraine',
+    'Мотоцикли на важливі напрямки.': 'Motorcycles for key directions.',
+    'Постійна банка для закупівлі FPV. Наша мета — купувати мінімум 300 дронів на день та швидко передавати на фронт!':
+      'Ongoing fundraiser for purchasing FPV drones. Our goal is to buy at least 300 drones per day and deliver them to the front quickly!',
+    'Збір на позашляховик для скадовчан які служать в окремому стрілецькому підрозділі 60 бригади та виконують завдання на Луганському напрямку. Кожна гривня наблизить нашу перемогу! Дуже просимо долучитися до збору! PayPal по запиту.':
+      'Fundraiser for an SUV for soldiers from Skadovsk serving in a separate rifle unit of the 60th Brigade, operating on the Luhansk front. Every hryvnia brings us closer to victory! We kindly ask you to support! PayPal available upon request.',
   },
   UA: {
+    'They need help from you!': 'Вони потребують вашої допомоги!',
+    'Oops! Page not found.': 'Ой! Сторінку не знайдено.',
+    'Looks like this page doesn’t exist anymore':
+      'Схоже, цієї сторінки більше не існує',
+    'Back to Home': 'Повернутися на головну',
+    'Search by category...': 'Пошук за категорією...',
     'A14 Bionic chip. The only thing even close was our last chip.':
       'Чіп A14 Bionic. Єдине, що наближається — наш попередній чіп.',
     'A15 Bionic': 'A15 Bionic',
@@ -527,5 +569,33 @@ export const dictionaries: Record<Language, Dictionary> = {
     'Total for': 'Всього за',
     'Back to Store': 'Повернутись до магазину',
     'Help': 'Допомогти',
+    'SPARTAN Brigade': 'Бригада СПАРТАН',
+    'Raised': 'Зібрано',
+    'Goal': 'Мета',
+    'Progress': 'Прогрес',
+    'Battalion HROZA': 'Батальйон ГРОЗА',
+    'Ruslan Shostak Charitable Foundation': 'Благодійний фонд Руслана Шостака',
+    '92 Brigade': '92 Бригада',
+    'Serhiy Prytula Charitable Foundation': 'Благодійний фонд Сергія Притули',
+    '30th Marine Corps': '30-й Морський корпус',
+    'Charity fund Sternenko Community - RUSORIZ':
+      'Благодійний фонд Спільноти Стерненка — RUSORIZ',
+    '60 Brigade': '60 Бригада',
+    'Special Forces unit GUR MO - KRYLA': 'Спецпідрозділ ГУР МО — КРИЛА',
+    'Збираєм на дві зарядні станції EcoFlow Delta 2 Max, які нам допоможуть 24/7 мониторити та утилізувати мокшанських снохачей':
+      'Збираєм на дві зарядні станції EcoFlow Delta 2 Max, які нам допоможуть 24/7 мониторити та утилізувати мокшанських снохачей',
+    'На потреби аеророзвідки батальйону ГРОЗА':
+      'На потреби аеророзвідки батальйону ГРОЗА',
+    'Збираємо на 25 пікапів для бійців на Донецькому, Запорізькому, Херсонському та Харківському напрямках. Кожен донат кратний 100 грн. - шанс виграти Ford Mustang. Більше донатів = більше шансів.':
+      'Збираємо на 25 пікапів для бійців на Донецькому, Запорізькому, Херсонському та Харківському напрямках. Кожен донат кратний 100 грн. - шанс виграти Ford Mustang. Більше донатів = більше шансів.',
+    'Бійці 92 ОШБр нищать ворога на Харківському напрямку та критично потребують FPV дрони на оптоволокні.':
+      'Бійці 92 ОШБр нищать ворога на Харківському напрямку та критично потребують FPV дрони на оптоволокні.',
+    'monobank за підтримки Фонду Сергія Притули збирає на дрони для ЗСУ':
+      'monobank за підтримки Фонду Сергія Притули збирає на дрони для ЗСУ',
+    'Мотоцикли на важливі напрямки.': 'Мотоцикли на важливі напрямки.',
+    'Постійна банка для закупівлі FPV. Наша мета — купувати мінімум 300 дронів на день та швидко передавати на фронт!':
+      'Постійна банка для закупівлі FPV. Наша мета — купувати мінімум 300 дронів на день та швидко передавати на фронт!',
+    'Збір на позашляховик для скадовчан які служать в окремому стрілецькому підрозділі 60 бригади та виконують завдання на Луганському напрямку. Кожна гривня наблизить нашу перемогу! Дуже просимо долучитися до збору! PayPal по запиту.':
+      'Збір на позашляховик для скадовчан які служать в окремому стрілецькому підрозділі 60 бригади та виконують завдання на Луганському напрямку. Кожна гривня наблизить нашу перемогу! Дуже просимо долучитися до збору! PayPal по запиту.',
   },
 };

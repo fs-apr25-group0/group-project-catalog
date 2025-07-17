@@ -4,6 +4,7 @@ import { CartItemCard } from '../CartItemCard';
 import './ProductSearchInput.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useThemeState } from '../../stateManagers/themeState';
+import { useTranslationState } from '../../stateManagers/languageState';
 
 type ProductSearchInputProps = {
   products: Product[];
@@ -17,6 +18,7 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
 
   const location = useLocation();
   const { theme } = useThemeState();
+  const { translate } = useTranslationState();
 
   useEffect(() => {
     setQuery('');
@@ -41,7 +43,7 @@ export const ProductSearchInput: React.FC<ProductSearchInputProps> = ({
       <input
         type="text"
         className="product-search-input small-text"
-        placeholder="Search by category..."
+        placeholder={translate('Search by category...')}
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         onFocus={() => setIsDropdownOpen(true)}
