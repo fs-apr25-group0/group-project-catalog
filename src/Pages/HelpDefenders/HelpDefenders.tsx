@@ -17,6 +17,7 @@ export const HelpDefenders = () => {
     });
   }, []);
 
+  console.log(organizations.map((org) => org.description));
   return (
     <section className={`section-helper section-helper--${theme}`}>
       <h1>{translate('They need help from you!')}</h1>
@@ -36,17 +37,19 @@ export const HelpDefenders = () => {
               className="fund__img"
             />
             <div className="fund__content">
-              <h2>{fund.name}</h2>
-              <p>{fund.description}</p>
+              <h2>{translate(fund.name)}</h2>
+              <p>{translate(fund.description)}</p>
               <div className="fund__stats">
                 <p>
-                  <strong>Raised:</strong> {raised.toLocaleString()} ₴
+                  <strong>{translate('Raised')}:</strong>{' '}
+                  {raised.toLocaleString()} ₴
                 </p>
                 <p>
-                  <strong>Goal:</strong> {goal.toLocaleString()} ₴
+                  <strong>{translate('Goal')}:</strong> {goal.toLocaleString()}{' '}
+                  ₴
                 </p>
                 <p>
-                  <strong>Progress:</strong> {percent}%
+                  <strong>{translate('Progress')}:</strong> {percent}%
                 </p>
               </div>
 
@@ -63,7 +66,7 @@ export const HelpDefenders = () => {
                 rel="noopener noreferrer"
                 className="donate-button"
               >
-                Donate
+                {translate('Donate')}
               </a>
             </div>
           </div>

@@ -27,11 +27,11 @@
       padding: 32px;
     }
 
-    @media (min-width: 640px) and (max-width: 782px) {
+    @media (min-width: 640px) {
       grid-column: span 6;
     }
 
-    @media (min-width: 782px) and (max-width: 1200px) {
+    @media (min-width: 865px) {
       grid-column: span 4;
     }
 
