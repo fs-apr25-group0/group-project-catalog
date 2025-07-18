@@ -16,7 +16,6 @@ export const HelpDefenders = () => {
     setLoading(true);
     getOrganizationsWithJarInfo()
       .then((data) => {
-        // console.log(data);
         setOrganizations(data);
       })
       .finally(() => {
@@ -26,14 +25,12 @@ export const HelpDefenders = () => {
 
   const skeletons = Array.from({ length: 16 });
 
-  // console.log(organizations.map((org) => org.description));
   return (
     <section className={`section-helper section-helper--${theme}`}>
       <h1>{translate('They need help from you!')}</h1>
       {loading ?
         skeletons.map((_, i) => <FundSkeleton key={`skeleton-${i}`} />)
       : organizations.map((fund) => {
-          console.log(translate(fund.description));
           const raised = Math.floor(fund.balance / 100);
           const goal = Math.floor(fund.goal / 100);
           const percent = Math.min(Math.round((raised / goal) * 100), 100);
