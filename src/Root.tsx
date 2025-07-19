@@ -14,6 +14,7 @@ import { RussiaTrash } from './Pages/RussiaTrash';
 import { MakeYourChoice } from './Pages/MakeYourChoice/MakeYourChoice';
 import { NotFoundPage } from './Pages/NotFoundPage';
 import { HelpDefenders } from './Pages/HelpDefenders';
+import { Contacts } from './Pages/Contacts';
 
 export const Root = () => (
   <Router>
@@ -51,6 +52,10 @@ export const Root = () => (
         <Route
           path="cart"
           element={<CartPage />}
+        ></Route>
+        <Route
+          path="contacts"
+          element={<Contacts />}
         ></Route>
 
         <Route
