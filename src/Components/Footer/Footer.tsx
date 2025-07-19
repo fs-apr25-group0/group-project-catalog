@@ -17,7 +17,7 @@ export const Footer = () => {
         <LogoShop />
         <nav className="footer__nav">
           <a href="https://github.com/">{translate('GITHUB')}</a>
-          <Link to="/tablets">{translate('CONTACTS')}</Link>
+          <Link to="/contacts">{translate('CONTACTS')}</Link>
           <Link to="/accessories">{translate('RIGHTS')}</Link>
         </nav>
         <div className="footer__to-top">
