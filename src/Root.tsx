@@ -57,7 +57,6 @@ export const Root = () => (
           path="contacts"
           element={<Contacts />}
         ></Route>
-
         <Route
           path="help-defenders"
           element={<HelpDefenders />}

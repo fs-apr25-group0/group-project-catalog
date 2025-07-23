@@ -300,6 +300,14 @@ export const dictionaries: Record<Language, Dictionary> = {
       'Ongoing fundraiser for purchasing FPV drones. Our goal is to buy at least 300 drones per day and deliver them to the front quickly!',
     'Збір на позашляховик для скадовчан які служать в окремому стрілецькому підрозділі 60 бригади та виконують завдання на Луганському напрямку. Кожна гривня наблизить нашу перемогу! Дуже просимо долучитися до збору! PayPal по запиту.':
       'Fundraiser for an SUV for soldiers from Skadovsk serving in a separate rifle unit of the 60th Brigade, operating on the Luhansk front. Every hryvnia brings us closer to victory! We kindly ask you to support! PayPal available upon request.',
+    'To me, clean code isn’t just a habit — it’s a culture. I lead teams not by controlling, but by guiding: with patience, precision, and purpose. Every pull request is a chance to raise the bar — and I make sure we never lower it.':
+      'To me, clean code isn’t just a habit — it’s a culture. I lead teams not by controlling, but by guiding: with patience, precision, and purpose. Every pull request is a chance to raise the bar — and I make sure we never lower it.',
+    'Can connect anything you need to localStorage. Advocates for clean code and clear structure. Always thinking about the team and the user.':
+      'Can connect anything you need to localStorage. Advocates for clean code and clear structure. Always thinking about the team and the user.',
+    'Implements any element without unnecessary words or panic. Passionate about frontend and always able to inspire others.':
+      'Implements any element without unnecessary words or panic. Passionate about frontend and always able to inspire others.',
+    'Able to find countless ways to reuse components. Has a strong understanding of how to make app logic simpler and more comfortable for the user.':
+      'Able to find countless ways to reuse components. Has a strong understanding of how to make app logic simpler and more comfortable for the user.',
   },
   UA: {
     'They need help from you!': 'Вони потребують вашої допомоги!',
@@ -597,5 +605,13 @@ export const dictionaries: Record<Language, Dictionary> = {
       'Постійна банка для закупівлі FPV. Наша мета — купувати мінімум 300 дронів на день та швидко передавати на фронт!',
     'Збір на позашляховик для скадовчан які служать в окремому стрілецькому підрозділі 60 бригади та виконують завдання на Луганському напрямку. Кожна гривня наблизить нашу перемогу! Дуже просимо долучитися до збору! PayPal по запиту.':
       'Збір на позашляховик для скадовчан які служать в окремому стрілецькому підрозділі 60 бригади та виконують завдання на Луганському напрямку. Кожна гривня наблизить нашу перемогу! Дуже просимо долучитися до збору! PayPal по запиту.',
+    'To me, clean code isn’t just a habit — it’s a culture. I lead teams not by controlling, but by guiding: with patience, precision, and purpose. Every pull request is a chance to raise the bar — and I make sure we never lower it.':
+      'Для мене чистий код — це не просто звичка, а культура. Я веду команду не контролем, а наставництвом: з терпінням, точністю та усвідомленою метою. Кожен pull request — це можливість підняти планку, і я стежу за тим, щоб ми її ніколи не знижували.',
+    'Can connect anything you need to localStorage. Advocates for clean code and clear structure. Always thinking about the team and the user.':
+      'Може підключити що завгодно до localStorage. Прихильник чистого коду та зрозумілої структури. Завжди думає про команду та користувача.',
+    'Implements any element without unnecessary words or panic. Passionate about frontend and always able to inspire others.':
+      'Реалізовує будь-який елемент без зайвих слів і паніки. Захоплений фронтендом і завжди здатен надихати інших.',
+    'Able to find countless ways to reuse components. Has a strong understanding of how to make app logic simpler and more comfortable for the user.':
+      'Знаходить безліч способів для повторного використання компонентів. Добре розуміє, як зробити логіку застосунку простішою та зручнішою для користувача.',
   },
 };
