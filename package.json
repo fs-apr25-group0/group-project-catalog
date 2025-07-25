@@ -22,7 +22,8 @@
     "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^7.6.3",
     "swiper": "^11.2.10",
-    "zustand": "^5.0.6"
+    "zustand": "^5.0.6",
+    "vite": "^7.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
@@ -40,8 +41,7 @@
     "sass": "^1.89.2",
     "sass-embedded": "^1.89.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.34.1",
-    "vite": "^7.0.0"
+    "typescript-eslint": "^8.34.1"
   },
   "lint-staged": {
     "*": "npm run fix-style"
